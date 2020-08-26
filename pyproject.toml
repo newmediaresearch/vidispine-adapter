@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "vidispine-adapter"
+version = "0.0.1"
+description = "Python Vidispine API Adapter"
+authors = ["NMR <developers@nmr.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/newmediaresearch/vidispine-adapter"
+repository = "https://github.com/newmediaresearch/vidispine-adapter"
+documentation = "https://github.com/newmediaresearch/vidispine-adapter"
+packages = [
+    { include = "vidispine" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+requests = "^2.24.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.1"
+coverage = "^5.2.1"
+flake8 = "^3.8.3"
+pylint = "^2.6.0"
