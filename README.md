@@ -1,5 +1,18 @@
 # Python Vidispine Adapter
 
+
+## Running tests
+
+This package is setup to use the Pytest framework for testing.
+To run tests, simply execute:
+
+    $ pytest tests
+
+To run tests with coverage and flake8 (which is required for all PR's):
+
+    $ make coverage
+
+
 ## Publishing a new version
 
 Install [Poetry](https://python-poetry.org/). This will allow you to easily build and publish the repository.
