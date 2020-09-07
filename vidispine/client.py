@@ -4,28 +4,28 @@ from urllib.parse import urljoin
 import requests
 from requests.exceptions import HTTPError
 
-from vidispine.errors import NotFound, VidispineAPIError
+from vidispine.collections import Collection
+from vidispine.errors import NotFound, APIError
 
-HTTP = 'http'
+PROTOCOL = 'https'
 
 
 class Client:
 
     def __init__(self, url, user, password, port=8080):
         if not url.startswith('http'):
-            url = f'{HTTP}://{url}'
+            url = f'{PROTOCOL}://{url}'
 
         self.base_url = f'{url}:{port}/API/'
-        self.auth = _get_basic_auth(user, password)
+        self.auth = (user, password)
 
     def _generate_headers(self):
         return {
-            'authorization': f'Basic {self.auth}',
             'content-type': 'application/json',
             'accept': 'application/json'
         }
 
-    def _request(self, method, endpoint, payload=None, query_params=None):
+    def _request(self, method, endpoint, payload=None, params=None):
         url = urljoin(self.base_url, endpoint)
 
         headers = self._generate_headers()
@@ -34,7 +34,8 @@ class Client:
             headers.pop('content-type')
 
         response = requests.request(
-            method, url, json=payload, headers=headers, params=query_params,
+            method, url, auth=self.auth, json=payload, headers=headers,
+            params=params,
         )
 
         try:
@@ -45,43 +46,42 @@ class Client:
                     f'Endpoint not found: {method} - {url} - {response.text}'
                 )
             else:
-                raise VidispineAPIError(
+                raise APIError(
                     f'Vidispine Error: {method} - {url} - {response.text}'
                 ) from err
 
-        return response.json()
+        return response
 
-    def get(self, endpoint, query_params=None):
-        return self._request('GET', endpoint, query_params=query_params)
+    def request(self, method, endpoint, **kwargs):
+        """Pass-through request method
 
-    def post(self, endpoint, payload=None, query_params=None):
-        return self._request(
-            'POST', endpoint, payload=payload, query_params=query_params
-        )
+        This is to be used for functionality that has not yet been
+        implemented.
+        """
+        endpoint = endpoint.lstrip('/')
+        return self._request(method, endpoint, **kwargs)
 
-    def put(self, endpoint, payload=None, query_params=None):
-        return self._request(
-            'PUT', endpoint, payload=payload, query_params=query_params
-        )
+    def get(self, endpoint, params=None):
+        return self._request('GET', endpoint, params=params)
 
-    def delete(self, endpoint, query_params=None):
-        return self._request('DELETE', endpoint, query_params=query_params)
+    def post(self, endpoint, payload=None, params=None):
+        return self._request('POST', endpoint, payload=payload, params=params)
+
+    def put(self, endpoint, payload=None, params=None):
+        return self._request('PUT', endpoint, payload=payload, params=params)
+
+    def delete(self, endpoint, params=None):
+        return self._request('DELETE', endpoint, params=params)
 
 
 class Vidispine:
 
     def __init__(self, url, user, password, port=8080):
         self.client = Client(url, user, password, port=8080)
+        self.collection = Collection(self.client)
 
     def version(self):
-        return self.client.get('version')
-
-    def create_collection(self, name):
-        query_params = {'name': name}
-
-        response = self.client.post('collection', query_params=query_params)
-
-        return response['id']
+        return self.client.get('version').json()
 
 
 def _get_basic_auth(user, password):

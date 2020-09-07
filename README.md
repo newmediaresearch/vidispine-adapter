@@ -13,6 +13,20 @@ To run tests with coverage and flake8 (which is required for all PR's):
     $ make coverage
 
 
+These tests use [VCR.py](https://vcrpy.readthedocs.io/en/latest/index.html) for easily mocking Vidispine's output whilst also giving accurate mocks. On the first run they will require an active Vidispine instance to work to determine what the mocked output should be. This output is then stored as yaml files in `tests/cassettes/` and will be played back whenever tests are run again.
+
+By default, the tests will check to see if a cassette file exists and use it for the mocked output. If it does not exist then it will attempt to reach Vidispine to fulfill the request and save it as a new cassette.
+
+You can however run the tests and refresh the cassettes with:
+
+    $ pytest tests --vcr-record=new_episodes
+
+If you would only like to refresh on a specific test then specify the test to run like so:
+
+    $ pytest tests -k test_foobar --vcr-record=new_episodes
+
+See [Record modes](https://vcrpy.readthedocs.io/en/latest/usage.html?highlight=new_episodes#record-modes) for more information and other record options.
+
 ## Publishing a new version
 
 Install [Poetry](https://python-poetry.org/). This will allow you to easily build and publish the repository.

@@ -1,8 +1,8 @@
 
 
-class VidispineAPIError(Exception):
+class APIError(Exception):
     pass
 
 
-class NotFound(VidispineAPIError):
+class NotFound(APIError):
     pass

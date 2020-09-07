@@ -2,7 +2,7 @@ import pytest
 import requests_mock
 
 from vidispine.client import Client
-from vidispine.errors import NotFound, VidispineAPIError
+from vidispine.errors import NotFound, APIError
 
 
 @pytest.fixture
@@ -13,14 +13,13 @@ def test_client():
 @pytest.mark.parametrize('base_url,expected_url', [
     ('http://localhost', 'http://localhost:8080/API/'),
     ('https://localhost', 'https://localhost:8080/API/'),
-    ('localhost', 'http://localhost:8080/API/'),
+    ('localhost', 'https://localhost:8080/API/'),
 ])
 def test_init(base_url, expected_url):
     client = Client(base_url, 'admin', 'admin')
 
     assert client.base_url == expected_url
     assert client._generate_headers() == {
-        'authorization': 'Basic YWRtaW46YWRtaW4=',
         'content-type': 'application/json',
         'accept': 'application/json'
     }
@@ -34,7 +33,7 @@ class TestRequest:
             m.get('http://localhost:8080/API/version', json='foo')
             response = test_client._request('GET', endpoint)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
         assert m.last_request.headers['accept'] == 'application/json'
         assert m.last_request.headers['authorization'] == (
@@ -50,7 +49,7 @@ class TestRequest:
             m.post('http://localhost:8080/API/version', json='foo')
             response = test_client._request('POST', endpoint, payload=payload)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
         assert m.last_request.json() == payload
         assert m.last_request.headers['content-type'] == 'application/json'
@@ -61,15 +60,13 @@ class TestRequest:
 
     def test_request_with_query_params(self, test_client):
         endpoint = 'version'
-        query_params = {'foo': 'bar'}
+        params = {'foo': 'bar'}
 
         with requests_mock.Mocker() as m:
             m.get('http://localhost:8080/API/version', json='foo')
-            response = test_client._request(
-                'GET', endpoint, query_params=query_params
-            )
+            response = test_client._request('GET', endpoint, params=params)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == (
             'http://localhost:8080/API/version?foo=bar'
         )
@@ -102,7 +99,7 @@ class TestRequest:
                 text='BOOM!!',
             )
 
-            with pytest.raises(VidispineAPIError) as err:
+            with pytest.raises(APIError) as err:
                 test_client._request('GET', endpoint)
 
         assert err.value.args[0] == (
@@ -117,7 +114,7 @@ class TestRequest:
             m.get('http://localhost:8080/API/version', json='foo')
             response = test_client.get(endpoint)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_delete(self, test_client):
@@ -127,7 +124,7 @@ class TestRequest:
             m.delete('http://localhost:8080/API/version', json='foo')
             response = test_client.delete(endpoint)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_post(self, test_client):
@@ -138,7 +135,7 @@ class TestRequest:
             m.post('http://localhost:8080/API/version', json='foo')
             response = test_client.post(endpoint, payload)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_put(self, test_client):
@@ -149,5 +146,15 @@ class TestRequest:
             m.put('http://localhost:8080/API/version', json='foo')
             response = test_client.put(endpoint, payload)
 
-        assert response == 'foo'
+        assert response.json() == 'foo'
+        assert m.last_request.url == 'http://localhost:8080/API/version'
+
+    def test_passthrough_request(self, test_client):
+        endpoint = '/version'
+
+        with requests_mock.Mocker() as m:
+            m.get('http://localhost:8080/API/version', json='foo')
+            response = test_client.request('GET', endpoint)
+
+        assert response.json() == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'

@@ -12,22 +12,20 @@ interactions:
       - python-requests/2.24.0
       accept:
       - application/json
-      authorization:
-      - Basic YWRtaW46YWRtaW4=
     method: POST
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-1","id":"VX-1","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-10","id":"VX-10","name":"test_collection_1"}'
     headers:
       Content-Length:
-      - '90'
+      - '92'
       Content-Type:
       - application/json
       Date:
-      - Wed, 02 Sep 2020 11:16:28 GMT
+      - Thu, 03 Sep 2020 12:00:03 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 01-Sep-2020 11:16:28
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 02-Sep-2020 12:00:03
         GMT
     status:
       code: 200
