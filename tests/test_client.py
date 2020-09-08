@@ -1,3 +1,5 @@
+from urllib.parse import urljoin
+
 import pytest
 import requests_mock
 
@@ -16,13 +18,65 @@ def test_client():
     ('localhost', 'https://localhost/API/'),
 ])
 def test_init(base_url, expected_url):
-    client = Client(base_url, 'admin', 'admin')
+    user = 'admin'
+    password = 'admin'
+    client = Client(base_url, user, 'admin')
 
     assert client.base_url == expected_url
+    assert client.auth == (user, password)
     assert client._generate_headers() == {
         'content-type': 'application/json',
         'accept': 'application/json'
     }
+
+
+def test_init_environmental_variables(monkeypatch):
+    url = 'https://example.com:8080'
+    user = 'admin'
+    password = 'admin'
+    monkeypatch.setenv('VIDISPINE_URL', url)
+    monkeypatch.setenv('VIDISPINE_USER', user)
+    monkeypatch.setenv('VIDISPINE_PASSWORD', password)
+
+    client = Client()
+
+    expected_url = urljoin(url, '/API/')
+    assert client.base_url == expected_url
+    assert client.auth == (user, password)
+    assert client._generate_headers() == {
+        'content-type': 'application/json',
+        'accept': 'application/json'
+    }
+
+
+def test_init_missing_url(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_URL', raising=False)
+    with pytest.raises(ValueError):
+        Client()
+    try:
+        Client()
+    except ValueError as error:
+        assert str(error) == 'url not set'
+
+
+def test_init_missing_user(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_USER', raising=False)
+    with pytest.raises(ValueError):
+        Client(url='https://example.com')
+    try:
+        Client(url='https://example.com')
+    except ValueError as error:
+        assert str(error) == 'user not set'
+
+
+def test_init_missing_password(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_PASSWORD', raising=False)
+    with pytest.raises(ValueError):
+        Client(url='https://example.com', user='admin')
+    try:
+        Client(url='https://example.com', user='admin')
+    except ValueError as error:
+        assert str(error) == 'password not set'
 
 
 class TestRequest:

@@ -1,3 +1,4 @@
+import os
 from urllib.parse import urljoin
 
 import requests
@@ -11,7 +12,25 @@ PROTOCOL = 'https'
 
 class Client:
 
-    def __init__(self, url, user, password):
+    def __init__(self, url=None, user=None, password=None):
+        if not url:
+            try:
+                url = os.environ['VIDISPINE_URL']
+            except KeyError:
+                raise ValueError('url not set')
+
+        if not user:
+            try:
+                user = os.environ['VIDISPINE_USER']
+            except KeyError:
+                raise ValueError('user not set')
+
+        if not password:
+            try:
+                password = os.environ['VIDISPINE_PASSWORD']
+            except KeyError:
+                raise ValueError('password not set')
+
         if not url.startswith('http'):
             url = f'{PROTOCOL}://{url}'
 
