@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/version
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAJWVb2/aMBDGv0rlV61EosRklOZdlDBggi4aVVZpqpBxrp21xEG20wkhvnsvwDr+
+        ZHR+ESlOnp/v/NzZXhNelctKgjQk/LEmkpVAQhKlY9Ihr6C0qCSOA9e/de+clx4EXb7ocggc/476
+        n8im886MxAKUZAZOSQSzmUM9P/D69PYQ+YIyWB3pqUu7Lj0SMf5L479DFc7pYvCnDtErbaAcy+eK
+        hGtSMs7yXIHWuBri0TCgIeOhn4eeF3pd8rTpkEJwkBrOEdBnUzR6bSrFXuC+LnF9jYIVRfUb8iYN
+        TIrXSm3dIx5mTWoNqk1Kz6UCE2+d1fPOxUYxqXmVt8/ekgjIPK4x9xJUjCVmcrX3MxO50Esh4SqB
+        ZVGtSoSuJjtTSBsXV9IwbgYlE8XHPDoHRfEO3/9X0BPILuK+oDPDTI1FI6+sEHljCLrF/3xd74bb
+        JgfZvJPwmRUaOgQ/Hw73NsWNfJ6kj9te/AdiVH1KZGlv/nmSHVE72QVomg6GDrVjotjpXvMby/S+
+        T6Pr5Y1dpEnsRFFsx2SYnTXhWxKVWgh9yYC2kqaq+gbatj4UH8sFRbiiscSNa4c1FeKWFUqy5tCw
+        y24Sxdio1nVN+5YdNxrYd8/DT8BD9/rrcGhpxHh6cb+29cPIpb1g7nsLYexiPSZxNJ2PEjtqF65/
+        Gu1jH7f73XbrJpYHURpP59Fghlfr35vyYbWE7Q222bwBz3coDy8IAAA=
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '554'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 08 Sep 2020 09:21:37 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 07-Sep-2020 09:21:37
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
