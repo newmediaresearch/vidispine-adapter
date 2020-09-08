@@ -4,7 +4,7 @@ import pytest
 import requests_mock
 
 from vidispine.client import Client
-from vidispine.errors import APIError, NotFound
+from vidispine.errors import APIError, ConfigError, NotFound
 
 
 @pytest.fixture
@@ -51,32 +51,23 @@ def test_init_environmental_variables(monkeypatch):
 
 def test_init_missing_url(monkeypatch):
     monkeypatch.delenv('VIDISPINE_URL', raising=False)
-    with pytest.raises(ValueError):
+    with pytest.raises(ConfigError) as error:
         Client()
-    try:
-        Client()
-    except ValueError as error:
-        assert str(error) == 'url not set'
+    error.match('Missing url or VIDISPINE_URL not set')
 
 
 def test_init_missing_user(monkeypatch):
     monkeypatch.delenv('VIDISPINE_USER', raising=False)
-    with pytest.raises(ValueError):
+    with pytest.raises(ConfigError) as error:
         Client(url='https://example.com')
-    try:
-        Client(url='https://example.com')
-    except ValueError as error:
-        assert str(error) == 'user not set'
+    error.match('Missing user or VIDISPINE_USER not set')
 
 
 def test_init_missing_password(monkeypatch):
     monkeypatch.delenv('VIDISPINE_PASSWORD', raising=False)
-    with pytest.raises(ValueError):
+    with pytest.raises(ConfigError) as error:
         Client(url='https://example.com', user='admin')
-    try:
-        Client(url='https://example.com', user='admin')
-    except ValueError as error:
-        assert str(error) == 'password not set'
+    error.match('Missing password or VIDISPINE_PASSWORD not set')
 
 
 class TestRequest:

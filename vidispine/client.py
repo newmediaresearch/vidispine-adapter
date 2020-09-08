@@ -5,7 +5,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
-from vidispine.errors import APIError, NotFound
+from vidispine.errors import APIError, ConfigError, NotFound
 
 PROTOCOL = 'https'
 
@@ -13,29 +13,29 @@ PROTOCOL = 'https'
 class Client:
 
     def __init__(self, url=None, user=None, password=None):
-        if not url:
-            try:
-                url = os.environ['VIDISPINE_URL']
-            except KeyError:
-                raise ValueError('url not set')
-
-        if not user:
-            try:
-                user = os.environ['VIDISPINE_USER']
-            except KeyError:
-                raise ValueError('user not set')
-
-        if not password:
-            try:
-                password = os.environ['VIDISPINE_PASSWORD']
-            except KeyError:
-                raise ValueError('password not set')
+        url = self._check_config(url, 'VIDISPINE_URL', 'url')
+        user = self._check_config(user, 'VIDISPINE_USER', 'user')
+        pwd = self._check_config(password, 'VIDISPINE_PASSWORD', 'password')
 
         if not url.startswith('http'):
             url = f'{PROTOCOL}://{url}'
 
         self.base_url = urljoin(url, '/API/')
-        self.auth = (user, password)
+        self.auth = (user, pwd)
+
+    def _check_config(self, attribute, env_var, name):
+        if attribute:
+            return attribute
+
+        try:
+            return os.environ[env_var]
+        except KeyError:
+            error = (
+                f'{name} not provided or {env_var} '
+                'set as an environmental variable'
+            )
+            error = f'Missing {name} or {env_var} not set'
+            raise ConfigError(error)
 
     def _generate_headers(self):
         return {
