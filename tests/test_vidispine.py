@@ -1,8 +1,8 @@
-from vidispine.client import Vidispine, Client
+from vidispine.client import Client, Vidispine
 
 
 def test_vidispine_init():
-    vidispine = Vidispine('http://localhost', 'admin', 'admin')
+    vidispine = Vidispine('http://localhost:8080', 'admin', 'admin')
 
     assert isinstance(vidispine.client, Client)
 

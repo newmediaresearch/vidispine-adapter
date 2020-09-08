@@ -1,28 +1,73 @@
+from urllib.parse import urljoin
+
 import pytest
 import requests_mock
 
 from vidispine.client import Client
-from vidispine.errors import NotFound, APIError
+from vidispine.errors import APIError, ConfigError, NotFound
 
 
 @pytest.fixture
 def test_client():
-    return Client('http://localhost', 'admin', 'admin')
+    return Client('http://localhost:8080', 'admin', 'admin')
 
 
 @pytest.mark.parametrize('base_url,expected_url', [
-    ('http://localhost', 'http://localhost:8080/API/'),
-    ('https://localhost', 'https://localhost:8080/API/'),
-    ('localhost', 'https://localhost:8080/API/'),
+    ('http://localhost:8080', 'http://localhost:8080/API/'),
+    ('https://localhost:8080', 'https://localhost:8080/API/'),
+    ('localhost', 'https://localhost/API/'),
 ])
 def test_init(base_url, expected_url):
-    client = Client(base_url, 'admin', 'admin')
+    user = 'admin'
+    password = 'admin'
+    client = Client(base_url, user, 'admin')
 
     assert client.base_url == expected_url
+    assert client.auth == (user, password)
     assert client._generate_headers() == {
         'content-type': 'application/json',
         'accept': 'application/json'
     }
+
+
+def test_init_environmental_variables(monkeypatch):
+    url = 'https://example.com:8080'
+    user = 'admin'
+    password = 'admin'
+    monkeypatch.setenv('VIDISPINE_URL', url)
+    monkeypatch.setenv('VIDISPINE_USER', user)
+    monkeypatch.setenv('VIDISPINE_PASSWORD', password)
+
+    client = Client()
+
+    expected_url = urljoin(url, '/API/')
+    assert client.base_url == expected_url
+    assert client.auth == (user, password)
+    assert client._generate_headers() == {
+        'content-type': 'application/json',
+        'accept': 'application/json'
+    }
+
+
+def test_init_missing_url(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_URL', raising=False)
+    with pytest.raises(ConfigError) as error:
+        Client()
+    error.match('Missing url or VIDISPINE_URL not set')
+
+
+def test_init_missing_user(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_USER', raising=False)
+    with pytest.raises(ConfigError) as error:
+        Client(url='https://example.com')
+    error.match('Missing user or VIDISPINE_USER not set')
+
+
+def test_init_missing_password(monkeypatch):
+    monkeypatch.delenv('VIDISPINE_PASSWORD', raising=False)
+    with pytest.raises(ConfigError) as error:
+        Client(url='https://example.com', user='admin')
+    error.match('Missing password or VIDISPINE_PASSWORD not set')
 
 
 class TestRequest:
