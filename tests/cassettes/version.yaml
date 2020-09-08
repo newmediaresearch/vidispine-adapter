@@ -33,9 +33,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 03 Sep 2020 11:54:05 GMT
+      - Tue, 08 Sep 2020 09:21:37 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 02-Sep-2020 11:54:05
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 07-Sep-2020 09:21:37
         GMT
       Vary:
       - Accept-Encoding
