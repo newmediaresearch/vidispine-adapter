@@ -94,7 +94,7 @@ class Client:
 
 class Vidispine:
 
-    def __init__(self, url, user, password):
+    def __init__(self, url=None, user=None, password=None):
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
 
