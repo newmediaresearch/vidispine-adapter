@@ -1,4 +1,3 @@
-from base64 import b64encode
 from urllib.parse import urljoin
 
 import requests
@@ -82,8 +81,3 @@ class Vidispine:
 
     def version(self):
         return self.client.get('version').json()
-
-
-def _get_basic_auth(user, password):
-    auth = b64encode(f'{user}:{password}'.encode())
-    return auth.decode()
