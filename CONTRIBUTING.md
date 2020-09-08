@@ -1,6 +1,6 @@
 # How to contribute
 
-Thanks for wanting to contribute to the Vidispine python adapter. This adapter is intended to be a 'thin' wrapper around the Vidispine API and includes no business logic.
+Thanks for wanting to contribute to the Python Vidispine adapter. This adapter is intended to be a 'thin' wrapper around the Vidispine API and includes no business logic.
 
 Important Paddle resources:
 
@@ -14,6 +14,7 @@ Python resources:
 
   * [Poetry](https://python-poetry.org/) for python dependency management and packaging
   * [pytest](https://docs.pytest.org/en/latest/) for running test
+  * [VCR.py](https://vcrpy.readthedocs.io/) for easy to refresh mocks
   * [isort](https://timothycrosley.github.io/isort/) to keep all our imports looking nice and easy to read
   * [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 
@@ -40,7 +41,7 @@ This project uses the [Poetry](https://python-poetry.org/) for packaging and dep
 
 Once you have the above setup and have cloned this repository you will then need:
 * A running Vidispine to do requests against
-* The username and password for a user with the `_administrator` role.
+* The username and password for a Vidispine user with the `_administrator` role.
 
 
 ```bash
@@ -64,10 +65,8 @@ To run tests, simply execute:
 pytest tests/
 ```
 
-A coverage report will be written to `htmlcov/`. To open it and view the coverage per line you can do
-```bash
-open htmlcov/index.html
-```
+A coverage report will displayed in the shell on each test run as well as written to `htmlcov/` and can be viewed with `open htmlcov/index.html`
+
 
 
 ### Mocking tests
@@ -79,7 +78,7 @@ By default, the tests will check to see if a cassette file exists and use it for
 
 #### Creating mocks
 
-To ensure cassettes in sane default locations a cassette fixture has been created [conftest.py](https://github.com/newmediaresearch/vidispine-adapter/blob/master/tests/conftest.py). Whenever a test is written which calls Vidispine (which you want to mock via VCR.py, you can simply include the `cassette` as a arg in your function / method like a normal pytest fixture.
+To ensure cassettes in sane default locations a cassette fixture has been created [conftest.py](https://github.com/newmediaresearch/vidispine-adapter/blob/master/tests/conftest.py). Whenever a test is written which calls Vidispine (which you want to mock via VCR.py), you can simply include the `cassette` as a arg in your function / method like a normal pytest fixture.
 
 It is then possible to use `cassette.requests` to get back data on the request to Vidispine. For example:
 
