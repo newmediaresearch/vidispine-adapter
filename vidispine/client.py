@@ -5,7 +5,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
-from vidispine.errors import NotFound, APIError
+from vidispine.errors import APIError, NotFound
 
 PROTOCOL = 'https'
 

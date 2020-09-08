@@ -4,7 +4,7 @@ import pytest
 import requests_mock
 
 from vidispine.client import Client
-from vidispine.errors import NotFound, APIError
+from vidispine.errors import APIError, NotFound
 
 
 @pytest.fixture

@@ -1,4 +1,4 @@
-from vidispine.client import Vidispine, Client
+from vidispine.client import Client, Vidispine
 
 
 def test_vidispine_init():
