@@ -15,6 +15,7 @@ Python resources:
   * [Poetry](https://python-poetry.org/) for python dependency management and packaging
   * [pytest](https://docs.pytest.org/en/latest/) for running test
   * [VCR.py](https://vcrpy.readthedocs.io/) for easy to refresh mocks
+  * [Mypy](https://mypy.readthedocs.io/en/stable/) for static type checking
   * [isort](https://timothycrosley.github.io/isort/) to keep all our imports looking nice and easy to read
   * [PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 
@@ -27,7 +28,7 @@ Please see the sections below for more details
 1. Create your feature branch (`git checkout -b my-new-feature`)
 1. Make your code changes and write your tests
 1. Ensure all the tests pass (`pytest tests/`)
-1. check all coding conventions are adhered to (`tox`)
+1. Check all coding conventions are adhered to (`tox`)
 1. Commit your changes (`git commit -am 'Add some feature'`)
 1. Push to the branch (`git push origin my-new-feature`)
 1. Create new pull request
@@ -112,7 +113,7 @@ See [Record modes](https://vcrpy.readthedocs.io/en/latest/usage.html?highlight=n
 
 ## tox
 
-`tox` is set up to help run `pytest` against each of the supported versions (python 3.6+). It will also ensure the above code conventions are adhered to by running `flake8` and `isort` against your code.
+`tox` is set up to help run `pytest` against each of the supported versions (python 3.6+). It will also ensure the above code conventions are adhered to by running, `mypy`, `flake8` and `isort` against your code.
 
 To use tox to test against different Python versions you first need to follow the test setup above and ensure pyenv is installed. Once that is complete install each of the python 3 minor versions via pyenv:
 ```bash
@@ -131,6 +132,7 @@ $ tox
 ## Coding conventions
 
 * We use [PEP 8](https://www.python.org/dev/peps/pep-0008/) as a guide
+* All functions / methods in the vidispine module should have type hints for arg / kwargs and responses (checked by mypy)
 * Make sure everything is flake8 compliment
 * Use `isort` to sort imports and make them easy to read
 * String formatting should generally use `fstrings`

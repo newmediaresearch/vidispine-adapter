@@ -1,7 +1,9 @@
 import os
+from typing import Dict
 from urllib.parse import urljoin
 
 import requests
+from requests.models import Response
 from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
@@ -12,10 +14,15 @@ PROTOCOL = 'https'
 
 class Client:
 
-    def __init__(self, url=None, user=None, password=None):
-        url = self._check_config(url, 'VIDISPINE_URL', 'url')
-        user = self._check_config(user, 'VIDISPINE_USER', 'user')
-        pwd = self._check_config(password, 'VIDISPINE_PASSWORD', 'password')
+    def __init__(
+        self,
+        url: str = None,
+        user: str = None,
+        password: str = None,
+    ) -> None:
+        url = self._check_config('VIDISPINE_URL', 'url', url)
+        user = self._check_config('VIDISPINE_USER', 'user', user)
+        pwd = self._check_config('VIDISPINE_PASSWORD', 'password', password)
 
         if not url.startswith('http'):
             url = f'{PROTOCOL}://{url}'
@@ -23,7 +30,12 @@ class Client:
         self.base_url = urljoin(url, '/API/')
         self.auth = (user, pwd)
 
-    def _check_config(self, attribute, env_var, name):
+    def _check_config(
+        self,
+        env_var: str,
+        name: str,
+        attribute: str = None,
+    ) -> str:
         if attribute:
             return attribute
 
@@ -37,13 +49,19 @@ class Client:
             error = f'Missing {name} or {env_var} not set'
             raise ConfigError(error)
 
-    def _generate_headers(self):
+    def _generate_headers(self) -> Dict[str, str]:
         return {
             'content-type': 'application/json',
             'accept': 'application/json'
         }
 
-    def _request(self, method, endpoint, payload=None, params=None):
+    def _request(
+        self,
+        method: str,
+        endpoint: str,
+        payload: dict = None,
+        params: dict = None,
+    ) -> Response:
         url = urljoin(self.base_url, endpoint)
 
         headers = self._generate_headers()
@@ -70,7 +88,7 @@ class Client:
 
         return response
 
-    def request(self, method, endpoint, **kwargs):
+    def request(self, method: str, endpoint: str, **kwargs: dict) -> Response:
         """Pass-through request method
 
         This is to be used for functionality that has not yet been
@@ -79,24 +97,47 @@ class Client:
         endpoint = endpoint.lstrip('/')
         return self._request(method, endpoint, **kwargs)
 
-    def get(self, endpoint, params=None):
+    def get(
+        self,
+        endpoint: str,
+        params: dict = None,
+    ) -> Response:
         return self._request('GET', endpoint, params=params)
 
-    def post(self, endpoint, payload=None, params=None):
+    def post(
+        self,
+        endpoint: str,
+        payload: dict = None,
+        params: dict = None,
+    ) -> Response:
         return self._request('POST', endpoint, payload=payload, params=params)
 
-    def put(self, endpoint, payload=None, params=None):
+    def put(
+        self,
+        endpoint: str,
+        payload: dict = None,
+        params: dict = None,
+    ) -> Response:
         return self._request('PUT', endpoint, payload=payload, params=params)
 
-    def delete(self, endpoint, params=None):
+    def delete(
+        self,
+        endpoint: str,
+        params: dict = None,
+    ) -> Response:
         return self._request('DELETE', endpoint, params=params)
 
 
 class Vidispine:
 
-    def __init__(self, url=None, user=None, password=None):
+    def __init__(
+        self,
+        url: str = None,
+        user: str = None,
+        password: str = None,
+    ) -> None:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
 
-    def version(self):
+    def version(self) -> dict:
         return self.client.get('version').json()
