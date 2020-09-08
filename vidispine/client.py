@@ -12,11 +12,11 @@ PROTOCOL = 'https'
 
 class Client:
 
-    def __init__(self, url, user, password, port=8080):
+    def __init__(self, url, user, password):
         if not url.startswith('http'):
             url = f'{PROTOCOL}://{url}'
 
-        self.base_url = f'{url}:{port}/API/'
+        self.base_url = urljoin(url, '/API/')
         self.auth = (user, password)
 
     def _generate_headers(self):
@@ -76,8 +76,8 @@ class Client:
 
 class Vidispine:
 
-    def __init__(self, url, user, password, port=8080):
-        self.client = Client(url, user, password, port=8080)
+    def __init__(self, url, user, password):
+        self.client = Client(url, user, password)
         self.collection = Collection(self.client)
 
     def version(self):
