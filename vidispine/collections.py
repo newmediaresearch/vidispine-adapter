@@ -11,11 +11,11 @@ class Collection:
 
         return response['id']
 
-    def get(self, _id: str, metadata: bool = True) -> dict:
+    def get(self, vidispine_id: str, metadata: bool = True) -> dict:
         if metadata:
-            endpoint = f'collection/{_id}/metadata'
+            endpoint = f'collection/{vidispine_id}/metadata'
         else:
-            endpoint = f'collection/{_id}'
+            endpoint = f'collection/{vidispine_id}'
 
         response = self.client.get(endpoint).json()
 

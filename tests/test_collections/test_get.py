@@ -4,13 +4,13 @@ from vidispine.errors import NotFound
 
 @pytest.fixture
 def create_collection(vidispine, cassette):
-    return vidispine.collection.create('test_collection_2')
+    return vidispine.collection.create('test_collection_1')
 
 
 def test_get_with_no_metadata(vidispine, cassette, create_collection):
     result = vidispine.collection.get(create_collection, metadata=False)
 
-    assert result['name'] == 'test_collection_2'
+    assert result['name'] == 'test_collection_1'
     assert cassette.all_played
 
 
@@ -20,7 +20,7 @@ def test_get_with_metadata(
     result = vidispine.collection.get(create_collection)
 
     fields = result['timespan'][0]['field']
-    check_field_value_exists(fields, 'title', 'test_collection_2')
+    check_field_value_exists(fields, 'title', 'test_collection_1')
     assert cassette.all_played
 
 
