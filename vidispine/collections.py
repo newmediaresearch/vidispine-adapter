@@ -1,8 +1,7 @@
-from .client import Client
 
 class Collection:
 
-    def __init__(self, client: Client) -> None:
+    def __init__(self, client) -> None:
         self.client = client
 
     def create(self, name: str) -> str:
