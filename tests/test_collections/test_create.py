@@ -9,5 +9,5 @@ def test_create(vidispine, cassette):
     url = urlparse(last_request.url)
 
     assert re.match(r'^VX-\d+$', result)
-    assert cassette.play_count == 1
+    assert cassette.all_played
     assert parse_qs(url.query) == {'name': ['test_collection_1']}
