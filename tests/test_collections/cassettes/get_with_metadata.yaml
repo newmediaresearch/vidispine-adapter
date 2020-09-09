@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_2
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-14","id":"VX-14","name":"test_collection_2"}'
+    headers:
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 09 Sep 2020 11:43:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 08-Sep-2020 11:43:59
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/collection/VX-14/metadata
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAALWT22rcMBCG38W3yRSdbEn7AIHc9KqU0hDMWBolAp+wtYE25N07uyTZLt1QErLG
+        mLH1a/7xN6PHaqGHvOZprDbV9x8gTXVZlTzQOiN/unmsUqY+7qMRB2JVWAgLRdY9YL+l/dJzVCmh
+        BAjP9zcpN0Zvav9FN/Yni7fbzGkqRyoJpyMohRaMbzSgEwaE66IOVjqt00690sLq9ddaaHgpqeAw
+        v2Xi5IXgi6XhHsc7ev2dp9tXb9sEWQeL4L1WYBrqoDNWgqoFpiBMLTv5ud6XB2pT31MoDPr6NLoX
+        +M+1hhictimCILYzwkvoVNIQtSbVeEqhpnNxapyVXrgAWjAig64GTEJA3SWMLtWOUJ+LU8mlp5OA
+        CidvDxhbdYAltY3OmQaiIQSTOg2u8wFQhkBNtLV34VywSAVvHNVsG/nRYASM1oEU1iDKVHvxyQN9
+        gNW2AxWMWLDtkekMU8x8Xv9/NtXfLnLDNk+3R3n35Z7KgnHI47H6Pdq2nXGh8aiRa/59uuP/VBXu
+        cx8/tjUz9vUdehwD92daPuaWpj7S0g44z290I2G/0m4bT9LdMm15Dm445JFYCi/D9dcr3kfjbsQu
+        di8s/QPX/u2qrQUAAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '469'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 09 Sep 2020 11:43:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 08-Sep-2020 11:43:59
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
