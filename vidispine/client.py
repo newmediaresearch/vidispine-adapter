@@ -144,7 +144,7 @@ class Vidispine:
     def version(self) -> dict:
         return self.client.get('version').json()
 
-    def get_item(self, item_id: str):
+    def get_item(self, item_id: str) -> dict:
         base_url = self.client.base_url
         params = {
             'content': 'metadata,uri'

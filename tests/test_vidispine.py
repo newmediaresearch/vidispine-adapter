@@ -14,7 +14,6 @@ def test_version(cassette, vidispine):
     assert cassette.play_count == 1
 
 def test_get_item(cassette, vidispine):
-    vidispine = Vidispine('http://192.168.9.60:8080', 'admin', 'admin')
     item = vidispine.get_item(item_id='VX-12')
 
     assert item['id'] == 'VX-12'
