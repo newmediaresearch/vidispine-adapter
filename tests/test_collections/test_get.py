@@ -1,4 +1,5 @@
 import pytest
+
 from vidispine.errors import NotFound
 
 
