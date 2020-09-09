@@ -17,6 +17,4 @@ class Collection:
         else:
             endpoint = f'collection/{vidispine_id}'
 
-        response = self.client.get(endpoint).json()
-
-        return response
+        return self.client.get(endpoint).json()
