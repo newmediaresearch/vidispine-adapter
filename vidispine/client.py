@@ -20,7 +20,9 @@ class Client:
         user: str = None,
         password: str = None,
     ) -> None:
+
         url = self._check_config('VIDISPINE_URL', 'url', url)
+
         user = self._check_config('VIDISPINE_USER', 'user', user)
         pwd = self._check_config('VIDISPINE_PASSWORD', 'password', password)
 
@@ -141,3 +143,13 @@ class Vidispine:
 
     def version(self) -> dict:
         return self.client.get('version').json()
+
+    def get_item(self, item_id: str):
+        base_url = self.client.base_url
+        params = {
+            'content': 'metadata,uri'
+        }
+
+        endpoint = f'{self.client.base_url}item/{item_id}'
+
+        return self.client.get(endpoint, params=params).json()
