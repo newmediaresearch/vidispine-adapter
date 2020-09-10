@@ -142,7 +142,7 @@ class Vidispine:
     def version(self) -> dict:
         return self.client.get('version').json()
 
-    def list_collections(self, metadata=True):
+    def list_collections(self, metadata: bool = True) -> dict:
         if metadata:
             params = {
                 'content': 'metadata'
