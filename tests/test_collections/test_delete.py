@@ -6,7 +6,7 @@ from vidispine.errors import NotFound
 def test_delete(vidispine, cassette, create_collection):
     response = vidispine.collection.delete(create_collection)
 
-    assert response.status_code == 200
+    assert response is None
     assert cassette.all_played
 
 
