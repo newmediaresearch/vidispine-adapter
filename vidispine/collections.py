@@ -18,3 +18,8 @@ class Collection:
             endpoint = f'collection/{vidispine_id}'
 
         return self.client.get(endpoint).json()
+
+    def delete(self, vidispine_id: str):
+        endpoint = f'collection/{vidispine_id}'
+
+        return self.client.delete(endpoint)
