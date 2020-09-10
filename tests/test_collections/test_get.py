@@ -2,6 +2,7 @@ import pytest
 
 from vidispine.errors import NotFound
 
+
 def test_get_with_no_metadata(vidispine, cassette, create_collection):
     result = vidispine.collection.get(create_collection, metadata=False)
 
