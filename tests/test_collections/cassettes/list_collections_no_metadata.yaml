@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-26","id":"VX-26","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '92'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Sep 2020 15:30:48 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 09-Sep-2020 15:30:48
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/collection
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAK3VwUvDMBQG8H9F3rmSvm5ubW4iHrx5EkFkhBrXQrYM+gbC6P9upki/U8Dwbn0l
+        +eWQ7yMXGkaZyHJXUR9D8L2M8Uj27UIh9mRpEDlZY9LgwhAnsW3d1ub++cksy83L621zRxWNH2nH
+        33B0B59G8ZPslrU7prn6N75GfK2MrxBfKeMN4o0yzoizLs4t4D+DJr5FfKuMbxDfKOOYc1bOOWPO
+        OZPzpgTHnHMm50U45pwzOS/CMeecyXkRXiNe6+Id2J0ujfXMtLOExnJmullCYzUzzSy6SLzHhX78
+        codT8DcPy+s2v1f06Xov6Z1Ln9N5v0/n/757aXZniX28bhJ//TN/AyJFiXQlBwAA
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '276'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 10 Sep 2020 15:30:48 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 09-Sep-2020 15:30:48
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
