@@ -4,9 +4,8 @@ from vidispine.errors import NotFound
 
 
 def test_delete(vidispine, cassette, create_collection):
-    response = vidispine.collection.delete(create_collection)
+    vidispine.collection.delete(create_collection)
 
-    assert response is None
     assert cassette.all_played
 
 
