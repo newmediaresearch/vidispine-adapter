@@ -12,6 +12,8 @@ def test_version(cassette, vidispine):
 
     assert version_data['component'][0]['name'] == 'API'
     assert cassette.play_count == 1
+    assert cassette.all_played
+
 
 def test_get_item(cassette, vidispine):
     item = vidispine.get_item(item_id='VX-12')

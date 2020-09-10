@@ -3,8 +3,8 @@ from typing import Dict
 from urllib.parse import urljoin
 
 import requests
-from requests.models import Response
 from requests.exceptions import HTTPError
+from requests.models import Response
 
 from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound

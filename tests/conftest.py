@@ -23,3 +23,16 @@ def cassette(request):
     )
     with my_vcr.use_cassette(path=cassette_path) as cass:
         yield cass
+
+
+@pytest.fixture
+def check_field_value_exists():
+    def _check_field_value_exists(fields, field_name, value):
+        for field in fields:
+            if field['name'] == field_name:
+                assert field['value'][0]['value'] == value
+                break
+        else:
+            raise ValueError(f'Value not found: {value}.')
+
+    return _check_field_value_exists
