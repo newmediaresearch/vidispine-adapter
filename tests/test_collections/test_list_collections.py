@@ -1,22 +1,76 @@
+import pytest
+
+import time
+
+
+@pytest.fixture
+def delete_all_collections(vidispine):
+    def _delete_all_collections():
+        result = vidispine.list_collections()
+        collections = result['collection']
+
+        for collection in collections:
+            vidispine.collection.delete(collection['id'])
+
+    return _delete_all_collections
+
+
+def test_list_collections_not_found(
+    vidispine, cassette, delete_all_collections
+):
+    delete_all_collections()
+    result = vidispine.list_collections()
+
+    assert result['hits'] == 0
+    assert cassette.all_played
+
 
 def test_list_collections_no_metadata(vidispine, cassette):
-    vidispine.collection.create('test_collection_1')
+    test_collections = [
+        'test_collection_1',
+        'test_collection_2',
+        'test_collection_3'
+    ]
 
-    result = vidispine.list_collections(metadata=False)
+    for collection in test_collections:
+        vidispine.collection.create(collection)
+
+    # Give Vidispine enough time to create the collections.
+    time.sleep(2)
+
+    result = vidispine.list_collections()
     collections = result['collection']
 
-    assert collections[0]['name'] == 'test_collection_1'
+    test_collections.reverse()
+
+    for index, collection in enumerate(test_collections):
+        assert collections[index]['name'] == collection
+
     assert cassette.all_played
 
 
 def test_list_collections_with_metadata(
     vidispine, cassette, check_field_value_exists
 ):
-    vidispine.collection.create('test_collection_1')
+    test_collections = [
+        'test_collection_1',
+        'test_collection_2',
+        'test_collection_3'
+    ]
 
-    result = vidispine.list_collections()
+    for collection in test_collections:
+        vidispine.collection.create(collection)
+
+    # Give Vidispine enough time to create the collections.
+    time.sleep(2)
+
+    result = vidispine.list_collections(['metadata'])
     collections = result['collection']
-    fields = collections[0]['metadata']['timespan'][0]['field']
 
-    check_field_value_exists(fields, 'title', 'test_collection_1')
+    test_collections.reverse()
+
+    for index, collection in enumerate(test_collections):
+        fields = collections[index]['metadata']['timespan'][0]['field']
+        check_field_value_exists(fields, 'title', collection)
+
     assert cassette.all_played
