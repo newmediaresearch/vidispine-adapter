@@ -23,3 +23,12 @@ class Collection:
         endpoint = f'collection/{vidispine_id}'
 
         self.client.delete(endpoint)
+
+    def delete_multiple(self, vidispine_ids: list) -> None:
+        params = {
+            'id': ','.join(vidispine_ids)
+        }
+
+        endpoint = 'collection/'
+
+        self.client.delete(endpoint, params=params)
