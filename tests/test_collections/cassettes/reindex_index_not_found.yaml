@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/reindex/foo
+  response:
+    body:
+      string: '{"index":"foo","priority":500,"status":"IN_QUEUE","start":"2020-09-14T14:18:29.002+0000"}'
+    headers:
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 14 Sep 2020 14:18:28 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 13-Sep-2020 14:18:28
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1
