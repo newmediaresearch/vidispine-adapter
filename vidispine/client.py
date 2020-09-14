@@ -142,7 +142,7 @@ class Vidispine:
     def version(self) -> dict:
         return self.client.get('version').json()
 
-    def create_placeholder(self, metadata: dict, params=None) -> dict:
+    def create_placeholder(self, metadata: dict, params: dict = None) -> dict:
         if params is None:
             params = {}
 
