@@ -29,6 +29,6 @@ class Collection:
             'id': ','.join(vidispine_ids)
         }
 
-        endpoint = 'collection/'
+        endpoint = 'collection'
 
         self.client.delete(endpoint, params=params)
