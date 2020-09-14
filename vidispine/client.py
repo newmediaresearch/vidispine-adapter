@@ -141,3 +141,15 @@ class Vidispine:
 
     def version(self) -> dict:
         return self.client.get('version').json()
+
+    def create_placeholder(self, metadata: dict, params=None) -> dict:
+        if params is None:
+            params = {}
+
+        params.setdefault('container', 1)
+
+        endpoint = 'import/placeholder'
+
+        return self.client.post(
+            endpoint, payload=metadata, params=params
+        ).json()
