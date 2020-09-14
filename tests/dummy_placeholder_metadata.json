@@ -1,0 +1,12 @@
+{
+    "timespan": [{
+        "field": [{
+            "name": "title",
+            "value": [{
+                "value": "My placeholder import!"
+            }]
+        }],
+        "start": "-INF",
+        "end": "+INF"
+    }]
+}
