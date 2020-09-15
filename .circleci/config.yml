@@ -14,7 +14,8 @@ jobs:
         type: string
       command:
         type: string
-        default: poetry run pytest tests/ --vcr-record=none
+        default: |
+          poetry run pytest tests/ --cov-fail-under=100 --cov=vidispine --vcr-record=none
       command-name:
         type: string
         default: Run tests
