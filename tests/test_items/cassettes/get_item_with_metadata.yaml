@@ -45,7 +45,7 @@ interactions:
       accept:
       - application/json
     method: GET
-    uri: http://192.168.9.60:8080/API/item/VX-47?content=metadata
+    uri: http://localhost:8080/API/item/VX-47?content=metadata
   response:
     body:
       string: !!binary |
