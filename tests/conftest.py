@@ -36,3 +36,8 @@ def check_field_value_exists():
             raise ValueError(f'Value not found: {value}.')
 
     return _check_field_value_exists
+
+
+@pytest.fixture
+def create_collection(vidispine, cassette):
+    return vidispine.collection.create('test_collection_1')

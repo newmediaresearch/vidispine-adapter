@@ -3,11 +3,6 @@ import pytest
 from vidispine.errors import NotFound
 
 
-@pytest.fixture
-def create_collection(vidispine, cassette):
-    return vidispine.collection.create('test_collection_1')
-
-
 def test_get_with_no_metadata(vidispine, cassette, create_collection):
     result = vidispine.collection.get(create_collection, metadata=False)
 
