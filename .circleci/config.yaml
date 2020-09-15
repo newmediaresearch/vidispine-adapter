@@ -15,6 +15,7 @@ jobs:
           command: |
             poetry run pytest --version
           name: Test it
+
   test-3.7:
     executor: python/default
     steps:
@@ -26,6 +27,7 @@ jobs:
           command: |
             poetry run pytest --version
           name: Test it
+
   test-3.8:
     executor: python/default
     steps:
