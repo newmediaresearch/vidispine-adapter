@@ -1,0 +1,63 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@1.0.0
+
+jobs:
+  tests:
+    executor:
+      name: python/default
+      tag: << parameters.python-version >>
+
+    parameters:
+      python-version:
+        type: string
+      command:
+        type: string
+        default: poetry run pytest tests/ --vcr-record=none
+      command-name:
+        type: string
+        default: Run tests
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - dependencies-<< parameters.python-version >>-{{ .Environment.CACHE_VERSION }}-{{ checksum "poetry.lock" }}
+
+      - python/install-packages:
+          pkg-manager: poetry
+
+      - save_cache:
+          paths:
+            - /home/circleci/.cache/pypoetry/virtualenvs
+          key: dependencies-<< parameters.python-version >>-{{ .Environment.CACHE_VERSION }}-{{ checksum "poetry.lock" }}
+
+      - run:
+          command: << parameters.command >>
+          name: << parameters.command-name >>
+
+workflows:
+  main:
+    jobs:
+      - tests:
+          python-version: "3.6"
+          name: test-py36
+
+      - tests:
+          python-version: "3.7"
+          name: test-py37
+
+      - tests:
+          python-version: "3.8"
+          name: test-py38
+
+      - tests:
+          python-version: "3.8"
+          name: quality-checks
+          command: |
+            poetry run flake8 ./ && \
+            poetry run isort --check-only . && \
+            poetry run mypy vidispine/
+          command-name: Run quality checks
