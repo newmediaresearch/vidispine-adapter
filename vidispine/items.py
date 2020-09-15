@@ -14,13 +14,12 @@ class Item:
 
         return response['id']
 
-    def get(self, item_id: str, metadata=True) -> dict:
+    def get(self, item_id: str, params: dict = {}, metadata=True) -> dict:
+
         if metadata:
-            params = {
-                'content': 'metadata'
-            }
-        else:
-            params = {}
+            params.update(
+                {'content': 'metadata'}
+            )
 
         endpoint = f'{self.client.base_url}item/{item_id}'
 
