@@ -7,6 +7,7 @@ from requests.exceptions import HTTPError
 from requests.models import Response
 
 from vidispine.collections import Collection
+from vidispine.items import Item
 from vidispine.errors import APIError, ConfigError, NotFound
 
 PROTOCOL = 'https'
@@ -140,18 +141,7 @@ class Vidispine:
     ) -> None:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
+        self.item = Item(self.client)
 
     def version(self) -> dict:
         return self.client.get('version').json()
-
-    def get_item(self, item_id: str, metadata=True) -> dict:
-        if metadata:
-            params = {
-                'content': 'metadata'
-            }
-        else:
-            params = {}
-
-        endpoint = f'{self.client.base_url}item/{item_id}'
-
-        return self.client.get(endpoint, params=params).json()
