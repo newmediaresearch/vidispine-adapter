@@ -19,7 +19,7 @@ def create_item(vidispine, cassette):
     }
 
     client = vidispine.client
-    endpoint = f'{client.base_url}import/placeholder' # placeholder create item endpoint
+    endpoint = f'{client.base_url}import/placeholder'
 
     params = {
         'container': 1
@@ -46,10 +46,11 @@ def test_get_item_with_metadata(cassette, vidispine, create_item):
     assert item['metadata']
 
 
-def test_get_item_without_metadata(cassette, vidispine):
-    item = vidispine.item.get('VX-12', metadata=False)
+def test_get_item_without_metadata(cassette, vidispine, create_item):
+    item_id = create_item
+    item = vidispine.item.get(item_id, metadata=False)
 
-    assert item['id'] == 'VX-12'
+    assert item['id'] == item_id
     assert item.get('metadata') is None
 
 

@@ -20,6 +20,10 @@ class Item:
             params.update(
                 {'content': 'metadata'}
             )
+        else:
+            params.update(
+                {'content': ''}
+            )
 
         endpoint = f'{self.client.base_url}item/{item_id}'
 
