@@ -1,7 +1,7 @@
 import pytest
-import requests
 
 from vidispine.errors import NotFound
+
 
 @pytest.fixture
 def create_item(vidispine, cassette):
