@@ -7,8 +7,9 @@ from requests.exceptions import HTTPError
 from requests.models import Response
 
 from vidispine.collections import Collection
-from vidispine.items import Item
 from vidispine.errors import APIError, ConfigError, NotFound
+from vidispine.items import Item
+
 
 PROTOCOL = 'https'
 
