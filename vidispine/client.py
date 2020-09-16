@@ -10,7 +10,6 @@ from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
 from vidispine.items import Item
 
-
 PROTOCOL = 'https'
 
 
