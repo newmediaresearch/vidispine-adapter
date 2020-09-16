@@ -19,16 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-54"}'
+      string: '{"id":"VX-58"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 09:13:56 GMT
+      - Wed, 16 Sep 2020 10:52:52 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 09:13:56
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 10:52:52
         GMT
     status:
       code: 200
@@ -45,50 +45,19 @@ interactions:
       accept:
       - application/json
     method: GET
-    uri: http://localhost:8080/API/item/VX-54?content=
+    uri: http://localhost:8080/API/item/VX-58?content=
   response:
     body:
-      string: '{"id":"VX-54"}'
+      string: '{"id":"VX-58"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 09:14:09 GMT
+      - Wed, 16 Sep 2020 10:52:52 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 09:14:09
-        GMT
-      Vary:
-      - Accept-Encoding
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.24.0
-      accept:
-      - application/json
-    method: GET
-    uri: http://localhost:8080/API/item/VX-54?content=
-  response:
-    body:
-      string: '{"id":"VX-54"}'
-    headers:
-      Content-Length:
-      - '14'
-      Content-Type:
-      - application/json
-      Date:
-      - Wed, 16 Sep 2020 09:14:36 GMT
-      Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 09:14:36
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 10:52:52
         GMT
       Vary:
       - Accept-Encoding
