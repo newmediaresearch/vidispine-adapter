@@ -23,3 +23,9 @@ class Collection:
         endpoint = f'collection/{vidispine_id}'
 
         self.client.delete(endpoint)
+
+    def update(self, vidispine_id: str, metadata: dict) -> None:
+
+        endpoint = f'collection/{vidispine_id}/metadata'
+
+        self.client.put(endpoint, payload=metadata)
