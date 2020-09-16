@@ -8,7 +8,6 @@ def test_create_placeholder(vidispine, cassette):
     filename = os.path.join(dirname, 'dummy_placeholder_metadata.json')
 
     with open(filename) as f:
-
         metadata = json.load(f)
         result = vidispine.create_placeholder(metadata=metadata)
 
