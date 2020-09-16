@@ -44,6 +44,7 @@ def test_get_item_with_metadata(cassette, vidispine, create_item):
 
     assert item['id'] == item_id
     assert item['metadata']
+    assert cassette.all_played
 
 
 def test_get_item_without_metadata(cassette, vidispine, create_item):
@@ -52,6 +53,7 @@ def test_get_item_without_metadata(cassette, vidispine, create_item):
 
     assert item['id'] == item_id
     assert item.get('metadata') is None
+    assert cassette.all_played
 
 
 def test_not_found_with_invalid_id(vidispine, cassette):
@@ -61,3 +63,4 @@ def test_not_found_with_invalid_id(vidispine, cassette):
     err.match(
         r'Endpoint not found: GET'
     )
+    assert cassette.all_played
