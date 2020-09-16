@@ -8,7 +8,7 @@ from vidispine.utils import generate_metadata
 
 @pytest.fixture
 def create_metadata_field(vidispine, cassette):
-    def _create_metadatafield(field_name):
+    def _create_metadata_field(field_name):
         metadata = {
             'type': 'string'
         }
@@ -21,7 +21,7 @@ def create_metadata_field(vidispine, cassette):
             payload=metadata
         )
 
-    return _create_metadatafield
+    return _create_metadata_field
 
 
 def test_update(
