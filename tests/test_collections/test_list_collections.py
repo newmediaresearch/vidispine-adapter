@@ -1,6 +1,6 @@
-import pytest
-
 import time
+
+import pytest
 
 
 @pytest.fixture
