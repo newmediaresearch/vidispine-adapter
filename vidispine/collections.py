@@ -1,3 +1,5 @@
+from vidispine.errors import InvalidInput
+
 
 class Collection:
 
@@ -25,6 +27,10 @@ class Collection:
         self.client.delete(endpoint)
 
     def delete_multiple(self, vidispine_ids: list) -> None:
+
+        if not vidispine_ids:
+            raise InvalidInput
+
         params = {
             'id': ','.join(vidispine_ids)
         }

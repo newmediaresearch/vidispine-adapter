@@ -1,13 +1,14 @@
 import pytest
 
+from vidispine.errors import InvalidInput
+
 
 @pytest.fixture
 def create_multiple_collections(vidispine):
     def _create_multiple_collections(quantity):
-        vidispine_ids = [vidispine.collection.create(
-            f'test_collection_{i + 1}'
-        )
-            for i in range(quantity)
+        vidispine_ids = [
+            vidispine.collection.create(f'test_collection_{i}')
+            for i in range(1, quantity + 1)
         ]
 
         return vidispine_ids
@@ -29,3 +30,8 @@ def test_delete_multiple_not_found(vidispine, cassette, create_collection):
     vidispine.collection.delete_multiple([create_collection, collection_2])
 
     assert cassette.all_played
+
+
+def test_delete_multiple_invalid_input(vidispine):
+    with pytest.raises(InvalidInput):
+        vidispine.collection.delete_multiple([])

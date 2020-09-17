@@ -8,5 +8,9 @@ class APIError(Exception):
     pass
 
 
+class InvalidInput(Exception):
+    pass
+
+
 class NotFound(APIError):
     pass
