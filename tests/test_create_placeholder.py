@@ -1,15 +1,21 @@
-import json
-import os
 import re
 
 
 def test_create_placeholder(vidispine, cassette):
-    dirname = os.path.dirname(__file__)
-    filename = os.path.join(dirname, 'dummy_placeholder_metadata.json')
+    metadata = {
+        "timespan": [{
+            "field": [{
+                "name": "title",
+                "value": [{
+                    "value": "My placeholder import!"
+                }]
+            }],
+            "start": "-INF",
+            "end": "+INF"
+        }]
+    }
 
-    with open(filename) as f:
-        metadata = json.load(f)
-        result = vidispine.create_placeholder(metadata=metadata)
+    result = vidispine.create_placeholder(metadata=metadata)
 
-        assert re.match(r'^VX-\d+$', result['id'])
-        assert cassette.all_played
+    assert re.match(r'^VX-\d+$', result['id'])
+    assert cassette.all_played
