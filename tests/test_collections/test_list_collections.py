@@ -33,7 +33,7 @@ def test_list_collections_no_metadata(
 
 
 def test_list_collections_with_metadata(
-    vidispine, cassette, check_field_value_exists, create_multiple_collections
+    vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
 
