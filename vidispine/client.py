@@ -1,15 +1,16 @@
 import os
-from typing import Dict
+from json.decoder import JSONDecodeError
+from typing import Any, Dict, Union
 from urllib.parse import urljoin
 
 import requests
 from requests.exceptions import HTTPError
-from requests.models import Response
 
-from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
 
 PROTOCOL = 'https'
+BaseJson = Dict[str, Any]
+ClientResponse = Union[BaseJson, str]
 
 
 class Client:
@@ -58,21 +59,37 @@ class Client:
     def _request(
         self,
         method: str,
-        endpoint: str,
-        payload: dict = None,
+        url: str,
+        headers: dict = None,
+        json: dict = None,
+        data: Any = None,
         params: dict = None,
-    ) -> Response:
-        url = urljoin(self.base_url, endpoint)
+        runas: str = None,
+    ) -> ClientResponse:
+        url = urljoin(self.base_url, url)
+        kwargs: Any = {
+            'method': method,
+            'url': url,
+            'auth': self.auth,
+            'params': params,
+        }
 
-        headers = self._generate_headers()
+        tmp_headers = self._generate_headers()
+        if headers:
+            tmp_headers.update({k.lower(): v for k, v in headers.items()})
+        if runas:
+            tmp_headers.setdefault('runas', runas)
         # Vidispine throws an error if content-type supplied with no payload
-        if payload is None:
-            headers.pop('content-type')
+        if method.upper() == 'GET' or (not json and not data):
+            tmp_headers.pop('content-type')
+        kwargs['headers'] = tmp_headers
 
-        response = requests.request(
-            method, url, auth=self.auth, json=payload, headers=headers,
-            params=params,
-        )
+        if json:
+            kwargs['json'] = json
+        if data:
+            kwargs['data'] = data
+
+        response = requests.request(**kwargs)
 
         try:
             response.raise_for_status()
@@ -86,46 +103,45 @@ class Client:
                     f'Vidispine Error: {method} - {url} - {response.text}'
                 ) from err
 
-        return response
+        try:
+            return response.json()
+        except JSONDecodeError:
+            return response.text
 
-    def request(self, method: str, endpoint: str, **kwargs: dict) -> Response:
+    def request(
+        self,
+        method: str,
+        url: str,
+        **kwargs: Any,
+    ) -> ClientResponse:
         """Pass-through request method
 
         This is to be used for functionality that has not yet been
         implemented.
         """
-        endpoint = endpoint.lstrip('/')
-        return self._request(method, endpoint, **kwargs)
+        kwargs['url'] = url.lstrip('/')
+        kwargs['method'] = method
+        return self._request(**kwargs)
 
-    def get(
-        self,
-        endpoint: str,
-        params: dict = None,
-    ) -> Response:
-        return self._request('GET', endpoint, params=params)
+    def get(self, url: str, **kwargs: Any) -> Any:
+        kwargs['url'] = url
+        kwargs['method'] = 'GET'
+        return self._request(**kwargs)
 
-    def post(
-        self,
-        endpoint: str,
-        payload: dict = None,
-        params: dict = None,
-    ) -> Response:
-        return self._request('POST', endpoint, payload=payload, params=params)
+    def post(self, url: str, **kwargs: Any) -> Any:
+        kwargs['url'] = url
+        kwargs['method'] = 'POST'
+        return self._request(**kwargs)
 
-    def put(
-        self,
-        endpoint: str,
-        payload: dict = None,
-        params: dict = None,
-    ) -> Response:
-        return self._request('PUT', endpoint, payload=payload, params=params)
+    def put(self, url: str, **kwargs: Any) -> Any:
+        kwargs['url'] = url
+        kwargs['method'] = 'PUT'
+        return self._request(**kwargs)
 
-    def delete(
-        self,
-        endpoint: str,
-        params: dict = None,
-    ) -> Response:
-        return self._request('DELETE', endpoint, params=params)
+    def delete(self, url: str, **kwargs: Any) -> Any:
+        kwargs['url'] = url
+        kwargs['method'] = 'DELETE'
+        return self._request(**kwargs)
 
 
 class Vidispine:
@@ -136,16 +152,18 @@ class Vidispine:
         user: str = None,
         password: str = None,
     ) -> None:
+        from vidispine.collections import Collection
+
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
 
-    def version(self) -> dict:
-        return self.client.get('version').json()
+    def version(self) -> BaseJson:
+        return self.client.get('version')
 
-    def reindex(self, index: str, params: dict = None) -> dict:
+    def reindex(self, index: str, params: dict = None) -> BaseJson:
         if params is None:
             params = {}
 
         endpoint = f'reindex/{index}'
 
-        return self.client.put(endpoint, params=params).json()
+        return self.client.put(endpoint, params=params)
