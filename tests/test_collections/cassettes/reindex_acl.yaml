@@ -13,13 +13,13 @@ interactions:
       accept:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/reindex/collection
+    uri: http://localhost:8080/API/reindex/acl
   response:
     body:
-      string: '{"index":"collection","priority":500,"status":"IN_QUEUE","start":"2020-09-18T09:49:10.181+0000"}'
+      string: '{"index":"acl","priority":500,"status":"IN_QUEUE","start":"2020-09-18T09:49:10.115+0000"}'
     headers:
       Content-Length:
-      - '96'
+      - '89'
       Content-Type:
       - application/json
       Date:

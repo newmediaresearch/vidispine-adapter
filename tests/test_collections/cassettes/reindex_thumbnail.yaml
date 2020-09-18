@@ -13,19 +13,19 @@ interactions:
       accept:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/reindex/foo
+    uri: http://localhost:8080/API/reindex/thumbnail
   response:
     body:
-      string: '{"index":"foo","priority":500,"status":"IN_QUEUE","start":"2020-09-14T14:18:29.002+0000"}'
+      string: '{"index":"thumbnail","priority":500,"status":"IN_QUEUE","start":"2020-09-18T09:49:10.367+0000"}'
     headers:
       Content-Length:
-      - '89'
+      - '95'
       Content-Type:
       - application/json
       Date:
-      - Mon, 14 Sep 2020 14:18:28 GMT
+      - Fri, 18 Sep 2020 09:49:10 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 13-Sep-2020 14:18:28
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 17-Sep-2020 09:49:10
         GMT
     status:
       code: 200
