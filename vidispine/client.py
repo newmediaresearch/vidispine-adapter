@@ -142,14 +142,7 @@ class Vidispine:
     def version(self) -> dict:
         return self.client.get('version').json()
 
-    def list_collections(self, content: list = None) -> dict:
-        if content:
-            params = {
-                'content': ','.join(content)
-            }
-        else:
-            params = {}
-
+    def list_collections(self, params: dict = None) -> dict:
         endpoint = urljoin(self.client.base_url, 'collection')
 
         return self.client.get(endpoint, params=params).json()

@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-154","id":"VX-154","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-221","id":"VX-221","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Fri, 11 Sep 2020 15:33:06 GMT
+      - Fri, 18 Sep 2020 12:37:06 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 10-Sep-2020 15:33:06
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 17-Sep-2020 12:37:06
         GMT
     status:
       code: 200
@@ -47,16 +47,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_2
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-155","id":"VX-155","name":"test_collection_2"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-222","id":"VX-222","name":"test_collection_2"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Fri, 11 Sep 2020 15:33:06 GMT
+      - Fri, 18 Sep 2020 12:37:06 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 10-Sep-2020 15:33:06
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 17-Sep-2020 12:37:06
         GMT
     status:
       code: 200
@@ -78,16 +78,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_3
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-156","id":"VX-156","name":"test_collection_3"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-223","id":"VX-223","name":"test_collection_3"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Fri, 11 Sep 2020 15:33:06 GMT
+      - Fri, 18 Sep 2020 12:37:07 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 10-Sep-2020 15:33:06
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 17-Sep-2020 12:37:07
         GMT
     status:
       code: 200
@@ -108,20 +108,26 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAJ2QMQvCMBCF/8vNkbS2kZLN0c1JBJESYmwCaa+Q61Ty3z0RLB066Hbf8d43vBl8
-        oAS6EmAxRmcp4AD6NkNECxo80ailZDDRYyLdFE0hj+eTXOLyct2V6gACwoMrXxpM75jJJWqXdFtB
-        Fr/r1UqvtvX7v/T1Sl9v60vIdwFPYx3xTHymqes485mN2UyEFvsxOnLvT34BJdROs2MBAAA=
+        H4sIAAAAAAAAALWYQWvCQBCF/8ueLdmJbnaSW4+99VQKpUiIWxWikbrSg/S/N63Q5h0c6DDeMrJ+
+        iy/53gbPbrPNR9eEcua6oe9Tl7fD3jUvZ9cPnWvcJudDUxTj0Pab4Zgb9uyL+8eH4m958fR8V5Zz
+        N3Pb1fiV32nf7tI453TMy7/Vy7n7nP0fXwK+vI4vVXgCPF3HkwrvAe+Nw6F6iv+ZLMMhBjwbh0MR
+        8NE6nArwlXU4AfDBOpwF4BfW4YC1JFirCwesJcFaXThgLQnW6sIBa0mwVhWOB2u9YK0qHA/WesFa
+        VTgerPWCtbpwwFovWKsJh+op/jKZ4gPgjUuB6gXghVLQ4eeAF0pBhy8Bb1wKVBPgjY9yqj3ghVJQ
+        4XlaCpfJFM+ANz7KiSPghVLQ4cFatraWwVq2tpbBWra2lsFatraWwVq2tpbBWra2lsFatrY2grXR
+        2toI1kZrayNYG62tjWBtlKz1XrUBPPlx8uSfDqs2p9XS5neAAbG81TZgQqRbbQNGxIkR7+n7wmib
+        CkqvmpTePn0YbQH3pbrVfangvlTWDRWgQoJQIZrXdQpQIUGoEM3rOgWokGBdIQEqJAgVogsHDv4g
+        HPy6cMCBIB/8rzP31nYpu+ZlvDye1utxzeU/uXFuT3noht2hTzl9f/L5Bbw1/YbBEwAA
     headers:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '167'
+      - '507'
       Content-Type:
       - application/json
       Date:
-      - Fri, 11 Sep 2020 15:33:08 GMT
+      - Fri, 18 Sep 2020 12:37:09 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 10-Sep-2020 15:33:08
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 17-Sep-2020 12:37:09
         GMT
       Vary:
       - Accept-Encoding

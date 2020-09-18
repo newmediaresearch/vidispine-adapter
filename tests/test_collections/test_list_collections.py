@@ -4,36 +4,21 @@ import pytest
 
 
 @pytest.fixture
-def delete_all_collections(vidispine):
-    def _delete_all_collections():
-        result = vidispine.list_collections()
-        collections = result['collection']
+def create_multiple_collections(vidispine):
+    def _create_multiple_collections(quantity):
+        vidispine_ids = [
+            vidispine.collection.create(f'test_collection_{i}')
+            for i in range(1, quantity + 1)
+        ]
+        return vidispine_ids
 
-        for collection in collections:
-            vidispine.collection.delete(collection['id'])
-
-    return _delete_all_collections
+    return _create_multiple_collections
 
 
-def test_list_collections_not_found(
-    vidispine, cassette, delete_all_collections
+def test_list_collections_no_metadata(
+    vidispine, cassette, create_multiple_collections
 ):
-    delete_all_collections()
-    result = vidispine.list_collections()
-
-    assert result['hits'] == 0
-    assert cassette.all_played
-
-
-def test_list_collections_no_metadata(vidispine, cassette):
-    test_collections = [
-        'test_collection_1',
-        'test_collection_2',
-        'test_collection_3'
-    ]
-
-    for collection in test_collections:
-        vidispine.collection.create(collection)
+    test_collection_ids = create_multiple_collections(3)
 
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
@@ -41,36 +26,31 @@ def test_list_collections_no_metadata(vidispine, cassette):
     result = vidispine.list_collections()
     collections = result['collection']
 
-    test_collections.reverse()
+    collection_ids = [c['id'] for c in collections]
 
-    for index, collection in enumerate(test_collections):
-        assert collections[index]['name'] == collection
-
+    assert set(test_collection_ids).issubset(set(collection_ids))
     assert cassette.all_played
 
 
 def test_list_collections_with_metadata(
-    vidispine, cassette, check_field_value_exists
+    vidispine, cassette, check_field_value_exists, create_multiple_collections
 ):
-    test_collections = [
-        'test_collection_1',
-        'test_collection_2',
-        'test_collection_3'
-    ]
-
-    for collection in test_collections:
-        vidispine.collection.create(collection)
+    test_collection_ids = create_multiple_collections(3)
 
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
 
-    result = vidispine.list_collections(['metadata'])
+    result = vidispine.list_collections({'content': 'metadata'})
     collections = result['collection']
+    collection_ids = set()
 
-    test_collections.reverse()
+    for c in collections:
+        fields = c['metadata']['timespan'][0]['field']
+        for field in fields:
+            if field['name'] == 'collectionId':
+                collection_id = field['value'][0]['value']
+                collection_ids.add(collection_id)
+                break
 
-    for index, collection in enumerate(test_collections):
-        fields = collections[index]['metadata']['timespan'][0]['field']
-        check_field_value_exists(fields, 'title', collection)
-
+    assert set(test_collection_ids).issubset(collection_ids)
     assert cassette.all_played
