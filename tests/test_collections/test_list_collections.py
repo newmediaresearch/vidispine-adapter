@@ -23,7 +23,7 @@ def test_list_collections_no_metadata(
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
 
-    result = vidispine.list_collections()
+    result = vidispine.collection.list_collections()
     collections = result['collection']
 
     collection_ids = [c['id'] for c in collections]
@@ -40,17 +40,10 @@ def test_list_collections_with_metadata(
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
 
-    result = vidispine.list_collections({'content': 'metadata'})
+    result = vidispine.collection.list_collections({'content': 'metadata'})
     collections = result['collection']
-    collection_ids = set()
 
-    for c in collections:
-        fields = c['metadata']['timespan'][0]['field']
-        for field in fields:
-            if field['name'] == 'collectionId':
-                collection_id = field['value'][0]['value']
-                collection_ids.add(collection_id)
-                break
+    collection_ids = [c['id'] for c in collections]
 
-    assert set(test_collection_ids).issubset(collection_ids)
+    assert set(test_collection_ids).issubset(set(collection_ids))
     assert cassette.all_played
