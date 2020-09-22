@@ -38,3 +38,8 @@ class Collection:
         endpoint = 'collection'
 
         self.client.delete(endpoint, params=params)
+
+    def list(self, params: dict = None) -> dict:
+        endpoint = 'collection'
+
+        return self.client.get(endpoint, params=params).json()
