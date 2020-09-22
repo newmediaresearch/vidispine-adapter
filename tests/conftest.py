@@ -21,7 +21,7 @@ def cassette(request: Any) -> Cassette:
     sub_dir_name = request.module.__name__.split('.')[-1]
     sub_dir_path = os.path.join(cassette_dir, 'cassettes', sub_dir_name)
 
-    caller_name = request.function.__name__.lstrip('test_')
+    caller_name = request.node.name.lstrip('test_')
     cassette_file = f'{caller_name}.yaml'
 
     cassette_path = os.path.join(sub_dir_path, cassette_file)
