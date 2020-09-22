@@ -1,16 +1,16 @@
 import os
 from json.decoder import JSONDecodeError
-from typing import Any, Dict, Union
+from typing import Any, Dict
 from urllib.parse import urljoin
 
 import requests
 from requests.exceptions import HTTPError
 
+from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
+from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
-BaseJson = Dict[str, Any]
-ClientResponse = Union[BaseJson, str]
 
 
 class Client:
@@ -152,8 +152,6 @@ class Vidispine:
         user: str = None,
         password: str = None,
     ) -> None:
-        from vidispine.collections import Collection
-
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
 

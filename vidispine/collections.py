@@ -1,10 +1,10 @@
 from vidispine.errors import InvalidInput
-from .client import BaseJson, Client
+from vidispine.typing import BaseJson
 
 
 class Collection:
 
-    def __init__(self, client: Client) -> None:
+    def __init__(self, client) -> None:
         self.client = client
 
     def create(self, name: str) -> str:
@@ -35,7 +35,7 @@ class Collection:
 
         self.client.delete(endpoint, params=params)
 
-    def list(self, params: dict = None) -> dict:
+    def list(self, params: dict = None) -> BaseJson:
         endpoint = 'collection'
 
-        return self.client.get(endpoint, params=params).json()
+        return self.client.get(endpoint, params=params)
