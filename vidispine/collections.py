@@ -1,3 +1,5 @@
+from vidispine.errors import InvalidInput
+
 
 class Collection:
 
@@ -23,6 +25,19 @@ class Collection:
         endpoint = f'collection/{vidispine_id}'
 
         self.client.delete(endpoint)
+
+    def delete_multiple(self, vidispine_ids: list) -> None:
+
+        if not vidispine_ids:
+            raise InvalidInput('Please supply Vidispine IDs to delete.')
+
+        params = {
+            'id': ','.join(vidispine_ids)
+        }
+
+        endpoint = 'collection'
+
+        self.client.delete(endpoint, params=params)
 
     def list(self, params: dict = None) -> dict:
         endpoint = 'collection'
