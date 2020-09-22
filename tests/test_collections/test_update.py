@@ -18,7 +18,7 @@ def create_metadata_field(vidispine, cassette):
         vidispine.client.request(
             'put',
             endpoint,
-            payload=metadata
+            json=metadata
         )
 
     return _create_metadata_field

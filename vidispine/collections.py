@@ -38,7 +38,7 @@ class Collection:
     def update(self, vidispine_id: str, metadata: dict) -> BaseJson:
         endpoint = f'collection/{vidispine_id}/metadata'
 
-        return self.client.put(endpoint, payload=metadata)
+        return self.client.put(endpoint, json=metadata)
 
     def list(self, params: dict = None) -> BaseJson:
         endpoint = 'collection'
