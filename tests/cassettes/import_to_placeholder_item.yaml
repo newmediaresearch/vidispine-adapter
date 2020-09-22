@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder/VX-14/container?uri=%2FUsers%2Fdunnla%2FNMR%2Fvidispine-adapter%2Ftests%2Fsample-mp4-file.mp4
+  response:
+    body:
+      string: '{"jobId":"VX-4","user":"admin","started":"2020-09-21T20:36:07.332+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM"}'
+    headers:
+      Content-Length:
+      - '137'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Sep 2020 20:36:07 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 20:36:07
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

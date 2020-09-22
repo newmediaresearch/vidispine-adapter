@@ -141,3 +141,14 @@ class Vidispine:
 
     def version(self) -> dict:
         return self.client.get('version').json()
+
+    def import_to_placeholder_item(
+        self, item_id: str, component_type: str, params: dict
+    ) -> None:
+
+        if not params:
+            raise Exception('Invalid Input')
+
+        endpoint = f'import/placeholder/{item_id}/{component_type}'
+
+        self.client.post(endpoint, params=params)

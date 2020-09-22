@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder/VX-1000000/container?uri=%2FUsers%2Fdunnla%2FNMR%2Fvidispine-adapter%2Ftests%2Fsample-mp4-file.mp4
+  response:
+    body:
+      string: '{"notFound":{"type":"Item","id":"VX-1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '227'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 21 Sep 2020 20:43:09 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 20:43:09
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1
