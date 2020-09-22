@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-243","id":"VX-243","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-256","id":"VX-256","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Mon, 21 Sep 2020 16:36:19 GMT
+      - Tue, 22 Sep 2020 09:12:46 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 16:36:19
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:46
         GMT
     status:
       code: 200
@@ -47,16 +47,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_2
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-244","id":"VX-244","name":"test_collection_2"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-257","id":"VX-257","name":"test_collection_2"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Mon, 21 Sep 2020 16:36:19 GMT
+      - Tue, 22 Sep 2020 09:12:46 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 16:36:19
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:46
         GMT
     status:
       code: 200
@@ -78,16 +78,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_3
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-245","id":"VX-245","name":"test_collection_3"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-258","id":"VX-258","name":"test_collection_3"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Mon, 21 Sep 2020 16:36:19 GMT
+      - Tue, 22 Sep 2020 09:12:47 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 16:36:19
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:47
         GMT
     status:
       code: 200
@@ -108,28 +108,29 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAALWZQWvjMBSE/4vOWaInRZbsW49766kslCUYx9sE0jhsFPZQ+t/XbWHrOfTBPiY3
-        v+CMyHi+EVZe3P5QL67LfuWG6Xgch3qYTq57fHHHaXCd29d67tbreeiP++lSu+KLX9/df19/3r5+
-        +PEtbJJbucNu/sq/6dQ/j/Ncx0vdft69je519f/yG5DffC0fTPIR5OPX8mKSDyAf2OYIyAvbHA/y
-        nmxObJfy7xPTnFhAvpDNiRnkM9ucBuQbtjlAbVSotZkD1EaFWps5QG1UqLWZA9RGhVqbOUBtVKg1
+        H4sIAAAAAAAAALWZQWvjMBSE/4vOWaInyZbsW49766kslCWExNsE3DhsFPZQ+t/XbWHrOfTBPia3
+        qLgjOp5v1Be9uMOxXlyfu5XbTeM47OpxOrn+8cWN08717lDruV+v58V2PEyX2hdf/Pru/vv68/H1
+        w49voSlu5Y77+Vf+rU7b52Fe1+FSN59Pb6J7Xf2/fAb5/LV8MMm3IN9+LS8meQF5YZvjQd6TzUnd
+        Uv59xTQnQXISOzkJkpPYyUmQnMROTmpAvmGbk0A+sc2JIB/Z5gSQD2xzgNqkUGszB6hNCrUmcyJQ
+        GxVqTeZEoDYq1JrMiUBtVKi1mQPURoVamzlAbVSotZkD1EaFWps5QG1UqLWZA9RGhVqbOUBtVKg1
         mRMgOYGdnADJCezkBEhOYCcnQHICOzkBkhPYyQmQnEBPDvR9UPreZI5A34vS9yZzBPpelL43mSPQ
-        96L0vc0coFYUam3mALWiUGszB6gVhVqbOUCtKNTazAFqRaHWZg5QKwq1NnOAWlGoNZnjgVqvUGsy
-        xwO1XqHWZI4Har1Crc0coNYr1FrMkXYp/zFR5RPIk0tB2g3Ik7dyaSPIk1/dpA0gTy4FaQXkyVu5
-        tB7kya9uUpal8DFR5QvIk7dyKRnkya9uUoDawqa2ALWFTW0Bagub2gLUFja1BagtbGoLUFvY1Bag
-        trCpzUBtZlObgdrMpjYDtZlNbQZqs0at96YFIPl5kfzredfXcbfl/A4gIIdbLQMkZLnVMkBEXhDx
-        e3y7IC3TQOk1i9I7jX9IS8BzaW71XBp4Lg27oRJUSCKf2UqCCknkM1tJUCGJXSEJKiSRT94kwcaf
-        yCdvkoCBpG/8P1fuVz+M1XWP8+Xl+vQ033N4/wdpnvtrnYbp+Xwc6/j2yetfH0qybG8aAAA=
+        96L0vc0coFYUam3mALWiUGszB6gVhVqbOUCtKNTazAFqRaHWZg5QK+zZSoBaYc9WHqj17NnKA7We
+        PVt5oNazZysP1HrybCXdUv5jRZVvQJ5cCtIlkCcf5dJFkCePbtIFkCeXgnQC8uSjXDoP8uTRTcqy
+        FD5WVPkC8uSjXEoGefLoJgWoLWxqC1Bb2NQWoLawqS1AbWFTW4Dawqa2ALWFTW0Bagub2gzUZja1
+        GajNbGozUJvZ1GagNmvUem/aAJKfF8m/nvfbOuw3nL8DCMjhVtsACVlutQ0QkRdE/B7ePpC2aaH0
+        2kXpnYY/pC3gvbS3ei8tvJeW3VANVEhD/s5W4I5OtDs6y7/rAnd0ot3R2cyBCtHu6GzmwMHfkL95
+        kwYYaPSD/+fK/druhur6x/nj5fr0ND9zfL+Yndfba5120/N5HOrw9pPXvzo1kw/GHQAA
     headers:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '623'
+      - '678'
       Content-Type:
       - application/json
       Date:
-      - Mon, 21 Sep 2020 16:36:21 GMT
+      - Tue, 22 Sep 2020 09:12:49 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 20-Sep-2020 16:36:21
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:49
         GMT
       Vary:
       - Accept-Encoding

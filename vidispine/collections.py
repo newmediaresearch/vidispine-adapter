@@ -24,7 +24,7 @@ class Collection:
 
         self.client.delete(endpoint)
 
-    def list_collections(self, params: dict = None) -> dict:
+    def list(self, params: dict = None) -> dict:
         endpoint = 'collection'
 
         return self.client.get(endpoint, params=params).json()

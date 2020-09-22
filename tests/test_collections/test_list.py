@@ -15,7 +15,7 @@ def create_multiple_collections(vidispine):
     return _create_multiple_collections
 
 
-def test_list_collections_no_metadata(
+def test_list_no_metadata(
     vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
@@ -23,7 +23,7 @@ def test_list_collections_no_metadata(
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
 
-    result = vidispine.collection.list_collections()
+    result = vidispine.collection.list()
     collections = result['collection']
 
     collection_ids = [c['id'] for c in collections]
@@ -32,7 +32,7 @@ def test_list_collections_no_metadata(
     assert cassette.all_played
 
 
-def test_list_collections_with_metadata(
+def test_list_with_metadata(
     vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
@@ -40,7 +40,7 @@ def test_list_collections_with_metadata(
     # Give Vidispine enough time to create the collections.
     time.sleep(2)
 
-    result = vidispine.collection.list_collections({'content': 'metadata'})
+    result = vidispine.collection.list({'content': 'metadata'})
     collections = result['collection']
 
     collection_ids = [c['id'] for c in collections]
