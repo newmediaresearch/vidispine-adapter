@@ -15,7 +15,7 @@ def test_create_placeholder(vidispine, cassette):
         }]
     }
 
-    result = vidispine.create_placeholder(metadata=metadata)
+    result = vidispine.item.create_placeholder(metadata=metadata)
 
     assert re.match(r'^VX-\d+$', result['id'])
     assert cassette.all_played

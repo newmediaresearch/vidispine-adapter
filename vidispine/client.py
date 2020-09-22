@@ -8,6 +8,7 @@ from requests.models import Response
 
 from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
+from vidispine.item import Item
 
 PROTOCOL = 'https'
 
@@ -138,18 +139,7 @@ class Vidispine:
     ) -> None:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
+        self.item = Item(self.client)
 
     def version(self) -> dict:
         return self.client.get('version').json()
-
-    def create_placeholder(self, metadata: dict, params: dict = None) -> dict:
-        if params is None:
-            params = {}
-
-        params.setdefault('container', 1)
-
-        endpoint = 'import/placeholder'
-
-        return self.client.post(
-            endpoint, payload=metadata, params=params
-        ).json()
