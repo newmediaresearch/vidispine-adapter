@@ -143,3 +143,11 @@ class Vidispine:
 
     def version(self) -> dict:
         return self.client.get('version').json()
+
+    def reindex(self, index: str, params: dict = None) -> dict:
+        if params is None:
+            params = {}
+
+        endpoint = f'reindex/{index}'
+
+        return self.client.put(endpoint, params=params).json()
