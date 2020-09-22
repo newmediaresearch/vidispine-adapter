@@ -33,5 +33,7 @@ def test_delete_multiple_not_found(vidispine, cassette, create_collection):
 
 
 def test_delete_multiple_invalid_input(vidispine):
-    with pytest.raises(InvalidInput):
+    with pytest.raises(InvalidInput) as err:
         vidispine.collection.delete_multiple([])
+
+    err.match('Please supply Vidispine IDs to delete.')

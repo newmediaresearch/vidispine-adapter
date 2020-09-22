@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-205","id":"VX-205","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-265","id":"VX-265","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Thu, 17 Sep 2020 16:19:09 GMT
+      - Tue, 22 Sep 2020 10:34:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 16-Sep-2020 16:19:09
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 10:34:01
         GMT
     status:
       code: 200
@@ -44,7 +44,7 @@ interactions:
       accept:
       - application/json
     method: DELETE
-    uri: http://localhost:8080/API/collection?id=VX-205%2CVX-1000000
+    uri: http://localhost:8080/API/collection?id=VX-265%2CVX-1000000
   response:
     body:
       string: ''
@@ -54,9 +54,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 17 Sep 2020 16:19:09 GMT
+      - Tue, 22 Sep 2020 10:34:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 16-Sep-2020 16:19:09
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 10:34:01
         GMT
     status:
       code: 200

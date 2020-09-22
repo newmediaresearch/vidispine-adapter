@@ -29,7 +29,7 @@ class Collection:
     def delete_multiple(self, vidispine_ids: list) -> None:
 
         if not vidispine_ids:
-            raise InvalidInput
+            raise InvalidInput('Please supply Vidispine IDs to delete.')
 
         params = {
             'id': ','.join(vidispine_ids)
