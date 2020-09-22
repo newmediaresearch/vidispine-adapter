@@ -29,3 +29,8 @@ class Collection:
         endpoint = f'collection/{vidispine_id}/metadata'
 
         self.client.put(endpoint, payload=metadata)
+
+    def list(self, params: dict = None) -> dict:
+        endpoint = 'collection'
+
+        return self.client.get(endpoint, params=params).json()
