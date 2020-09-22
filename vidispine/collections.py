@@ -24,11 +24,10 @@ class Collection:
 
         self.client.delete(endpoint)
 
-    def update(self, vidispine_id: str, metadata: dict) -> None:
-
+    def update(self, vidispine_id: str, metadata: dict) -> dict:
         endpoint = f'collection/{vidispine_id}/metadata'
 
-        self.client.put(endpoint, payload=metadata)
+        return self.client.put(endpoint, payload=metadata).json()
 
     def list(self, params: dict = None) -> dict:
         endpoint = 'collection'

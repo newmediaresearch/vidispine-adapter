@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-195","id":"VX-195","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-267","id":"VX-267","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 17:11:46 GMT
+      - Tue, 22 Sep 2020 12:47:32 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 17:11:46
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 12:47:32
         GMT
     status:
       code: 200
@@ -56,9 +56,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 17:11:46 GMT
+      - Tue, 22 Sep 2020 12:47:32 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 17:11:46
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 12:47:32
         GMT
     status:
       code: 200
@@ -89,9 +89,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 17:11:46 GMT
+      - Tue, 22 Sep 2020 12:47:32 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 17:11:46
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 12:47:32
         GMT
     status:
       code: 200
@@ -115,7 +115,7 @@ interactions:
       content-type:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/collection/VX-195/metadata
+    uri: http://localhost:8080/API/collection/VX-267/metadata
   response:
     body:
       string: '{"notFound":{"type":"metadata-field","id":"field_three","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
@@ -125,9 +125,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 17:11:46 GMT
+      - Tue, 22 Sep 2020 12:47:32 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 17:11:46
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 12:47:32
         GMT
     status:
       code: 404

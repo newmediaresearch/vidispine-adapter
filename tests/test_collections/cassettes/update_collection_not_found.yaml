@@ -27,9 +27,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 17:11:46 GMT
+      - Tue, 22 Sep 2020 12:47:32 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 17:11:46
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 12:47:32
         GMT
     status:
       code: 404

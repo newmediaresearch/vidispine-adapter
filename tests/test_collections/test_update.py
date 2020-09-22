@@ -61,12 +61,13 @@ def test_update_field_does_not_exist(
 
         re.match(
             r'Endpoint not found: PUT'
-            r' - http://localhost:8080/API/collection/VX-\d+$/metadata', err)
+            r' - http://localhost:8080/API/collection/VX-\d+$/metadata', err
+        )
 
     assert cassette.all_played
 
 
-def test_update_not_found(vidispine, cassette):
+def test_update_collection_not_found(vidispine, cassette):
     fields = {
         'title': 'Foo bar',
         'field_one': 'eggs',
