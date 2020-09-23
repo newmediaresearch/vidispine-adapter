@@ -5,7 +5,6 @@ import pytest
     'item', 'thumbnail', 'document', 'collection', 'acl'
 ])
 def test_reindex(vidispine, cassette, index):
-    index = 'thumbnail'
     result = vidispine.reindex(index)
 
     assert result['index'] == index
