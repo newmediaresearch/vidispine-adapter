@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-273","id":"VX-273","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-277","id":"VX-277","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Sep 2020 16:34:07 GMT
+      - Wed, 23 Sep 2020 10:52:54 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 16:34:07
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
         GMT
     status:
       code: 200
@@ -56,9 +56,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Sep 2020 16:34:07 GMT
+      - Wed, 23 Sep 2020 10:52:54 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 16:34:07
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
         GMT
     status:
       code: 200
@@ -89,9 +89,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Sep 2020 16:34:07 GMT
+      - Wed, 23 Sep 2020 10:52:54 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 16:34:07
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
         GMT
     status:
       code: 200
@@ -99,14 +99,15 @@ interactions:
 - request:
     body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "Foo bar"}]},
       {"name": "field_one", "value": [{"value": "eggs"}]}, {"name": "field_two", "value":
-      [{"value": 123}]}], "start": "-INF", "end": "+INF"}]}'
+      [{"value": 123}]}, {"name": "field_three", "value": [{"value": "stuff"}]}],
+      "start": "-INF", "end": "+INF"}]}'
     headers:
       Accept-Encoding:
       - gzip, deflate
       Connection:
       - keep-alive
       Content-Length:
-      - '214'
+      - '270'
       User-Agent:
       - python-requests/2.24.0
       accept:
@@ -114,22 +115,21 @@ interactions:
       content-type:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/collection/VX-273/metadata
+    uri: http://localhost:8080/API/collection/VX-277/metadata
   response:
     body:
-      string: '{"revision":"VX-334,VX-333","timespan":[{"field":[{"name":"title","value":[{"value":"Foo
-        bar","uuid":"450bd021-d9f7-40f0-8975-86dd8c6a5d7e","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"}],"uuid":"13b40ad7-5d21-41da-9946-c2014f9c32e6","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"},{"name":"field_one","value":[{"value":"eggs","uuid":"3c5e274a-94d3-4473-99df-d3e83ed78839","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"}],"uuid":"26346760-6c83-465e-a315-9dcf381684a7","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"},{"name":"field_two","value":[{"value":"123","uuid":"324ea37c-1c10-480d-b5bf-5c9106d531dc","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"}],"uuid":"2c87b1d9-8d29-4fd7-a0eb-62b0aadedc29","user":"admin","timestamp":"2020-09-22T16:34:08.051+0000","change":"VX-334"},{"name":"created","value":[{"value":"2020-09-22T16:34:07.676Z","uuid":"91c41b3a-8e9f-4c89-b45d-e522d63ea3fa","user":"system","timestamp":"2020-09-22T16:34:07.708+0000","change":"VX-333"}],"uuid":"593c934f-a33e-42c8-9be0-14dab5ec4076","user":"system","timestamp":"2020-09-22T16:34:07.708+0000","change":"VX-333"},{"name":"collectionId","value":[{"value":"VX-273","uuid":"74d0fa35-5435-42ba-8cd5-333715fcb1f5","user":"system","timestamp":"2020-09-22T16:34:07.708+0000","change":"VX-333"}],"uuid":"83033570-83ac-43f5-9fa8-495a1828f941","user":"system","timestamp":"2020-09-22T16:34:07.708+0000","change":"VX-333"}],"group":[],"start":"-INF","end":"+INF"}]}'
+      string: '{"notFound":{"type":"metadata-field","id":"field_three","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
     headers:
       Content-Length:
-      - '1577'
+      - '238'
       Content-Type:
       - application/json
       Date:
-      - Tue, 22 Sep 2020 16:34:07 GMT
+      - Wed, 23 Sep 2020 10:52:54 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 16:34:07
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
         GMT
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
 version: 1
