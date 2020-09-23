@@ -17,12 +17,15 @@ def vidispine() -> Vidispine:
 def cassette(request: Any) -> Cassette:
     my_vcr = vcr.VCR(filter_headers=['authorization'])
 
-    caller_name = request.function.__name__.lstrip('test_')
+    cassette_dir = os.path.dirname(request.module.__file__)
+    sub_dir_name = request.module.__name__.split('.')[-1]
+    sub_dir_path = os.path.join(cassette_dir, 'cassettes', sub_dir_name)
+
+    caller_name = request.node.name.lstrip('test_')
     cassette_file = f'{caller_name}.yaml'
 
-    cassette_path = os.path.join(
-        os.path.dirname(request.module.__file__), 'cassettes', cassette_file
-    )
+    cassette_path = os.path.join(sub_dir_path, cassette_file)
+
     with my_vcr.use_cassette(path=cassette_path) as cass:
         yield cass
 
