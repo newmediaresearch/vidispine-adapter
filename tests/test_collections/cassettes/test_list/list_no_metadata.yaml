@@ -1,0 +1,140 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-256","id":"VX-256","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 22 Sep 2020 09:12:46 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:46
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_2
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-257","id":"VX-257","name":"test_collection_2"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 22 Sep 2020 09:12:46 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:46
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_3
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-258","id":"VX-258","name":"test_collection_3"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 22 Sep 2020 09:12:47 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:47
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/collection
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAALWZQWvjMBSE/4vOWaInyZbsW49766kslCWExNsE3DhsFPZQ+t/XbWHrOfTBPia3
+        qLgjOp5v1Be9uMOxXlyfu5XbTeM47OpxOrn+8cWN08717lDruV+v58V2PEyX2hdf/Pru/vv68/H1
+        w49voSlu5Y77+Vf+rU7b52Fe1+FSN59Pb6J7Xf2/fAb5/LV8MMm3IN9+LS8meQF5YZvjQd6TzUnd
+        Uv59xTQnQXISOzkJkpPYyUmQnMROTmpAvmGbk0A+sc2JIB/Z5gSQD2xzgNqkUGszB6hNCrUmcyJQ
+        GxVqTeZEoDYq1JrMiUBtVKi1mQPURoVamzlAbVSotZkD1EaFWps5QG1UqLWZA9RGhVqbOUBtVKg1
+        mRMgOYGdnADJCezkBEhOYCcnQHICOzkBkhPYyQmQnEBPDvR9UPreZI5A34vS9yZzBPpelL43mSPQ
+        96L0vc0coFYUam3mALWiUGszB6gVhVqbOUCtKNTazAFqRaHWZg5QK+zZSoBaYc9WHqj17NnKA7We
+        PVt5oNazZysP1HrybCXdUv5jRZVvQJ5cCtIlkCcf5dJFkCePbtIFkCeXgnQC8uSjXDoP8uTRTcqy
+        FD5WVPkC8uSjXEoGefLoJgWoLWxqC1Bb2NQWoLawqS1AbWFTW4Dawqa2ALWFTW0Bagub2gzUZja1
+        GajNbGozUJvZ1GagNmvUem/aAJKfF8m/nvfbOuw3nL8DCMjhVtsACVlutQ0QkRdE/B7ePpC2aaH0
+        2kXpnYY/pC3gvbS3ei8tvJeW3VANVEhD/s5W4I5OtDs6y7/rAnd0ot3R2cyBCtHu6GzmwMHfkL95
+        kwYYaPSD/+fK/druhur6x/nj5fr0ND9zfL+Yndfba5120/N5HOrw9pPXvzo1kw/GHQAA
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '678'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 22 Sep 2020 09:12:49 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 21-Sep-2020 09:12:49
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
