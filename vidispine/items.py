@@ -13,4 +13,4 @@ class Item:
 
         endpoint = f'item/{item_id}'
 
-        return self.client.get(endpoint, params=params).json()
+        return self.client.get(endpoint, params=params)

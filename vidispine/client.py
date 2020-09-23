@@ -8,7 +8,6 @@ from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
-
 from vidispine.items import Item
 from vidispine.typing import BaseJson, ClientResponse
 

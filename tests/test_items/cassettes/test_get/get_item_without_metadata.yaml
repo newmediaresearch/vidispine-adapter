@@ -19,16 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-58"}'
+      string: '{"id":"VX-64"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 10:52:52 GMT
+      - Wed, 23 Sep 2020 10:57:34 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 10:52:52
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:57:34
         GMT
     status:
       code: 200
@@ -45,19 +45,19 @@ interactions:
       accept:
       - application/json
     method: GET
-    uri: http://localhost:8080/API/item/VX-58?content=
+    uri: http://localhost:8080/API/item/VX-64
   response:
     body:
-      string: '{"id":"VX-58"}'
+      string: '{"id":"VX-64"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Wed, 16 Sep 2020 10:52:52 GMT
+      - Wed, 23 Sep 2020 10:57:34 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 15-Sep-2020 10:52:52
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:57:34
         GMT
       Vary:
       - Accept-Encoding

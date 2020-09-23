@@ -28,11 +28,11 @@ def create_item(vidispine, cassette):
     request = client.request(
         'post',
         endpoint,
-        payload=metadata,
+        json=metadata,
         params=params
     )
 
-    item_id = request.json()['id']
+    item_id = request['id']
 
     return item_id
 
