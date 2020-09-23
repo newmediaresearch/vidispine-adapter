@@ -12,5 +12,5 @@ class Item:
         endpoint = 'import/placeholder'
 
         return self.client.post(
-            endpoint, payload=metadata, params=params
-        ).json()
+            endpoint, json=metadata, params=params
+        )
