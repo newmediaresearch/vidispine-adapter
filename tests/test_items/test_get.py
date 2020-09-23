@@ -58,7 +58,7 @@ def test_get_item_without_metadata(cassette, vidispine, create_item):
 
 def test_not_found_with_invalid_id(vidispine, cassette):
     with pytest.raises(NotFound) as err:
-        vidispine.collection.get('VX-12')
+        vidispine.collection.get('VX-99999999')
 
     err.match(
         r'Endpoint not found: GET'
