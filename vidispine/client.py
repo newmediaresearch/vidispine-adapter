@@ -8,6 +8,7 @@ from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
+from vidispine.items import Item
 from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
@@ -21,7 +22,9 @@ class Client:
         user: str = None,
         password: str = None,
     ) -> None:
+
         url = self._check_config('VIDISPINE_URL', 'url', url)
+
         user = self._check_config('VIDISPINE_USER', 'user', user)
         pwd = self._check_config('VIDISPINE_PASSWORD', 'password', password)
 
@@ -154,6 +157,7 @@ class Vidispine:
     ) -> None:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
+        self.item = Item(self.client)
 
     def version(self) -> BaseJson:
         return self.client.get('version')
