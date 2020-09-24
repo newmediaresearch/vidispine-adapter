@@ -25,3 +25,19 @@ class Item:
     def delete(self, item_id: str) -> None:
         endpoint = f'item/{item_id}'
         self.client.delete(endpoint)
+
+    def create_placeholder(
+        self,
+        metadata: dict,
+        params: dict = None
+    ) -> BaseJson:
+        if params is None:
+            params = {}
+
+        params.setdefault('container', 1)
+
+        endpoint = 'import/placeholder'
+
+        return self.client.post(
+            endpoint, json=metadata, params=params
+        )
