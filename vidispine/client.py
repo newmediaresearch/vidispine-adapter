@@ -39,6 +39,7 @@ class Client:
         name: str,
         attribute: str = None,
     ) -> str:
+
         if attribute:
             return attribute
 
@@ -154,6 +155,7 @@ class Vidispine:
         user: str = None,
         password: str = None,
     ) -> None:
+
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
         self.item = Item(self.client)

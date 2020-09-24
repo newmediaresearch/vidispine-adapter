@@ -26,7 +26,5 @@ def test_not_found_with_invalid_id(vidispine, cassette):
     with pytest.raises(NotFound) as err:
         vidispine.collection.get('VX-99999999')
 
-    err.match(
-        r'Not Found: GET'
-    )
+    err.match(r'Not Found: GET')
     assert cassette.all_played
