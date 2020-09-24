@@ -33,7 +33,7 @@ def test_import_to_placeholder_item_not_found(
         )
 
     err.match(
-        r'Endpoint not found: POST'
+        r'Not Found: POST'
         r' - http://localhost:8080/API/import/placeholder/VX-1000000/'
     )
 

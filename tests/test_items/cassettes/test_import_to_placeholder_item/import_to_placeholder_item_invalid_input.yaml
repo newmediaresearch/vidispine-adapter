@@ -19,16 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-52"}'
+      string: '{"id":"VX-53"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 15:31:48 GMT
+      - Thu, 24 Sep 2020 15:36:24 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:31:48
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:36:24
         GMT
     status:
       code: 200
