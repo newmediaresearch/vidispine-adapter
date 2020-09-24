@@ -22,6 +22,10 @@ class Item:
 
         return self.client.get(endpoint, params=params)
 
+    def delete(self, item_id: str) -> None:
+        endpoint = f'item/{item_id}'
+        self.client.delete(endpoint)
+
     def create_placeholder(
         self,
         metadata: dict,

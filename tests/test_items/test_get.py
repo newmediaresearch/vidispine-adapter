@@ -3,40 +3,6 @@ import pytest
 from vidispine.errors import NotFound
 
 
-@pytest.fixture
-def create_item(vidispine, cassette):
-    metadata = {
-        "timespan": [{
-            "field": [{
-                "name": "title",
-                "value": [{
-                    "value": "My placeholder import!"
-                }]
-            }],
-            "start": "-INF",
-            "end": "+INF"
-        }]
-    }
-
-    client = vidispine.client
-    endpoint = f'{client.base_url}import/placeholder'
-
-    params = {
-        'container': 1
-    }
-
-    request = client.request(
-        'post',
-        endpoint,
-        json=metadata,
-        params=params
-    )
-
-    item_id = request['id']
-
-    return item_id
-
-
 def test_get_item_with_metadata(cassette, vidispine, create_item):
     item_id = create_item
 

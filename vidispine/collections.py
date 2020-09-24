@@ -25,11 +25,15 @@ class Collection:
     def delete_multiple(self, vidispine_ids: list) -> None:
         if not vidispine_ids:
             raise InvalidInput('Please supply Vidispine IDs to delete.')
-        params = {
-            'id': ','.join(vidispine_ids)
-        }
+
+        params = {'id': ','.join(vidispine_ids)}
         endpoint = 'collection'
+
         self.client.delete(endpoint, params=params)
+
+    def update_metadata(self, vidispine_id: str, metadata: dict) -> BaseJson:
+        endpoint = f'collection/{vidispine_id}/metadata'
+        return self.client.put(endpoint, json=metadata)
 
     def list(self, params: dict = None) -> BaseJson:
         endpoint = 'collection'
