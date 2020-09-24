@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-49"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 24 Sep 2020 15:08:45 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:08:45
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder/VX-49/video?uri=%2FUsers%2Fdunnla%2FNMR%2Fvidispine-adapter%2Ftests%2Ftest_items%2Fsample-mp4-file.mp4
+  response:
+    body:
+      string: '{"notFound":null,"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":{"context":"job","id":null,"explanation":"No
+        more components of that type is accepted","value":"VIDEO_COMPONENT"},"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '292'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 24 Sep 2020 15:08:45 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:08:45
+        GMT
+    status:
+      code: 400
+      message: Bad Request
+version: 1
