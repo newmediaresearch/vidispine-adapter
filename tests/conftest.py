@@ -15,7 +15,10 @@ def vidispine() -> Vidispine:
 
 @pytest.fixture
 def cassette(request: Any) -> Cassette:
-    my_vcr = vcr.VCR(filter_headers=['authorization'])
+    my_vcr = vcr.VCR(
+        filter_headers=['authorization'],
+        match_on=['method', 'scheme', 'path', 'query', 'body', 'headers']
+    )
 
     cassette_dir = os.path.dirname(request.module.__file__)
     sub_dir_name = request.module.__name__.split('.')[-1]

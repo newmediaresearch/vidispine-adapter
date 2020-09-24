@@ -20,8 +20,9 @@ def test_list_no_metadata(
 ):
     test_collection_ids = create_multiple_collections(3)
 
-    # Give Vidispine enough time to create the collections.
-    time.sleep(2)
+    if cassette.dirty:
+        # Give Vidispine enough time to create the collections.
+        time.sleep(2)
 
     result = vidispine.collection.list()
     collections = result['collection']
@@ -37,8 +38,9 @@ def test_list_with_metadata(
 ):
     test_collection_ids = create_multiple_collections(3)
 
-    # Give Vidispine enough time to create the collections.
-    time.sleep(2)
+    if cassette.dirty:
+        # Give Vidispine enough time to create the collections.
+        time.sleep(2)
 
     result = vidispine.collection.list({'content': 'metadata'})
     collections = result['collection']

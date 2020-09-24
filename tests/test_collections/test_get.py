@@ -26,10 +26,7 @@ def test_not_found_with_no_metadata(vidispine, cassette):
 
     assert cassette.all_played
 
-    err.match(
-        r'Endpoint not found: GET'
-        r' - http://localhost:8080/API/collection/VX-1000000'
-    )
+    err.match(r'Not Found: GET')
 
 
 def test_not_found_with_metadata(vidispine, cassette):
@@ -38,7 +35,4 @@ def test_not_found_with_metadata(vidispine, cassette):
 
     assert cassette.all_played
 
-    err.match(
-        r'Endpoint not found: GET'
-        r' - http://localhost:8080/API/collection/VX-1000000/metadata'
-    )
+    err.match(r'Not Found: GET')

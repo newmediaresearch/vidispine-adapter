@@ -24,7 +24,6 @@ class Client:
     ) -> None:
 
         url = self._check_config('VIDISPINE_URL', 'url', url)
-
         user = self._check_config('VIDISPINE_USER', 'user', user)
         pwd = self._check_config('VIDISPINE_PASSWORD', 'password', password)
 
@@ -46,10 +45,6 @@ class Client:
         try:
             return os.environ[env_var]
         except KeyError:
-            error = (
-                f'{name} not provided or {env_var} '
-                'set as an environmental variable'
-            )
             error = f'Missing {name} or {env_var} not set'
             raise ConfigError(error)
 
@@ -69,8 +64,9 @@ class Client:
         params: dict = None,
         runas: str = None,
     ) -> ClientResponse:
+
         url = urljoin(self.base_url, url)
-        kwargs: Any = {
+        request_kwargs: Any = {
             'method': method,
             'url': url,
             'auth': self.auth,
@@ -80,26 +76,29 @@ class Client:
         tmp_headers = self._generate_headers()
         if headers:
             tmp_headers.update({k.lower(): v for k, v in headers.items()})
+
         if runas:
             tmp_headers.setdefault('runas', runas)
+
         # Vidispine throws an error if content-type supplied with no payload
         if method.upper() == 'GET' or (not json and not data):
             tmp_headers.pop('content-type')
-        kwargs['headers'] = tmp_headers
+
+        request_kwargs['headers'] = tmp_headers
 
         if json:
-            kwargs['json'] = json
+            request_kwargs['json'] = json
         if data:
-            kwargs['data'] = data
+            request_kwargs['data'] = data
 
-        response = requests.request(**kwargs)
+        response = requests.request(**request_kwargs)
 
         try:
             response.raise_for_status()
         except HTTPError as err:
             if response.status_code == 404:
                 raise NotFound(
-                    f'Endpoint not found: {method} - {url} - {response.text}'
+                    f'Not Found: {method} - {url} - {response.text}'
                 )
             else:
                 raise APIError(
