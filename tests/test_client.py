@@ -8,7 +8,7 @@ from vidispine.errors import APIError, ConfigError, NotFound
 
 
 @pytest.fixture
-def test_client():
+def test_client() -> Client:
     return Client('http://localhost:8080', 'admin', 'admin')
 
 
@@ -75,10 +75,14 @@ class TestRequest:
         endpoint = 'version'
 
         with requests_mock.Mocker() as m:
-            m.get('http://localhost:8080/API/version', json='foo')
+            m.get(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
             response = test_client._request('GET', endpoint)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
         assert m.last_request.headers['accept'] == 'application/json'
         assert m.last_request.headers['authorization'] == (
@@ -86,17 +90,42 @@ class TestRequest:
         )
         assert 'content-type' not in m.last_request.headers
 
-    def test_request_with_payload(self, test_client):
+    def test_request_with_json(self, test_client):
         endpoint = 'version'
-        payload = {'eggs': 123}
+        json = {'eggs': 123}
 
         with requests_mock.Mocker() as m:
-            m.post('http://localhost:8080/API/version', json='foo')
-            response = test_client._request('POST', endpoint, payload=payload)
+            m.post(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
+            response = test_client._request('POST', endpoint, json=json)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
-        assert m.last_request.json() == payload
+        assert m.last_request.json() == json
+        assert m.last_request.headers['content-type'] == 'application/json'
+        assert m.last_request.headers['accept'] == 'application/json'
+        assert m.last_request.headers['authorization'] == (
+            'Basic YWRtaW46YWRtaW4='
+        )
+
+    def test_request_with_data(self, test_client):
+        endpoint = 'version'
+        data = '<xml />'
+
+        with requests_mock.Mocker() as m:
+            m.post(
+                'http://localhost:8080/API/version',
+                text=data,
+                headers={'Content-Type': 'application/xml'}
+            )
+            response = test_client._request('POST', endpoint, data=data)
+
+        assert response == data
+        assert m.last_request.url == 'http://localhost:8080/API/version'
+        assert m.last_request.text == data
         assert m.last_request.headers['content-type'] == 'application/json'
         assert m.last_request.headers['accept'] == 'application/json'
         assert m.last_request.headers['authorization'] == (
@@ -108,10 +137,14 @@ class TestRequest:
         params = {'foo': 'bar'}
 
         with requests_mock.Mocker() as m:
-            m.get('http://localhost:8080/API/version', json='foo')
+            m.get(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
             response = test_client._request('GET', endpoint, params=params)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == (
             'http://localhost:8080/API/version?foo=bar'
         )
@@ -156,50 +189,107 @@ class TestRequest:
         endpoint = 'version'
 
         with requests_mock.Mocker() as m:
-            m.get('http://localhost:8080/API/version', json='foo')
+            m.get(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
             response = test_client.get(endpoint)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_delete(self, test_client):
         endpoint = 'version'
 
         with requests_mock.Mocker() as m:
-            m.delete('http://localhost:8080/API/version', json='foo')
+            m.delete(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
             response = test_client.delete(endpoint)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_post(self, test_client):
         endpoint = 'version'
-        payload = {'eggs': 123}
+        json = {'eggs': 123}
 
         with requests_mock.Mocker() as m:
-            m.post('http://localhost:8080/API/version', json='foo')
-            response = test_client.post(endpoint, payload)
+            m.post(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
+            response = test_client.post(endpoint, json=json)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_put(self, test_client):
         endpoint = 'version'
-        payload = {'eggs': 123}
+        json = {'eggs': 123}
 
         with requests_mock.Mocker() as m:
-            m.put('http://localhost:8080/API/version', json='foo')
-            response = test_client.put(endpoint, payload)
+            m.put(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
+            response = test_client.put(endpoint, json=json)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
 
     def test_passthrough_request(self, test_client):
-        endpoint = '/version'
+        endpoint = 'version'
 
         with requests_mock.Mocker() as m:
-            m.get('http://localhost:8080/API/version', json='foo')
+            m.get(
+                'http://localhost:8080/API/version',
+                json='foo',
+                headers={'Content-Type': 'application/json'}
+            )
             response = test_client.request('GET', endpoint)
 
-        assert response.json() == 'foo'
+        assert response == 'foo'
         assert m.last_request.url == 'http://localhost:8080/API/version'
+
+    def test_headers(self, test_client):
+        endpoint = 'version'
+        accept = 'text/plain'
+        with requests_mock.Mocker() as m:
+            headers = {'accept': accept}
+            m.get('http://localhost:8080/API/version')
+            test_client.get(endpoint, headers=headers)
+
+        assert m.last_request.headers['accept'] == accept
+
+    def test_runas(self, test_client):
+        endpoint = 'version'
+        runas = 'admin'
+        with requests_mock.Mocker() as m:
+            m.get('http://localhost:8080/API/version')
+            test_client.get(endpoint, runas=runas)
+
+        assert m.last_request.headers['runas'] == runas
+
+    def test_runas_in_header(self, test_client):
+        endpoint = 'version'
+        runas = 'admin'
+        with requests_mock.Mocker() as m:
+            headers = {'runas': runas}
+            m.get('http://localhost:8080/API/version')
+            test_client.get(endpoint, headers=headers, runas='notused')
+
+        assert m.last_request.headers['runas'] == runas
+
+    def test_no_content(self, test_client):
+        endpoint = 'version'
+        with requests_mock.Mocker() as m:
+            m.get('http://localhost:8080/API/version', status_code=204)
+            response = test_client.get(endpoint)
+
+        assert response == ''

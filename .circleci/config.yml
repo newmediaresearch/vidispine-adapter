@@ -57,7 +57,7 @@ workflows:
           python-version: "3.8"
           name: quality-checks
           command: |
-            poetry run flake8 ./ && \
-            poetry run isort --check-only . && \
-            poetry run mypy vidispine/
+            poetry run flake8 ./
+            poetry run isort --check-only ./
+            poetry run mypy ./
           command-name: Run quality checks

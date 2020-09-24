@@ -1,0 +1,33 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/reindex/acl
+  response:
+    body:
+      string: '{"index":"acl","priority":500,"status":"IN_QUEUE","start":"2020-09-23T09:50:37.873+0000"}'
+    headers:
+      Content-Length:
+      - '89'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 23 Sep 2020 09:50:37 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 09:50:37
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1
