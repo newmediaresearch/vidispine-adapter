@@ -1,10 +1,17 @@
+from vidispine.typing import BaseJson
+
 
 class Item:
 
     def __init__(self, client) -> None:
         self.client = client
 
-    def get(self, item_id: str, params: dict = None, metadata=True) -> dict:
+    def get(
+        self,
+        item_id: str,
+        params: dict = None,
+        metadata=True
+    ) -> BaseJson:
         if not params:
             params = {}
 
