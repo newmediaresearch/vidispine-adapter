@@ -19,16 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-50"}'
+      string: '{"id":"VX-54"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 15:19:44 GMT
+      - Thu, 24 Sep 2020 16:05:36 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:19:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 16:05:36
         GMT
     status:
       code: 200
@@ -47,19 +47,19 @@ interactions:
       accept:
       - application/json
     method: POST
-    uri: http://localhost:8080/API/import/placeholder/VX-50/container?uri=%2FUsers%2Fdunnla%2FNMR%2Fvidispine-adapter%2Ftests%2Ftest_items%2Fsample-mp4-file.mp4
+    uri: http://localhost:8080/API/import/placeholder/VX-54/container?uri=%2FUsers%2Fdunnla%2FNMR%2Fvidispine-adapter%2Ftests%2Ftest_items%2Fsample-mp4-file.mp4
   response:
     body:
-      string: '{"jobId":"VX-9","user":"admin","started":"2020-09-24T15:19:44.709+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM"}'
+      string: '{"jobId":"VX-10","user":"admin","started":"2020-09-24T16:05:36.438+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM"}'
     headers:
       Content-Length:
-      - '137'
+      - '138'
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 15:19:44 GMT
+      - Thu, 24 Sep 2020 16:05:36 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 15:19:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 16:05:36
         GMT
     status:
       code: 200
