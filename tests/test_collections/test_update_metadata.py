@@ -24,7 +24,7 @@ def create_metadata_field(vidispine, cassette):
     return _create_metadata_field
 
 
-def test_update(
+def test_update_metadata(
     vidispine, cassette, create_metadata_field, create_collection
 ):
     create_metadata_field('field_one')
@@ -36,12 +36,14 @@ def test_update(
         'field_two': 123
     }
 
-    vidispine.collection.update(create_collection, generate_metadata(fields))
+    vidispine.collection.update_metadata(
+        create_collection, generate_metadata(fields)
+    )
 
     assert cassette.all_played
 
 
-def test_update_field_does_not_exist(
+def test_update_metadata_field_does_not_exist(
     vidispine, cassette, create_metadata_field, create_collection
 ):
     create_metadata_field('field_one')
@@ -55,7 +57,7 @@ def test_update_field_does_not_exist(
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.collection.update(
+        vidispine.collection.update_metadata(
             create_collection, generate_metadata(fields)
         )
 
@@ -67,7 +69,7 @@ def test_update_field_does_not_exist(
     assert cassette.all_played
 
 
-def test_update_collection_not_found(vidispine, cassette):
+def test_update_metadata_collection_not_found(vidispine, cassette):
     fields = {
         'title': 'Foo bar',
         'field_one': 'eggs',
@@ -75,7 +77,9 @@ def test_update_collection_not_found(vidispine, cassette):
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.collection.update('VX-1000000', generate_metadata(fields))
+        vidispine.collection.update_metadata(
+            'VX-1000000', generate_metadata(fields)
+        )
 
     err.match(
         r'Endpoint not found: PUT'
