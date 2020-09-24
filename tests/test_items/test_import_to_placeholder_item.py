@@ -1,6 +1,3 @@
-import os
-import re
-
 import pytest
 
 from vidispine.errors import APIError, InvalidInput, NotFound
@@ -8,9 +5,7 @@ from vidispine.errors import APIError, InvalidInput, NotFound
 
 @pytest.fixture
 def sample_file():
-    dirname = os.path.dirname(__file__)
-    file = os.path.join(dirname, 'sample-mp4-file.mp4')
-
+    file = '../test_media/sample-mp4-file.mp4'
     return file
 
 
@@ -32,10 +27,7 @@ def test_import_to_placeholder_item_not_found(
             'VX-1000000', 'container', {'uri': sample_file}
         )
 
-    err.match(
-        r'Not Found: POST'
-        r' - http://localhost:8080/API/import/placeholder/VX-1000000/'
-    )
+    err.match('Not Found: POST')
 
     assert cassette.all_played
 
@@ -48,10 +40,7 @@ def test_import_to_placeholder_item_invalid_component(
             create_item, 'video', {'uri': sample_file}
         )
 
-        re.match(
-            r'Vidispine Error: POST'
-            r' - http://localhost:8080/API/import/placeholder/VX-\d+$/', err
-        )
+    err.match('Vidispine Error: POST')
 
     assert cassette.all_played
 
