@@ -162,10 +162,7 @@ class TestRequest:
             with pytest.raises(NotFound) as err:
                 test_client._request('GET', endpoint)
 
-        assert err.value.args[0] == (
-            'Endpoint not found: GET - http://localhost:8080/API/version - '
-            'not here'
-        )
+        assert err.match(r'Not Found: GET')
 
     def test_unexpected_error(self, test_client):
         endpoint = 'version'

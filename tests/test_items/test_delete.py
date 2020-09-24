@@ -20,6 +20,4 @@ def test_delete_not_found(vidispine, cassette):
 
     assert cassette.all_played
 
-    err.match(
-        r'Endpoint not found: DELETE'
-    )
+    err.match(r'Not Found: DELETE')

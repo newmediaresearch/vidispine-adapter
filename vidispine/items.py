@@ -13,6 +13,7 @@ class Item:
         params: dict = None,
         metadata=True
     ) -> BaseJson:
+
         if not params:
             params = {}
 
@@ -32,11 +33,11 @@ class Item:
         metadata: dict,
         params: dict = None
     ) -> BaseJson:
+
         if params is None:
             params = {}
 
         params.setdefault('container', 1)
-
         endpoint = 'import/placeholder'
 
         return self.client.post(

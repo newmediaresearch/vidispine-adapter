@@ -81,9 +81,6 @@ def test_update_metadata_collection_not_found(vidispine, cassette):
             'VX-1000000', generate_metadata(fields)
         )
 
-    err.match(
-        r'Endpoint not found: PUT'
-        r' - http://localhost:8080/API/collection/VX-1000000/metadata'
-    )
+    err.match(r'Not Found: PUT')
 
     assert cassette.all_played
