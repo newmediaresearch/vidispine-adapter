@@ -173,14 +173,13 @@ class Vidispine:
 
     def create_metadata_field(
         self,
-        field_type: str,
+        metadata: dict,
         field_name: str
     ) -> BaseJson:
 
-        if not field_type:
-            raise InvalidInput('Please supply a field type.')
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
 
-        metadata = {'type': field_type}
         endpoint = f'metadata-field/{field_name}'
 
         return self.client.put(endpoint, json=metadata)
