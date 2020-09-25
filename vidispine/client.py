@@ -7,7 +7,7 @@ import requests
 from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
-from vidispine.errors import APIError, ConfigError, NotFound
+from vidispine.errors import APIError, ConfigError, InvalidInput, NotFound
 from vidispine.items import Item
 from vidispine.typing import BaseJson, ClientResponse
 
@@ -171,8 +171,11 @@ class Vidispine:
 
         return self.client.put(endpoint, params=params)
 
-    def create_metadata_field(self, field_name: str) -> None:
-        metadata = {'type': 'string'}
+    def create_metadata_field(self, type_: str, field_name: str) -> BaseJson:
+        if not type_:
+            raise InvalidInput('Please supply a field type.')
+
+        metadata = {'type': f'{type_}'}
         endpoint = f'metadata-field/{field_name}'
 
-        self.client.put(endpoint, json=metadata)
+        return self.client.put(endpoint, json=metadata)
