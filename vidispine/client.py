@@ -170,3 +170,6 @@ class Vidispine:
         endpoint = f'reindex/{index}'
 
         return self.client.put(endpoint, params=params)
+
+    def update_metadata_field():
+        pass
