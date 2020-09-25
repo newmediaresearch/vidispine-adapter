@@ -22,6 +22,8 @@ def test_create_metadata_field_invalid_field_name(vidispine, cassette):
 
     err.match('Vidispine Error: PUT')
 
+    assert cassette.all_played
+
 
 def test_create_metadata_field_invalid_input(vidispine):
     field_name = 'field_one'
