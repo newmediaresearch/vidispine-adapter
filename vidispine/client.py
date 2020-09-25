@@ -170,3 +170,9 @@ class Vidispine:
         endpoint = f'reindex/{index}'
 
         return self.client.put(endpoint, params=params)
+
+    def create_metadata_field(self, field_name: str) -> None:
+        metadata = {'type': 'string'}
+        endpoint = f'metadata-field/{field_name}'
+
+        self.client.put(endpoint, json=metadata)
