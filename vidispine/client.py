@@ -160,7 +160,7 @@ class Vidispine:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
         self.item = Item(self.client)
-        self.metadata = MetadataField(self.client)
+        self.metadata_field = MetadataField(self.client)
 
     def version(self) -> BaseJson:
         return self.client.get('version')

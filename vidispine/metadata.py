@@ -1,5 +1,5 @@
-from vidispine.typing import BaseJson
 from vidispine.errors import InvalidInput
+from vidispine.typing import BaseJson
 
 
 class MetadataField:
