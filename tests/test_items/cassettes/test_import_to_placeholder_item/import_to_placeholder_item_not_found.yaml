@@ -13,7 +13,7 @@ interactions:
       accept:
       - application/json
     method: POST
-    uri: http://localhost:8080/API/import/placeholder/VX-1000000/container?uri=..%2Ftest_media%2Fsample-mp4-file.mp4
+    uri: http://localhost:8080/API/import/placeholder/VX-1000000/container?uri=tests%2Ftest_media%2Fsample-mp4-file.mp4
   response:
     body:
       string: '{"notFound":{"type":"Item","id":"VX-1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
@@ -23,9 +23,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 16:31:54 GMT
+      - Mon, 28 Sep 2020 11:07:40 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 16:31:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:07:41
         GMT
     status:
       code: 404

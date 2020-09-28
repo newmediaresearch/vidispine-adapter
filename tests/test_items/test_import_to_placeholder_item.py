@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pytest
 
 from vidispine.errors import APIError, InvalidInput, NotFound
@@ -5,8 +7,10 @@ from vidispine.errors import APIError, InvalidInput, NotFound
 
 @pytest.fixture
 def sample_file():
-    file = '../test_media/sample-mp4-file.mp4'
-    return file
+    cwd = Path.cwd()
+    path = cwd.joinpath('tests', 'test_media', 'sample-mp4-file.mp4')
+    relative_path = path.relative_to(cwd)
+    return relative_path
 
 
 def test_import_to_placeholder_item(

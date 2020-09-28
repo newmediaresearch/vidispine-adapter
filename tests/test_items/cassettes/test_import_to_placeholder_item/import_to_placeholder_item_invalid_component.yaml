@@ -19,16 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-61"}'
+      string: '{"id":"VX-77"}'
     headers:
       Content-Length:
       - '14'
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 16:31:55 GMT
+      - Mon, 28 Sep 2020 11:07:41 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 16:31:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:07:41
         GMT
     status:
       code: 200
@@ -47,7 +47,7 @@ interactions:
       accept:
       - application/json
     method: POST
-    uri: http://localhost:8080/API/import/placeholder/VX-61/video?uri=..%2Ftest_media%2Fsample-mp4-file.mp4
+    uri: http://localhost:8080/API/import/placeholder/VX-77/video?uri=tests%2Ftest_media%2Fsample-mp4-file.mp4
   response:
     body:
       string: '{"notFound":null,"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":{"context":"job","id":null,"explanation":"No
@@ -58,9 +58,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Thu, 24 Sep 2020 16:31:55 GMT
+      - Mon, 28 Sep 2020 11:07:44 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 23-Sep-2020 16:31:55
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:07:44
         GMT
     status:
       code: 400
