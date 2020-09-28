@@ -7,8 +7,9 @@ import requests
 from requests.exceptions import HTTPError
 
 from vidispine.collections import Collection
-from vidispine.errors import APIError, ConfigError, InvalidInput, NotFound
+from vidispine.errors import APIError, ConfigError, NotFound
 from vidispine.items import Item
+from vidispine.metadata import MetadataField
 from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
@@ -159,6 +160,7 @@ class Vidispine:
         self.client = Client(url, user, password)
         self.collection = Collection(self.client)
         self.item = Item(self.client)
+        self.metadata_field = MetadataField(self.client)
 
     def version(self) -> BaseJson:
         return self.client.get('version')
@@ -170,16 +172,3 @@ class Vidispine:
         endpoint = f'reindex/{index}'
 
         return self.client.put(endpoint, params=params)
-
-    def update_metadata_field(
-        self,
-        metadata: dict,
-        field_name: str
-    ) -> BaseJson:
-
-        if not metadata:
-            raise InvalidInput('Please supply metadata.')
-
-        endpoint = f'metadata-field/{field_name}'
-
-        return self.client.put(endpoint, json=metadata)
