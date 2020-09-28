@@ -44,7 +44,7 @@ class Item:
             endpoint, json=metadata, params=params
         )
 
-    def import_to_placeholder_item(
+    def import_to_placeholder(
         self,
         item_id: str,
         component_type: str,

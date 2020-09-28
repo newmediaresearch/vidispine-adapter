@@ -13,21 +13,21 @@ def sample_file():
     return relative_path
 
 
-def test_import_to_placeholder_item(
+def test_import_to_placeholder(
     vidispine, cassette, create_item, sample_file
 ):
-    vidispine.item.import_to_placeholder_item(
+    vidispine.item.import_to_placeholder(
         create_item, 'container', {'uri': sample_file}
     )
 
     assert cassette.all_played
 
 
-def test_import_to_placeholder_item_not_found(
+def test_import_to_placeholder_not_found(
     vidispine, cassette, sample_file
 ):
     with pytest.raises(NotFound) as err:
-        vidispine.item.import_to_placeholder_item(
+        vidispine.item.import_to_placeholder(
             'VX-1000000', 'container', {'uri': sample_file}
         )
 
@@ -36,11 +36,11 @@ def test_import_to_placeholder_item_not_found(
     assert cassette.all_played
 
 
-def test_import_to_placeholder_item_invalid_component(
+def test_import_to_placeholder_invalid_component(
     vidispine, cassette, create_item, sample_file
 ):
     with pytest.raises(APIError) as err:
-        vidispine.item.import_to_placeholder_item(
+        vidispine.item.import_to_placeholder(
             create_item, 'video', {'uri': sample_file}
         )
 
@@ -49,9 +49,9 @@ def test_import_to_placeholder_item_invalid_component(
     assert cassette.all_played
 
 
-def test_import_to_placeholder_item_invalid_input(vidispine, create_item):
+def test_import_to_placeholder_invalid_input(vidispine, create_item):
     with pytest.raises(InvalidInput) as err:
-        vidispine.item.import_to_placeholder_item(
+        vidispine.item.import_to_placeholder(
             create_item, 'container', {}
         )
 
