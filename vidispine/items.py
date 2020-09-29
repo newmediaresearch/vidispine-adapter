@@ -1,3 +1,4 @@
+from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
 
@@ -42,3 +43,17 @@ class Item:
         return self.client.post(
             endpoint, json=metadata, params=params
         )
+
+    def import_to_placeholder(
+        self,
+        item_id: str,
+        component_type: str,
+        params: dict
+    ) -> None:
+
+        if not params:
+            raise InvalidInput('Please supply a URI or fileId.')
+
+        endpoint = f'import/placeholder/{item_id}/{component_type}'
+
+        self.client.post(endpoint, params=params)
