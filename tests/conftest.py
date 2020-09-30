@@ -10,7 +10,7 @@ from vidispine.client import Vidispine
 
 @pytest.fixture
 def vidispine() -> Vidispine:
-    return Vidispine('http://localhost:8080', 'admin', 'admin')
+    return Vidispine('http://192.168.9.60:8080', 'admin', 'admin')
 
 
 @pytest.fixture
