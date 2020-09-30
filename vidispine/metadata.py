@@ -19,6 +19,7 @@ class MetadataFieldGroup:
         endpoint = f'metadata-field/field-group/{field_group_name}'
         self.client.delete(endpoint)
 
+
 class MetadataField:
 
     def __init__(self, client) -> None:
