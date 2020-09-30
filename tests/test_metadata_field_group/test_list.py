@@ -1,16 +1,3 @@
-import pytest
-
-
-@pytest.fixture
-def create_metadata_field_group(vidispine):
-    def _create_metadata_field_group(field_group_name):
-        endpoint = f'metadata-field/field-group/{field_group_name}'
-
-        vidispine.client.request('put', endpoint)
-
-    return _create_metadata_field_group
-
-
 def test_list(vidispine, cassette, create_metadata_field_group):
     test_field_group_name = 'field_group_one'
     create_metadata_field_group(test_field_group_name)
