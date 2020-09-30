@@ -28,6 +28,7 @@ class MetadataFieldGroup:
 
         self.client.put(endpoint)
 
+
 class MetadataField:
 
     def __init__(self, client) -> None:
