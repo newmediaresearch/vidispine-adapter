@@ -104,10 +104,10 @@ def create_metadata_field(vidispine):
 
 
 @pytest.fixture
-def create_metadata_field_group(vidispine):
-    def _create_metadata_field_group(field_group_name):
-        endpoint = f'metadata-field/field-group/{field_group_name}'
+def create_metadata_field_group(vidispine, cassette):
+    test_field_group_name = 'field_group_one'
+    endpoint = f'metadata-field/field-group/{test_field_group_name}'
 
-        vidispine.client.request('put', endpoint)
+    vidispine.client.request('put', endpoint)
 
-    return _create_metadata_field_group
+    return test_field_group_name
