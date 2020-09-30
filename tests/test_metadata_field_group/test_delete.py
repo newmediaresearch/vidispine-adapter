@@ -4,10 +4,7 @@ from vidispine.errors import NotFound
 
 
 def test_delete(vidispine, cassette, create_metadata_field_group):
-    test_field_group_name = 'field_group_one'
-    create_metadata_field_group(test_field_group_name)
-
-    vidispine.metadata_field_group.delete(test_field_group_name)
+    vidispine.metadata_field_group.delete(create_metadata_field_group)
 
     assert cassette.all_played
 
