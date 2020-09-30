@@ -34,6 +34,8 @@ def test_add_field_to_group_non_existent_group(
 
     err.match('Not Found: PUT')
 
+    assert cassette.all_played
+
 
 def test_add_field_to_group_non_existent_field(
     vidispine, cassette, create_metadata_field_group
@@ -49,3 +51,5 @@ def test_add_field_to_group_non_existent_field(
         )
 
     err.match('Not Found: PUT')
+
+    assert cassette.all_played
