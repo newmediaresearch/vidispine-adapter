@@ -9,7 +9,7 @@ from requests.exceptions import HTTPError
 from vidispine.collections import Collection
 from vidispine.errors import APIError, ConfigError, NotFound
 from vidispine.items import Item
-from vidispine.metadata import MetadataField
+from vidispine.metadata import MetadataField, MetadataFieldGroup
 from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
@@ -161,6 +161,7 @@ class Vidispine:
         self.collection = Collection(self.client)
         self.item = Item(self.client)
         self.metadata_field = MetadataField(self.client)
+        self.metadata_field_group = MetadataFieldGroup(self.client)
 
     def version(self) -> BaseJson:
         return self.client.get('version')
