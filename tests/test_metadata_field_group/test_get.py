@@ -3,16 +3,11 @@ import pytest
 from vidispine.errors import NotFound
 
 
-@pytest.fixture
-def create_metadata_field_group(vidispine):
-    endpoint = f'metadata-field/field-group/field_group_one'
-    vidispine.client.request('put', endpoint)
-
-
 def test_get(vidispine, cassette, create_metadata_field_group):
-    result = vidispine.metadata_field_group.get('field_group_one')
+    test_field_group_name = create_metadata_field_group
+    result = vidispine.metadata_field_group.get(test_field_group_name)
 
-    assert result['name'] == 'field_group_one'
+    assert result['name'] == test_field_group_name
     assert cassette.all_played
 
 
