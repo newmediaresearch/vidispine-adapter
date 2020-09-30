@@ -27,13 +27,13 @@ class MetadataField:
             params: dict = {}
     ) -> BaseJson:
         if not field_name:
-            raise InvalidInput("Must supply field name")
+            raise InvalidInput("Please supply a field name")
 
         endpoint = f'metadata-field/{field_name}'
 
         return self.client.get(endpoint, params=params)
 
     def list(self):
-        endpoint = 'metadata-field/'
+        endpoint = 'metadata-field'
 
         return self.client.get(endpoint)

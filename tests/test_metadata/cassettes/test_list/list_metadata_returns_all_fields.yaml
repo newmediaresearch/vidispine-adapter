@@ -11,7 +11,7 @@ interactions:
       accept:
       - application/json
     method: GET
-    uri: http://192.168.9.60:8080/API/metadata-field/
+    uri: http://192.168.9.60:8080/API/metadata-field
   response:
     body:
       string: !!binary |
@@ -68,9 +68,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 30 Sep 2020 10:14:01 GMT
+      - Wed, 30 Sep 2020 11:27:46 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 29-Sep-2020 10:14:01
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 29-Sep-2020 11:27:46
         GMT
       Transfer-Encoding:
       - chunked
