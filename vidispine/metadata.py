@@ -15,6 +15,9 @@ class MetadataFieldGroup:
 
         return self.client.get(endpoint, params=params)
 
+    def delete(self) -> None:
+        pass
+
 
 class MetadataField:
 
