@@ -35,6 +35,10 @@ class MetadataFieldGroup:
 
         self.client.delete(endpoint)
 
+    def delete(self, field_group_name: str) -> None:
+        endpoint = f'metadata-field/field-group/{field_group_name}'
+        self.client.delete(endpoint)
+
 
 class MetadataField:
 
