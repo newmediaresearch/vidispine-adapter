@@ -18,16 +18,16 @@ interactions:
     uri: http://localhost:8080/API/metadata-field/field_one
   response:
     body:
-      string: '{"name":"field_one","type":"string","defaultValue":"0","origin":"VX"}'
+      string: '{"name":"field_one","type":"string","origin":"VX"}'
     headers:
       Content-Length:
-      - '69'
+      - '50'
       Content-Type:
       - application/json
       Date:
-      - Mon, 28 Sep 2020 11:24:49 GMT
+      - Thu, 01 Oct 2020 11:16:00 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:24:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 30-Sep-2020 11:16:00
         GMT
     status:
       code: 200
