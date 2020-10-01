@@ -1,3 +1,4 @@
+
 def test_list(vidispine, cassette, metadata_field_group):
     result = vidispine.metadata_field_group.list()
     field_group_names = [group['name'] for group in result['group']]
