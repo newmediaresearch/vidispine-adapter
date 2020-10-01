@@ -16,6 +16,7 @@ def test_update(vidispine, cassette, create_metadata_field):
     assert result['name'] == field_name
     assert result['type'] == metadata['type']
     assert result['defaultValue'] == str(metadata['defaultValue'])
+    assert result['origin'] == 'VX'
     assert cassette.all_played
 
 
