@@ -3,11 +3,8 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_delete(vidispine, cassette, create_metadata_field):
-    field_name = 'field_one'
-    create_metadata_field(field_name)
-
-    vidispine.metadata_field.delete(field_name)
+def test_delete(vidispine, cassette, metadata_field):
+    vidispine.metadata_field.delete(metadata_field)
 
     assert cassette.all_played
 
