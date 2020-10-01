@@ -94,20 +94,13 @@ def create_metadata_field(vidispine, cassette):
 
         endpoint = f'metadata-field/{field_name}'
 
-        vidispine.client.request('put', endpoint, json=metadata)
+        return vidispine.client.request('put', endpoint, json=metadata)
 
     return _create_metadata_field
 
 
 @pytest.fixture
-def metadata_field(vidispine, cassette):
-    metadata = {
-        'type': 'string'
-    }
-
-    endpoint = 'metadata-field/field_one'
-    request = vidispine.client.request('put', endpoint, json=metadata)
-
-    metadata_field_name = request['name']
-
+def metadata_field(vidispine, cassette, create_metadata_field):
+    result = create_metadata_field('field_one')
+    metadata_field_name = result['name']
     return metadata_field_name

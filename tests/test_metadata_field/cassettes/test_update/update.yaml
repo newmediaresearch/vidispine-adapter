@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: '{"type": "string"}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field_one
+  response:
+    body:
+      string: '{"name":"field_one","type":"string","defaultValue":"0","origin":"VX"}'
+    headers:
+      Content-Length:
+      - '69'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 28 Sep 2020 11:57:05 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:57:05
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "integer", "defaultValue": 0}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '38'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field_one
+  response:
+    body:
+      string: '{"name":"field_one","type":"integer","defaultValue":"0","origin":"VX"}'
+    headers:
+      Content-Length:
+      - '70'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 28 Sep 2020 11:57:05 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 27-Sep-2020 11:57:05
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1
