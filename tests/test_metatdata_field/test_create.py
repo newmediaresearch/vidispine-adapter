@@ -10,6 +10,7 @@ def test_create(vidispine, cassette):
 
     assert result['name'] == field_name
     assert result['type'] == 'string'
+    assert result['origin'] == 'VX'
     assert cassette.all_played
 
 
