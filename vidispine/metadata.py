@@ -23,6 +23,18 @@ class MetadataFieldGroup:
 
         return self.client.get(endpoint, params=params)
 
+    def remove_field_from_group(
+        self,
+        field_group_name: str,
+        field_name: str
+    ) -> None:
+
+        endpoint = (
+            f'metadata-field/field-group/{field_group_name}/{field_name}'
+        )
+
+        self.client.delete(endpoint)
+
     def delete(self, field_group_name: str) -> None:
         endpoint = f'metadata-field/field-group/{field_group_name}'
         self.client.delete(endpoint)
