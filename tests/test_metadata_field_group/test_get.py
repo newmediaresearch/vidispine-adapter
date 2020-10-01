@@ -3,11 +3,10 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_get(vidispine, cassette, create_metadata_field_group):
-    test_field_group_name = create_metadata_field_group
-    result = vidispine.metadata_field_group.get(test_field_group_name)
+def test_get(vidispine, cassette, metadata_field_group):
+    result = vidispine.metadata_field_group.get(metadata_field_group)
 
-    assert result['name'] == test_field_group_name
+    assert result['name'] == metadata_field_group
     assert cassette.all_played
 
 
