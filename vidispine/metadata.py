@@ -37,6 +37,14 @@ class MetadataField:
 
         return self.client.put(endpoint, json=metadata)
 
+    def update(self, metadata: dict, field_name: str) -> BaseJson:
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
+        endpoint = f'metadata-field/{field_name}'
+
+        return self.client.put(endpoint, json=metadata)
+
     def get(
             self,
             field_name: str,

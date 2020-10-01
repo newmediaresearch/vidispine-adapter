@@ -6,24 +6,6 @@ from vidispine.errors import NotFound
 from vidispine.utils import generate_metadata
 
 
-@pytest.fixture
-def create_metadata_field(vidispine, cassette):
-    def _create_metadata_field(field_name):
-        metadata = {
-            'type': 'string'
-        }
-
-        endpoint = f'metadata-field/{field_name}'
-
-        vidispine.client.request(
-            'put',
-            endpoint,
-            json=metadata
-        )
-
-    return _create_metadata_field
-
-
 def test_update_metadata(
     vidispine, cassette, create_metadata_field, create_collection
 ):
