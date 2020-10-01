@@ -83,3 +83,31 @@ def create_item(vidispine, cassette):
     item_id = request['id']
 
     return item_id
+
+
+@pytest.fixture
+def create_metadata_field(vidispine):
+    def _create_metadata_field(field_name):
+        metadata = {
+            'type': 'string'
+        }
+
+        endpoint = f'metadata-field/{field_name}'
+
+        vidispine.client.request(
+            'put',
+            endpoint,
+            json=metadata
+        )
+
+    return _create_metadata_field
+
+
+@pytest.fixture
+def create_metadata_field_group(vidispine, cassette):
+    test_field_group_name = 'field_group_one'
+    endpoint = f'metadata-field/field-group/{test_field_group_name}'
+
+    vidispine.client.request('put', endpoint)
+
+    return test_field_group_name
