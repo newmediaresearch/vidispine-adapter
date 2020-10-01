@@ -65,3 +65,7 @@ class MetadataField:
         endpoint = 'metadata-field'
 
         return self.client.get(endpoint)
+
+    def delete(self, field_name: str) -> None:
+        endpoint = f'metadata-field/{field_name}'
+        self.client.delete(endpoint)
