@@ -56,4 +56,4 @@ class Item:
 
         endpoint = f'import/placeholder/{item_id}/{component_type}'
 
-        self.client.post(endpoint, params=params)
+        return self.client.post(endpoint, params=params)

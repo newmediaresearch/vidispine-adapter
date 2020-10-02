@@ -1,25 +1,16 @@
-from pathlib import Path
-
 import pytest
 
 from vidispine.errors import APIError, InvalidInput, NotFound
 
 
-@pytest.fixture
-def sample_file():
-    cwd = Path.cwd()
-    path = cwd.joinpath('tests', 'test_media', 'sample-mp4-file.mp4')
-    relative_path = path.relative_to(cwd)
-    return relative_path
-
-
 def test_import_to_placeholder(
     vidispine, cassette, create_item, sample_file
 ):
-    vidispine.item.import_to_placeholder(
+    result = vidispine.item.import_to_placeholder(
         create_item, 'container', {'uri': sample_file}
     )
 
+    assert result['type'] == 'PLACEHOLDER_IMPORT'
     assert cassette.all_played
 
 

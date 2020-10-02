@@ -1,0 +1,98 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-93"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Oct 2020 15:36:53 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 01-Oct-2020 15:36:53
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder/VX-93/container?uri=tests%2Ftest_media%2Fsample-mp4-file.mp4
+  response:
+    body:
+      string: '{"jobId":"VX-29","user":"admin","started":"2020-10-02T15:36:54.047+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM"}'
+    headers:
+      Content-Length:
+      - '138'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Oct 2020 15:36:54 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 01-Oct-2020 15:36:54
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/job/VX-29
+  response:
+    body:
+      string: '{"jobId":"VX-29","user":"admin","started":"2020-10-02T15:36:54.047+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM","data":[{"key":"item","value":"VX-93"}],"log":{"task":[]}}'
+    headers:
+      Content-Length:
+      - '196'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Oct 2020 15:36:54 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 01-Oct-2020 15:36:54
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
