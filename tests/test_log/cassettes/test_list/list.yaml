@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/log
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAN2c247bNhCG38VAfdHaMimJOnihi6Bo0wANshdOUaAoDNrm2ip0KkWlawR5985I
+        3o2TOhuvykAiF1jAknWYT784HM6Qfj8RhZLHyfKP95OmFrLguZgsJ3yXp8VkNsmFOpQ72PHypxVs
+        VlwdYGORlXvY+rsR8njLJZyihKzhCzyDK5nef75XpbmoFc8r2HSJS+aUzAlbUbb06NL1HRYEPxD4
+        m3yYPceOv8rNDR6d/MyzWlw0CT7wHVe8O2Sa7soiOyYr2YjLxt4UTb6BK1L4WjbFi/rMiqcpiEMI
+        +/8UN3eprFVCHw0hT3MhyrRWonoKqi6lSuA+r3bfuWQn6u1z6WjsxIFrukaUAQWxViOgo7HxGhEn
+        IpG1GhEnDDW8gcNqRPBNs9bXAV0UangDB9aIOEFkr0ZA5xnu68iSwZvGNFCMUaOOjhoe1wEF9Eeh
+        b61GQOeFpmvkMycMPFs1QjrXfI2oQ1xr25FPnDgyXiMPPLat46OOjpqvEXhspmEkPlKNiA0aucze
+        MWxLF4bUeI3AY+uIfEaqEdARw/N1BDNagb1xHdK5hucZgII6NNQwyhupRkDnGT+GJb4Tx9bGDEjH
+        rmxHt2/P6VIl8osE27JQolDJA8lMHYC44Gk2q0oAkrNGprP6wCuQrdhmzU4k6liJmbhXsj1jui0b
+        uMBdq2xR8kYd5o3MEoWPpDNnBSckL96u3kz3smyqZF6rbF03G5WqTMzu82oN/69fr18Veyl2KdhT
+        n+39Ja1VKY9ne245lvIedrxc/1hmpeR4VgWPmGfrbZnncJWvvFz4GP+rwOmJoM24t6qydMtVWhaL
+        +zz7+P2voti3z9Zj7Ku6QaznGh9HIIWtdb+WLgzM7qPcuM1EunZq1NGFUa92hP5v8dvv8yhYtL6s
+        /RxeZAK3VtTogx71vFzpf57lFHTplRN6huWfOVt9lveLr/HIxcMxWqZQdOaEQa/BzEdzFrLMRK3Z
+        KP/K6P3TfvnMqHc8S6EtXXYg2OUmkv/zRfs+7bUU9M6LKuPnHdpjh/V0d9XhsLjXYORbSc6ufbpf
+        ajvfKvYxId654vn6/fqMd3ADCIz0au31GynWIrtTcOGLxoj7Tr3dBu6s6v629Yt/UE++v9yye9vi
+        xuPRzO1X283SjeTyCE30e+rSq9ro9Cx4n56ClN5mEx3D+YEDPkx/aRhajDTggyFHoKGUNqxGWNZk
+        diZgT3SGD26RAou2dhYykA68RGx8O/IYdHp2JvdOdDq8xLAauTG8aXYmyU90OqYNDKxR4Lg6liGM
+        VCOgc82eMAkUuAyhX4BvgkZId20hY8Qa4SILO4u2JzodqeSBNcLp03ZOxuvomI7edliNCHhsHVPc
+        x6kR0ukomw2pUbRk2B/ZOWHyRMfM14g5gaUT+E90hk9QQQoK0amleYaWjkYaIqJhNfJxEpGlOdWO
+        jhnfjnzi+DqWIYxUI6DzjdfI8+3NBXV0pufroi5fZ2meoaMz39e5zNoFzic6wxc4AwW1enxErWhH
+        FOuwlubrOjodP1UxsEa4vNTamAHpmOH1owh/NiS0tz9COh3LTgfWCN40ammtvKWLQsN9XdhOZ7dV
+        o7DLRhoeM4Tt/Dod1eSRagTt6HFGzZ8f/gWNHgr1JFEAAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 05 Oct 2020 15:31:24 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 04-Oct-2020 15:31:24
+        GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
