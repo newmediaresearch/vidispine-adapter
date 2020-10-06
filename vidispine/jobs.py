@@ -11,6 +11,6 @@ class Job:
 
         return self.client.get(endpoint)
 
-    def problem(self) -> BaseJson:
+    def list_problems(self) -> BaseJson:
         endpoint = 'job/problem'
         return self.client.get(endpoint)
