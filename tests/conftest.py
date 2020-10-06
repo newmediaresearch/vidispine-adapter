@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 from typing import Any, Callable
 
 import pytest
@@ -93,7 +94,6 @@ def create_metadata_field_group(vidispine, cassette):
 
     return _create_metadata_field_group
 
-
 @pytest.fixture
 def metadata_field_group(vidispine, cassette, create_metadata_field_group):
     test_field_group_name = 'field_group_one'
@@ -120,3 +120,11 @@ def metadata_field(vidispine, cassette, create_metadata_field):
     result = create_metadata_field('field_one')
     metadata_field_name = result['name']
     return metadata_field_name
+
+
+@pytest.fixture
+def sample_file():
+    cwd = Path.cwd()
+    path = cwd.joinpath('tests', 'test_media', 'sample-mp4-file.mp4')
+    relative_path = path.relative_to(cwd)
+    return relative_path
