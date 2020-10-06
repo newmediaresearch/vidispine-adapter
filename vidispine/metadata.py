@@ -52,8 +52,19 @@ class MetadataFieldGroup:
         endpoint = (
             f'metadata-field/field-group/{field_group_name}/{field_name}'
         )
-
         self.client.delete(endpoint)
+
+    def add_group_to_group(
+        self,
+        parent_group_name: str,
+        child_group_name: str
+    ) -> None:
+
+        endpoint = (
+            'metadata-field/field-group/'
+            f'{parent_group_name}/group/{child_group_name}'
+        )
+        self.client.put(endpoint)
 
     def delete(self, field_group_name: str) -> None:
         endpoint = f'metadata-field/field-group/{field_group_name}'
