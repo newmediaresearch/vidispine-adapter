@@ -82,6 +82,7 @@ class MetadataFieldGroup:
         )
         self.client.delete(endpoint)
 
+
 class MetadataField:
 
     def __init__(self, client) -> None:
