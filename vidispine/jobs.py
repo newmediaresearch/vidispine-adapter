@@ -8,4 +8,9 @@ class Job:
 
     def get(self, job_id: str) -> BaseJson:
         endpoint = f'job/{job_id}'
+
+        return self.client.get(endpoint)
+
+    def list_problems(self) -> BaseJson:
+        endpoint = 'job/problem'
         return self.client.get(endpoint)
