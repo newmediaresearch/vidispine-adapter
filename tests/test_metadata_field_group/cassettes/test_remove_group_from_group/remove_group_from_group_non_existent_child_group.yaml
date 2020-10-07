@@ -1,0 +1,64 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field-group/field_one
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Oct 2020 12:38:51 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 01-Oct-2020 12:38:51
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: DELETE
+    uri: http://localhost:8080/API/metadata-field/field-group/field_one/group/field1000000
+  response:
+    body:
+      string: '{"notFound":{"type":"namespace","id":"field1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '234'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 02 Oct 2020 12:38:51 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 01-Oct-2020 12:38:51
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1
