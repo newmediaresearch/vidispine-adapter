@@ -57,3 +57,17 @@ class Item:
         endpoint = f'import/placeholder/{item_id}/{component_type}'
 
         return self.client.post(endpoint, params=params)
+
+
+class ItemShape:
+
+    def __init__(self, client) -> None:
+        self.client = client
+
+    def import_shape(self, item_id: str, params: dict) -> None:
+        if not params:
+            raise InvalidInput('Please supply a URI or fileId.')
+
+        endpoint = f'item/{item_id}/shape'
+
+        return self.client.post(endpoint, params=params)
