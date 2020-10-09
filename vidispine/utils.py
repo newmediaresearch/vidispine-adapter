@@ -13,3 +13,9 @@ def generate_metadata(fields: dict) -> dict:
     }
 
     return metadata
+
+
+def create_matrix_params_query(matrix_params: dict):
+    return ';' + ';'.join(
+        f'{key}={value}' for key, value in matrix_params.items()
+    )

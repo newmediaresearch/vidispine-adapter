@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-6","id":"VX-6","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '90'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 09 Oct 2020 08:57:22 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 08-Oct-2020 08:57:22
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-1"}'
+    headers:
+      Content-Length:
+      - '13'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 09 Oct 2020 08:57:25 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 08-Oct-2020 08:57:25
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/search
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAM3RPQuDMBAG4L9Sbm0couKQtbTg0rEUSpGgpw2oET2hIv73Jjro0mwtTvm69/KE
+        jPBS1IGIGHR9UWBHStcgHk8Gsied6qopkXDZwZrawUxHUIQVCDNmIOB29ziYPMmWzNKLrxewxfbs
+        aBcTA1IVdo2s53SusMyWlo6Q89R0HBrDgthK2AYysRFSXZaYLk9ZkZGpq2VlU2QemqxVCf+p8bRy
+        2EbzXRqu0vNb2i84bHr8nRo6qMG+qIGD6u+L6juofF9UPqdzmSLZa6YPTzd1ODYEAAA=
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '221'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 09 Oct 2020 08:57:26 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 08-Oct-2020 08:57:26
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
