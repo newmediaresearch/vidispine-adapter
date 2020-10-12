@@ -1,0 +1,280 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-299","id":"VX-299","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:36 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:36
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-129"}'
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:36 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:36
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "string"}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field_one
+  response:
+    body:
+      string: '{"name":"field_one","type":"string","origin":"VX"}'
+    headers:
+      Content-Length:
+      - '50'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:36 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:36
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My Shared
+      Field"}]}, {"name": "field_one", "value": [{"value": "pizza"}]}], "start": "-INF",
+      "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '173'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/collection/VX-299/metadata
+  response:
+    body:
+      string: '{"revision":"VX-609,VX-613","timespan":[{"field":[{"name":"title","value":[{"value":"My
+        Shared Field","uuid":"e2ad7b4d-d590-41cc-bb4f-53a503ba1175","user":"admin","timestamp":"2020-10-12T16:08:36.779+0000","change":"VX-613"}],"uuid":"eeec175b-d90a-4f39-9269-d8e86fcf799e","user":"admin","timestamp":"2020-10-12T16:08:36.779+0000","change":"VX-613"},{"name":"created","value":[{"value":"2020-10-12T16:08:36.058Z","uuid":"bd34fe41-ab37-4040-a6bf-65a6ce30468e","user":"system","timestamp":"2020-10-12T16:08:36.142+0000","change":"VX-609"}],"uuid":"5e9dd5e6-e423-4953-bf12-96eb84b5aa3a","user":"system","timestamp":"2020-10-12T16:08:36.142+0000","change":"VX-609"},{"name":"collectionId","value":[{"value":"VX-299","uuid":"5a499333-96c8-401c-bf7c-e26d666c7cd8","user":"system","timestamp":"2020-10-12T16:08:36.142+0000","change":"VX-609"}],"uuid":"ce7fad71-e039-4ed4-8dbf-3f86a510d43b","user":"system","timestamp":"2020-10-12T16:08:36.142+0000","change":"VX-609"},{"name":"field_one","value":[{"value":"pizza","uuid":"f183a2da-9590-40b9-bfc2-14143f73ad68","user":"admin","timestamp":"2020-10-12T16:08:36.779+0000","change":"VX-613"}],"uuid":"31fe7069-ab35-4fa1-b0f5-ee0bcd29b1e9","user":"admin","timestamp":"2020-10-12T16:08:36.779+0000","change":"VX-613"}],"group":[],"start":"-INF","end":"+INF"}]}'
+    headers:
+      Content-Length:
+      - '1295'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:36 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:36
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My Shared
+      Field"}]}, {"name": "field_one", "value": [{"value": "pizza"}]}], "start": "-INF",
+      "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '173'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/item/VX-129/metadata
+  response:
+    body:
+      string: '{"item":[{"metadata":{"revision":"VX-612,VX-611,VX-614","timespan":[{"field":[{"name":"created","value":[{"value":"2020-10-12T16:08:36.339Z","uuid":"c6a3b476-426b-4704-bb73-70bc2a273da6","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"}],"uuid":"1f047445-a8b2-4c70-9ae0-c081e424b6ed","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"},{"name":"mediaType","value":[{"value":"none","uuid":"67213093-ab9d-4814-b180-1abf4e3e095a","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"}],"uuid":"beaa9b73-0a41-4a80-b255-f5a94cdf521c","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"},{"name":"itemId","value":[{"value":"VX-129","uuid":"cec436d9-9dd2-4b74-9449-ff085bf23f89","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"}],"uuid":"e866a804-07db-4d19-9e6b-598b1eb0252a","user":"system","timestamp":"2020-10-12T16:08:36.446+0000","change":"VX-611"},{"name":"shapeTag","value":[{"value":"original","uuid":"1ad4af55-2202-4d49-bd9f-b6c395588db0","user":"system","timestamp":"2020-10-12T16:08:36.511+0000","change":"VX-612"}],"uuid":"3cea6dc7-07a2-452f-8fba-7e97d2fab331","user":"system","timestamp":"2020-10-12T16:08:36.511+0000","change":"VX-612"},{"name":"title","value":[{"value":"My
+        Shared Field","uuid":"1c37d293-a81c-43b4-afd2-02369f8e8835","user":"admin","timestamp":"2020-10-12T16:08:37.091+0000","change":"VX-614"}],"uuid":"745074d0-e803-4ceb-8715-34cc59c994a0","user":"admin","timestamp":"2020-10-12T16:08:37.091+0000","change":"VX-614"},{"name":"field_one","value":[{"value":"pizza","uuid":"b188689c-cae2-468e-a50e-e29218f77850","user":"admin","timestamp":"2020-10-12T16:08:37.091+0000","change":"VX-614"}],"uuid":"2196d099-1041-46dd-9491-776d70eabaa2","user":"admin","timestamp":"2020-10-12T16:08:37.091+0000","change":"VX-614"}],"group":[],"start":"-INF","end":"+INF"}]}}]}'
+    headers:
+      Content-Length:
+      - '1911'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:36 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:36
+        GMT
+      Vary:
+      - Accept
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"field": [{"name": "field_one", "value": [{"value": "pizza"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '65'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/search;number=10;first=1?content=metadata
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 12 Oct 2020 16:08:37 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 11-Oct-2020 16:08:37
+        GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
