@@ -11,6 +11,7 @@ from vidispine.errors import APIError, ConfigError, NotFound
 from vidispine.items import Item, ItemShape
 from vidispine.jobs import Job
 from vidispine.metadata import MetadataField, MetadataFieldGroup
+from vidispine.search import Search
 from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
@@ -165,6 +166,7 @@ class Vidispine:
         self.job = Job(self.client)
         self.metadata_field = MetadataField(self.client)
         self.metadata_field_group = MetadataFieldGroup(self.client)
+        self.search = Search(self.client)
 
     def version(self) -> BaseJson:
         return self.client.get('version')
