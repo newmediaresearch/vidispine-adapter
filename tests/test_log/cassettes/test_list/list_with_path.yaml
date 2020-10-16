@@ -1,0 +1,75 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-103"}'
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 05 Oct 2020 16:12:31 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 04-Oct-2020 16:12:31
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/log?path=%2Fitem%2FVX-103
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAK1STWvCQBD9L3vw0qSJ0VoJ5CTBetBKkVIoZRmTqS7sR7o7AYP43zuBFiyUHrQL
+        e3iPmfceM3MUaMl3In89ijagt2BQ5AJqo6yIhEHau5qJeblh2ADtGSSK0CTPL/EwHSUG/Q7rGKoK
+        Q+CajxZ9twbPQoQ+cDl1DRbzclU+LWaDBr1RIShni9Xjquw9gLw6/OhglpTBQGAahlmapewVp3eb
+        4SQfZvkoux2l45uUnzhFlyb/I/LFsbLp9NpYWm098Er+N9f9tbl+zVM5S3xABRNQA8HgXaGuCynB
+        8mzJeVk5rbEi3nckz8Bg513bFHEgLUO7JUUao4NpJP/lUi7szmOtWDqcsQ+ql+zOmDX01/tNzOXM
+        aeeh72qcJ9DsaAyrXD638eRrbm+nT9+xKd0sAwAA
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '315'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 05 Oct 2020 16:12:33 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 04-Oct-2020 16:12:33
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
