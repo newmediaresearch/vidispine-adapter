@@ -7,17 +7,29 @@ class Search:
     def __init__(self, client) -> None:
         self.client = client
 
-    def list(
+    def __call__(self, **kwargs) -> BaseJson:
+        return self._search(**kwargs)
+
+    def _search(
+        self,
+        metadata: dict = None,
+        params: dict = None,
+        matrix_params: dict = None
+    ) -> BaseJson:
+
+        return self._search_without_search_doc(params, matrix_params)
+
+    def _search_without_search_doc(
         self,
         params: dict = None,
         matrix_params: dict = None
     ) -> BaseJson:
 
-        endpoint = 'search'
-
         if params is None:
             params = {}
         if matrix_params:
-            endpoint += create_matrix_params_query(matrix_params)
+            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
+        else:
+            endpoint = 'search'
 
         return self.client.get(endpoint, params=params)
