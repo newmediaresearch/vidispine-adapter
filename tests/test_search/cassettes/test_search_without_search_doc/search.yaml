@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-68","id":"VX-68","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-306","id":"VX-306","name":"test_collection_1"}'
     headers:
       Content-Length:
-      - '92'
+      - '94'
       Content-Type:
       - application/json
       Date:
-      - Fri, 16 Oct 2020 15:27:11 GMT
+      - Mon, 19 Oct 2020 08:36:29 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 15-Oct-2020 15:27:11
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Oct-2020 08:36:29
         GMT
     status:
       code: 200
@@ -50,16 +50,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-43"}'
+      string: '{"id":"VX-136"}'
     headers:
       Content-Length:
-      - '14'
+      - '15'
       Content-Type:
       - application/json
       Date:
-      - Fri, 16 Oct 2020 15:27:11 GMT
+      - Mon, 19 Oct 2020 08:36:29 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 15-Oct-2020 15:27:11
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Oct-2020 08:36:29
         GMT
     status:
       code: 200
@@ -80,27 +80,30 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAM2aS2vbQBSF/0qZbRXwuTMj2d6WFrLpshRKCcJRUoFfxBNoMP7vHcULG3p9di1n
-        5YcevvrQaM4318fwayyHsOysCYfX5+fhUMbdNix//GxC/1p2q91mvx7KcP5m2JaXt/r2GMYybMKy
-        vj6GZfj2/S7FUE9Q+pdSP9/df/0Spr2njR+nD6cmlHEzHPb99v3wp3FYP57PSQ6iW+sZ3/a1rnA/
-        ldJcV3JqjmG1W6+H1fliLmW287rntt9Mx5V6rQ+X3R7wT6v8dKmnuS5nqvUvmCYD0xjMTgtm58OE
-        DEwwmK0WzNaHOZOBOWMwsxbM7MKMCxWYtRICM2nBTD7MuQzMOYMZtWBGH2YnA7NjME0LpvkwWxmY
-        LYMJLZjwYWYZmJnBnGnBnPkwkwzMRGDmhRTMvPBhyhhQZAaUtQwo+wYUZQwoMgPKWgaUfQOKMgYU
-        mQFlLQPKbLLMV5Pl59/9tEby4eos/79YBjZ1WsUmlulSK1Ysuw2SiRXLHlZJ7J6lyyFR7DaI/nqI
-        yWR7Y/dp1Mr20c/2JpOgzNdik0kl5qumycz0xga3iQ1u8wc3ZAY32OA2rcFt/uCGjLiDibtpibv5
-        4g4ZcQcTd2iJO3xxh8y0Aybu0BJ3+OIOmSkSLAtDS9zhiztkpnOw6Rxa4o4bs7lM6xKsdQmt1iX8
-        1qVM55I1LqHVuITfuJTpW7K2JbTalvD9TKZryRa4oNW0hG+SMurDzAda5gPffGSyOovqWkn9RodN
-        BSSL6Vop3Q/pMhmdRXSthH4joKuApP8slAJJ2ylBalmQPS+jVqnsiSTWo6JarlUq3o9+6ldDmX7m
-        9AdZkofMLS8AAA==
+        H4sIAAAAAAAAAM2bS2sbQRCE/8tcI8P07jx1NQR8yTEEQjBCXjsCvbDWB2P837MTH4xJ99yCv5Oe
+        uyqVVFVNzc6L+72bL24ttazc5enhYbrMu9PRrX/+WrnN03zang7n/TRPb89Mx/nxebn74nbzdHDr
+        5fbOrd33H1cyJrecYd48zssTVzffvrr29vbql/bgdeXm3WG6nDfHv8ff76b93dtJOwd1X13O+Hxe
+        gLmbhmX1Acrr6sVtT/v9tH37Ou9AR9+AHjeHduS8fN3b9/fdyn/Fef0OaPUBT0P7L6GRQ2jsEhph
+        hEaD0MAhNHQJDTBCg0HoyCF07BI6wggdDUIHDqFDl9ABRuhgECocQqVLqMAIFZ3QoWIIXaDYhA61
+        oghteHRCC4fQ0iW0wAgtBqGZQ2juEpphhGaDUM5gP/QG+6GyBvuGp4e25/jefwZey/M5ITr0QnQo
+        MM8vlud7DqG+SyjM84vh+cKZSqQ7lRSY5xfD84UzlUh3Kikwzy9GmSOcqUSs35yT82KxyKnExCiZ
+        hFMyiVHbCKe2EaMIEU4RIka1IJypSIzBTThzhngdoucktzemNc/JQm/MP56TLt5IF89JF2vBxXN8
+        0SqIPccXrcrVc3zRKjE9xxe97osVY4tGb1kxpmj0gBVjiUavVjGG2O+pSm+p51N6qtJbmhoKrlcr
+        ug1VTNxUPW0qJmyqnjUVEzVGdVoxQVP1nCmYnDG60oLJGaN7LJicMbq8gskZoxsrGBUbRl0wKi66
+        ijNGxVlXccaoOOsqzhgVZ13FGaPirKs4Y1ScdRVnjIqzruKEUXHSVZwwKk66ihNGxUlXccKoOOkq
+        TpiRP+kjf8LYTNJtJmFsJuk2EzE2E3WbiRibibrNRIzNRN1mIsZmom4zEbOOG/Vl3IhZxY36Im7E
+        lEdRL48iJkminiQRkyRRT5KISZKoJ0nAJEnQkyRgkiToSRIwSRL0JAmYJAl6kgRMkgQ9SQImSYKe
+        JAGTJEFPkoBJkqAnScAkSeheHp1hF5/m7vaIDLuy0+i9ONueRwMg5t/Z3QE3ZNam14anh5a1o7Th
+        6aFlbddseNrx95vtNLcPev0Dn/dwS4dAAAA=
     headers:
       Content-Encoding:
       - gzip
       Content-Type:
       - application/json
       Date:
-      - Fri, 16 Oct 2020 15:27:11 GMT
+      - Mon, 19 Oct 2020 08:36:30 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 15-Oct-2020 15:27:11
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 18-Oct-2020 08:36:30
         GMT
       Transfer-Encoding:
       - chunked

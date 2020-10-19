@@ -7,8 +7,8 @@ class Search:
     def __init__(self, client) -> None:
         self.client = client
 
-    def __call__(self, **kwargs) -> BaseJson:
-        return self._search(**kwargs)
+    def __call__(self, *args, **kwargs) -> BaseJson:
+        return self._search(*args, **kwargs)
 
     def _search(
         self,

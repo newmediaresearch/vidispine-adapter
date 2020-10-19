@@ -10,7 +10,7 @@ def test_search(vidispine, cassette, create_collection, create_item):
 def test_search_with_params(
     vidispine, cassette, create_collection, create_item
 ):
-    result = vidispine.search(params={'content': 'metadata'})['entry']
+    result = vidispine.search({'content': 'metadata'})['entry']
 
     assert len(result[0])
     assert len(result[1])
