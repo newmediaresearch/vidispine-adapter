@@ -1,8 +1,10 @@
 def test_search(vidispine, cassette, create_collection, create_item):
-    result = vidispine.search()['entry']
+    result = vidispine.search()
 
-    assert len(result[0])
-    assert len(result[1])
+    assert result['hits'] > 1
+    assert 'suggestion' in result
+    assert 'autocomplete' in result
+    assert 'entry' in result
 
     assert cassette.all_played
 
@@ -10,10 +12,12 @@ def test_search(vidispine, cassette, create_collection, create_item):
 def test_search_with_params(
     vidispine, cassette, create_collection, create_item
 ):
-    result = vidispine.search({'content': 'metadata'})['entry']
+    result = vidispine.search(params={'content': 'metadata'})
 
-    assert len(result[0])
-    assert len(result[1])
+    assert result['hits'] > 1
+    assert 'suggestion' in result
+    assert 'autocomplete' in result
+    assert 'entry' in result
 
     assert cassette.all_played
 
@@ -21,12 +25,12 @@ def test_search_with_params(
 def test_search_with_matrix_params(
     vidispine, cassette, create_collection, create_item
 ):
-    result = vidispine.search(
-        matrix_params={'number': 10, 'first': 1}
-    )['entry']
+    result = vidispine.search(matrix_params={'number': 10, 'first': 1})
 
-    assert len(result[0])
-    assert len(result[1])
+    assert result['hits'] > 1
+    assert 'suggestion' in result
+    assert 'autocomplete' in result
+    assert 'entry' in result
 
     assert cassette.all_played
 
@@ -36,9 +40,11 @@ def test_search_with_params_and_matrix_params(
 ):
     result = vidispine.search(
         params={'content': 'metadata'}, matrix_params={'number': 10}
-    )['entry']
+    )
 
-    assert len(result[0])
-    assert len(result[1])
+    assert result['hits'] > 1
+    assert 'suggestion' in result
+    assert 'autocomplete' in result
+    assert 'entry' in result
 
     assert cassette.all_played

@@ -1,5 +1,4 @@
 import urllib
-from typing import Any, Union
 
 
 def generate_metadata(fields: dict) -> dict:
@@ -19,9 +18,9 @@ def generate_metadata(fields: dict) -> dict:
     return metadata
 
 
-def create_matrix_params_query(matrix_params: dict) -> Union[Any, str]:
+def create_matrix_params_query(matrix_params: dict) -> str:
     if not matrix_params:
-        return matrix_params
+        return ''
     else:
         return ';' + ';'.join(
             f'{urlencode(key)}={urlencode(value)}'
