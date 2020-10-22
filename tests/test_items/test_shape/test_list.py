@@ -7,7 +7,7 @@ from vidispine.errors import NotFound
 def create_shape(vidispine, cassette):
     def _create_shape(item_id):
         metadata = {
-            'id': 'new_shape'
+            'id': 'VX'
         }
 
         endpoint = f'item/{item_id}/shape/create'
