@@ -96,10 +96,9 @@ def create_metadata_field_group(vidispine, cassette):
 
 
 @pytest.fixture
-def metadata_field_group(vidispine, create_metadata_field_group):
+def metadata_field_group(vidispine, cassette, create_metadata_field_group):
     test_field_group_name = 'field_group_one'
     create_metadata_field_group(test_field_group_name)
-
     return test_field_group_name
 
 
