@@ -70,3 +70,11 @@ class ItemShape:
 
         endpoint = f'item/{item_id}/shape'
         return self.client.get(endpoint, params=params)
+
+    def import_shape(self, item_id: str, params: dict) -> None:
+        if not params:
+            raise InvalidInput('Please supply a URI or fileId.')
+
+        endpoint = f'item/{item_id}/shape'
+
+        return self.client.post(endpoint, params=params)
