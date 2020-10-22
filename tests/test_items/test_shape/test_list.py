@@ -3,10 +3,28 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_list(vidispine, cassette, create_item):
+@pytest.fixture
+def create_shape(vidispine, cassette):
+    def _create_shape(item_id):
+        metadata = {
+            'id': 'new_shape'
+        }
+
+        endpoint = f'item/{item_id}/shape/create'
+
+        result = vidispine.client.request('post', endpoint, json=metadata)
+
+        return result['id']
+
+    return _create_shape
+
+
+def test_list(vidispine, cassette, create_item, create_shape):
+    shape_id = create_shape(create_item)
+
     result = vidispine.item_shape.list(create_item)
 
-    assert isinstance(result, dict)
+    assert shape_id in result['uri']
     assert cassette.all_played
 
 
