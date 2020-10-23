@@ -67,18 +67,11 @@ def create_item(vidispine, cassette):
                 "end": "+INF"
             }]
         }
+        endpoint = f'{vidispine.client.base_url}import/placeholder'
 
-        client = vidispine.client
-        endpoint = f'{client.base_url}import/placeholder'
-
-        params = {
-            'container': 1
-        }
-        request = client.request(
-            'post',
-            endpoint,
-            json=metadata,
-            params=params
+        params = {'container': 1}
+        request = vidispine.client.request(
+            'post', endpoint, json=metadata, params=params
         )
         item_id = request['id']
 
