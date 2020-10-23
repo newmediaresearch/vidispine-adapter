@@ -1,3 +1,6 @@
+import urllib
+
+
 def generate_metadata(fields: dict) -> dict:
     metadata = {
         "timespan": [{
@@ -16,6 +19,14 @@ def generate_metadata(fields: dict) -> dict:
 
 
 def create_matrix_params_query(matrix_params: dict) -> str:
-    return ';' + ';'.join(
-        f'{key}={value}' for key, value in matrix_params.items()
-    )
+    if not matrix_params:
+        return ''
+    else:
+        return ';' + ';'.join(
+            f'{urlencode(key)}={urlencode(value)}'
+            for key, value in matrix_params.items()
+        )
+
+
+def urlencode(value) -> str:
+    return urllib.parse.quote(str(value))
