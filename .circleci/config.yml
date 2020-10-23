@@ -54,6 +54,10 @@ workflows:
           name: test-py38
 
       - tests:
+          python-version: "3.9"
+          name: test-py39
+
+      - tests:
           python-version: "3.8"
           name: quality-checks
           command: |
