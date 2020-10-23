@@ -3,8 +3,8 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_get(vidispine, cassette, create_item, sample_file):
-    endpoint = f'import/placeholder/{create_item}/container'
+def test_get(vidispine, cassette, item, sample_file):
+    endpoint = f'import/placeholder/{item}/container'
     params = {'uri': sample_file}
     job_id = vidispine.client.post(endpoint, params=params)['jobId']
 

@@ -54,36 +54,42 @@ def create_collection(vidispine: Vidispine, cassette: Cassette) -> str:
 
 @pytest.fixture
 def create_item(vidispine, cassette):
-    metadata = {
-        "timespan": [{
-            "field": [{
-                "name": "title",
-                "value": [{
-                    "value": "My placeholder import!"
-                }]
-            }],
-            "start": "-INF",
-            "end": "+INF"
-        }]
-    }
+    def _create_item():
+        metadata = {
+            "timespan": [{
+                "field": [{
+                    "name": "title",
+                    "value": [{
+                        "value": "My placeholder import!"
+                    }]
+                }],
+                "start": "-INF",
+                "end": "+INF"
+            }]
+        }
 
-    client = vidispine.client
-    endpoint = f'{client.base_url}import/placeholder'
+        client = vidispine.client
+        endpoint = f'{client.base_url}import/placeholder'
 
-    params = {
-        'container': 1
-    }
+        params = {
+            'container': 1
+        }
+        request = client.request(
+            'post',
+            endpoint,
+            json=metadata,
+            params=params
+        )
+        item_id = request['id']
 
-    request = client.request(
-        'post',
-        endpoint,
-        json=metadata,
-        params=params
-    )
+        return item_id
 
-    item_id = request['id']
+    return _create_item
 
-    return item_id
+
+@pytest.fixture
+def item(create_item):
+    return create_item()
 
 
 @pytest.fixture
