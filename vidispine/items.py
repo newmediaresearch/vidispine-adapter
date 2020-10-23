@@ -64,6 +64,13 @@ class ItemShape:
     def __init__(self, client) -> None:
         self.client = client
 
+    def list(self, item_id: str, params: dict = None) -> BaseJson:
+        if params is None:
+            params = {}
+
+        endpoint = f'item/{item_id}/shape'
+        return self.client.get(endpoint, params=params)
+
     def import_shape(self, item_id: str, params: dict) -> None:
         if not params:
             raise InvalidInput('Please supply a URI or fileId.')
