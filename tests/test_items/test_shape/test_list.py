@@ -6,10 +6,7 @@ from vidispine.errors import NotFound
 @pytest.fixture
 def create_shape(vidispine, cassette):
     def _create_shape(item_id):
-        metadata = {
-            'id': 'VX'
-        }
-
+        metadata = {'id': 'VX'}
         endpoint = f'item/{item_id}/shape/create'
 
         result = vidispine.client.request('post', endpoint, json=metadata)
@@ -19,10 +16,10 @@ def create_shape(vidispine, cassette):
     return _create_shape
 
 
-def test_list(vidispine, cassette, create_item, create_shape):
-    shape_id = create_shape(create_item)
+def test_list(vidispine, cassette, item, create_shape):
+    shape_id = create_shape(item)
 
-    result = vidispine.item_shape.list(create_item)
+    result = vidispine.item_shape.list(item)
 
     assert shape_id in result['uri']
     assert cassette.all_played

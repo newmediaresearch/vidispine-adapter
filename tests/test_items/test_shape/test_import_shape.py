@@ -3,10 +3,8 @@ import pytest
 from vidispine.errors import InvalidInput, NotFound
 
 
-def test_import_shape(vidispine, cassette, create_item, sample_file):
-    result = vidispine.item_shape.import_shape(
-        create_item, {'uri': sample_file}
-    )
+def test_import_shape(vidispine, cassette, item, sample_file):
+    result = vidispine.item_shape.import_shape(item, {'uri': sample_file})
 
     assert result['type'] == 'SHAPE_IMPORT'
     assert cassette.all_played
@@ -21,8 +19,8 @@ def test_import_item_not_found(vidispine, cassette, sample_file):
     assert cassette.all_played
 
 
-def test_import_invalid_input(vidispine, create_item):
+def test_import_invalid_input(vidispine, item):
     with pytest.raises(InvalidInput) as err:
-        vidispine.item_shape.import_shape(create_item, {})
+        vidispine.item_shape.import_shape(item, {})
 
     err.match('Please supply a URI or fileId.')
