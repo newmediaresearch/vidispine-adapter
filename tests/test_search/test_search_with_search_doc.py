@@ -21,14 +21,24 @@ def update_metadata(vidispine):
     return _update_metadata
 
 
-def test_list_from_metadata(
+@pytest.fixture
+def index_of_collection_or_item():
+    def _index_of_collection_or_item(result, collection_or_item):
+        if collection_or_item in result['entry'][0]:
+            return 0
+        else:
+            return 1
+
+    return _index_of_collection_or_item
+
+
+def test_search(
     vidispine,
     cassette,
     create_metadata_field,
     update_metadata,
     create_collection,
-    create_item,
-    check_field_value_exists
+    create_item
 ):
     create_metadata_field('field_one')
     update_metadata('collection', create_collection)
@@ -43,20 +53,23 @@ def test_list_from_metadata(
         ]
     }
 
-    result = vidispine.search.list_from_metadata(metadata)
+    result = vidispine.search(metadata)
 
-    assert 'collection' in result['entry'][1]
-    assert 'item' in result['entry'][0]
+    assert result['hits'] > 2
+    assert 'suggestion' in result
+    assert 'autocomplete'
+    assert 'entry'
     assert cassette.all_played
 
 
-def test_list_from_metadata_with_params(
+def test_search_with_params(
     vidispine,
     cassette,
     create_metadata_field,
     update_metadata,
     create_collection,
     create_item,
+    index_of_collection_or_item,
     check_field_value_exists
 ):
     create_metadata_field('field_one')
@@ -72,18 +85,20 @@ def test_list_from_metadata_with_params(
         ]
     }
 
-    result = vidispine.search.list_from_metadata(
-        metadata, {'content': 'metadata'}
+    result = vidispine.search(
+        metadata=metadata, params={'content': 'metadata'}
     )
 
     collection_fields = (result
-                         ['entry'][1]['collection']
-                         ['metadata']['timespan'][0]['field']
+                         ['entry']
+                         [index_of_collection_or_item(result, 'collection')]
+                         ['collection']['metadata']['timespan'][0]['field']
                          )
 
     item_fields = (result
-                   ['entry'][0]['item']
-                   ['metadata']['timespan'][0]['field']
+                   ['entry']
+                   [index_of_collection_or_item(result, 'item')]
+                   ['item']['metadata']['timespan'][0]['field']
                    )
 
     check_field_value_exists(collection_fields, 'field_one', 'pizza')
@@ -91,7 +106,7 @@ def test_list_from_metadata_with_params(
     assert cassette.all_played
 
 
-def test_list_from_metadata_with_matrix_params(
+def test_search_with_matrix_params(
     vidispine,
     cassette,
     create_metadata_field,
@@ -113,22 +128,25 @@ def test_list_from_metadata_with_matrix_params(
         ]
     }
 
-    result = vidispine.search.list_from_metadata(
-        metadata, {}, {'number': 10, 'first': 1}
+    result = vidispine.search(
+        metadata=metadata, matrix_params={'number': 10, 'first': 1}
     )
 
-    assert 'collection' in result['entry'][1]
-    assert 'item' in result['entry'][0]
+    assert result['hits'] > 2
+    assert 'suggestion' in result
+    assert 'autocomplete'
+    assert 'entry'
     assert cassette.all_played
 
 
-def test_list_from_metadata_with_params_and_matrix_params(
+def test_search_with_params_and_matrix_params(
     vidispine,
     cassette,
     create_metadata_field,
     update_metadata,
     create_collection,
     create_item,
+    index_of_collection_or_item,
     check_field_value_exists
 ):
     create_metadata_field('field_one')
@@ -144,18 +162,22 @@ def test_list_from_metadata_with_params_and_matrix_params(
         ]
     }
 
-    result = vidispine.search.list_from_metadata(
-        metadata, {'content': 'metadata'}, {'number': 10, 'first': 1}
+    result = vidispine.search(
+        metadata=metadata,
+        params={'content': 'metadata'},
+        matrix_params={'number': 10, 'first': 1}
     )
 
     collection_fields = (result
-                         ['entry'][1]['collection']
-                         ['metadata']['timespan'][0]['field']
+                         ['entry']
+                         [index_of_collection_or_item(result, 'collection')]
+                         ['collection']['metadata']['timespan'][0]['field']
                          )
 
     item_fields = (result
-                   ['entry'][0]['item']
-                   ['metadata']['timespan'][0]['field']
+                   ['entry']
+                   [index_of_collection_or_item(result, 'item')]
+                   ['item']['metadata']['timespan'][0]['field']
                    )
 
     check_field_value_exists(collection_fields, 'field_one', 'pizza')
@@ -163,8 +185,8 @@ def test_list_from_metadata_with_params_and_matrix_params(
     assert cassette.all_played
 
 
-def test_list_from_metadata_invalid_input(vidispine):
+def test_search_invalid_input(vidispine):
     with pytest.raises(InvalidInput) as err:
-        vidispine.search.list_from_metadata({})
+        vidispine.search({})
 
     err.match('Please supply metadata.')

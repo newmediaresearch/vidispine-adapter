@@ -1,4 +1,4 @@
-from vidispine.erros import InvalidInput
+from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 from vidispine.utils import create_matrix_params_query
 
