@@ -18,12 +18,29 @@ class Search:
         matrix_params: dict = None
     ) -> BaseJson:
 
-        if metadata is not None:
-            return self._search_with_search_doc(
-                metadata, params, matrix_params
-            )
-        else:
+        if metadata is None:
             return self._search_without_search_doc(params, matrix_params)
+        else:
+            return self._search_with_search_doc(
+                metadata,
+                params,
+                matrix_params
+            )
+
+    def _search_without_search_doc(
+        self,
+        params: dict = None,
+        matrix_params: dict = None
+    ) -> BaseJson:
+
+        if params is None:
+            params = {}
+        if matrix_params:
+            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
+        else:
+            endpoint = 'search'
+
+        return self.client.get(endpoint, params=params)
 
     def _search_with_search_doc(
         self,
@@ -42,19 +59,5 @@ class Search:
         else:
             endpoint = 'search'
 
-        return self.client.get(endpoint, json=metadata, params=params)
+        return self.client.put(endpoint, json=metadata, params=params)
 
-    def _search_without_search_doc(
-        self,
-        params: dict = None,
-        matrix_params: dict = None
-    ) -> BaseJson:
-
-        if params is None:
-            params = {}
-        if matrix_params:
-            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
-        else:
-            endpoint = 'search'
-
-        return self.client.get(endpoint, params=params)
