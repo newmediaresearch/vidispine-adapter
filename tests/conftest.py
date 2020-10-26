@@ -54,14 +54,12 @@ def create_collection(vidispine: Vidispine, cassette: Cassette) -> str:
 
 @pytest.fixture
 def create_item(vidispine, cassette):
-    def _create_item():
+    def _create_item(title="My placeholder import!"):
         metadata = {
             "timespan": [{
                 "field": [{
                     "name": "title",
-                    "value": [{
-                        "value": "My placeholder import!"
-                    }]
+                    "value": [{"value": title}]
                 }],
                 "start": "-INF",
                 "end": "+INF"
