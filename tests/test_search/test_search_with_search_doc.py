@@ -1,9 +1,10 @@
 import json
+import uuid
+
 import pytest
 
 from vidispine.errors import InvalidInput
 from vidispine.utils import generate_metadata
-import uuid
 
 
 @pytest.fixture
@@ -28,11 +29,11 @@ def test_search(
     cassette,
     create_metadata_field,
     update_metadata,
-    create_collection,
+    collection,
     item
 ):
     create_metadata_field('field_one')
-    update_metadata('collection', create_collection)
+    update_metadata('collection', collection)
     update_metadata('item', item)
 
     metadata = {
@@ -56,7 +57,7 @@ def test_search(
 def test_search_with_params(
     vidispine,
     cassette,
-    create_collection,
+    collection,
     create_item,
     check_field_value_exists
 ):
@@ -98,11 +99,11 @@ def test_search_with_matrix_params(
     cassette,
     create_metadata_field,
     update_metadata,
-    create_collection,
+    collection,
     item
 ):
     create_metadata_field('field_one')
-    update_metadata('collection', create_collection)
+    update_metadata('collection', collection)
     update_metadata('item', item)
 
     metadata = {
@@ -128,7 +129,7 @@ def test_search_with_matrix_params(
 def test_search_with_params_and_matrix_params(
     vidispine,
     cassette,
-    create_collection,
+    collection,
     create_item,
     check_field_value_exists
 ):

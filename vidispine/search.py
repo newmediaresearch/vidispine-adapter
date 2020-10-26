@@ -60,4 +60,3 @@ class Search:
             endpoint = 'search'
 
         return self.client.put(endpoint, json=metadata, params=params)
-
