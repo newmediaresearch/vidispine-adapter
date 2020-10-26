@@ -1,0 +1,115 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-314","id":"VX-314","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 12:47:16 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 20-Oct-2020 12:47:16
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-144"}'
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 12:47:16 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 20-Oct-2020 12:47:16
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/search
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAM2ZSWsbQRCF/0tfI0Mv6k3XQMCXHEMgBCPkcSLQYqzxwRj/90zHB2NSVbfg7yRp
+        RjOqeeItvHp2v/fzxW1iiCt3efz1a7rM+/PJbX78XLnt43zenY/3h2meXo9Mp/nhaXn77PbzdHSb
+        5fXWbdy371dhvXbLHebtw7wcuLr++sWNr4+zn8aHl5Wb98fpcr89/b3+bj8dbl9valxknl3u+HS/
+        DOauxyyrd6O8rJ7d7nw4TLvXx3kbNIUx6Gl7HFfOy+PevH3vJvzXOT+/DbR6N8+Y9l9AEwfQZAKa
+        YIAmBdDIATSagEYYoFEBNHAADSagAQZokAFNHQPoMooBqO8sQH1XAG0cQJsJaIMB2hRAKwfQagJa
+        YYBWBdDCAbSYgBYYoEUBNHMAzSagGQZoVgDlBPtkBnsPC/ZeCfaJE+yTGew9LNh7JdgnTrBPZrD3
+        sGDvlWCfOME+mcHew4K9V4J95AT7aAX72FnBfswjA8oJ9tEK9rGzgv2YRwaUE+yjFexjZwX7MY8M
+        KCfYRyvYx84K9mMea1pL8b3/iHk1zeeYaLRMNDaY5jdN8z0HUG8CCtP8pmh+4KSSYKaSBtP8pmh+
+        4KSSYKaSBtP8ppQ5gZNKgvafc3w+aChyKrGglEyBUzJp+9jAqW20DWfgFCHazjBwUpG2hQucnBG8
+        PKLnOLe2evMcL9SWWZ7jLtp6yHPcRVu4eI4uagWx5+iiVrl6ji5qJabn6KKXdbFjZFHpLTtGFJUe
+        sGMkUenVOkYQ7Z6qWaueD+mpmrWaig3XqzVZhjrGbrrsNh1jNl32mo6xGqU67Rij6bLPNIzPKF1p
+        w/iM0j02jM8oXV7D+IzSjTUMixWhbhgWN5nFFcPiKrO4YlhcZRZXDIurzOKKYXGVWVwxLK4yiyuG
+        xVVmccGwuMgsLhgWF5nFBcPiIrO4YFhcZBYXTOQvcuQvGJkpsswUjMwUWWYyRmayLDMZIzNZlpmM
+        kZksy0zGyEyWZSZj9rhZXuNmzBY3y0vcjCmPslweZYyTZNlJMsZJsuwkGeMkWXaSNcZJ1rKTrDFO
+        skwyLrzb7qZ5/MLLHy5Gk8evQAAA
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 21 Oct 2020 12:47:17 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 20-Oct-2020 12:47:17
+        GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

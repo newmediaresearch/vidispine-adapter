@@ -25,7 +25,7 @@ def cassette(request: Any) -> Cassette:
     sub_dir_name = request.module.__name__.split('.')[-1]
     sub_dir_path = os.path.join(cassette_dir, 'cassettes', sub_dir_name)
 
-    caller_name = request.node.name.lstrip('test_')
+    caller_name = request.node.name.replace('test_', '', 1)
     cassette_file = f'{caller_name}.yaml'
 
     cassette_path = os.path.join(sub_dir_path, cassette_file)
@@ -54,36 +54,33 @@ def create_collection(vidispine: Vidispine, cassette: Cassette) -> str:
 
 @pytest.fixture
 def create_item(vidispine, cassette):
-    metadata = {
-        "timespan": [{
-            "field": [{
-                "name": "title",
-                "value": [{
-                    "value": "My placeholder import!"
-                }]
-            }],
-            "start": "-INF",
-            "end": "+INF"
-        }]
-    }
+    def _create_item(title="My placeholder import!"):
+        metadata = {
+            "timespan": [{
+                "field": [{
+                    "name": "title",
+                    "value": [{"value": title}]
+                }],
+                "start": "-INF",
+                "end": "+INF"
+            }]
+        }
+        endpoint = f'{vidispine.client.base_url}import/placeholder'
 
-    client = vidispine.client
-    endpoint = f'{client.base_url}import/placeholder'
+        params = {'container': 1}
+        request = vidispine.client.request(
+            'post', endpoint, json=metadata, params=params
+        )
+        item_id = request['id']
 
-    params = {
-        'container': 1
-    }
+        return item_id
 
-    request = client.request(
-        'post',
-        endpoint,
-        json=metadata,
-        params=params
-    )
+    return _create_item
 
-    item_id = request['id']
 
-    return item_id
+@pytest.fixture
+def item(create_item):
+    return create_item()
 
 
 @pytest.fixture
