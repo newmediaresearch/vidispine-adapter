@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-101","id":"VX-101","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "e17c26cf-c02d-45dc-a260-c2e4770f4ca0"}]}],
+      "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '140'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-73"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"field": [{"name": "title", "value": [{"value": "e17c26cf-c02d-45dc-a260-c2e4770f4ca0"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '92'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/search?content=metadata
+  response:
+    body:
+      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"metadata":{"revision":"VX-294,VX-293,VX-295","timespan":[{"field":[{"name":"title","value":[{"value":"e17c26cf-c02d-45dc-a260-c2e4770f4ca0","uuid":"3b30df32-76a9-481f-8a1f-3e11f9047f7c","user":"admin","timestamp":"2020-10-26T15:46:44.284+0000","change":"VX-293"}],"uuid":"175f5326-62c9-4274-be7a-fe6e8dc8c199","user":"admin","timestamp":"2020-10-26T15:46:44.284+0000","change":"VX-293"},{"name":"created","value":[{"value":"2020-10-26T15:46:44.274Z","uuid":"65200771-4ce1-4479-836b-867add6ff29d","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"1f821f45-2983-40eb-9624-4f7d42c55ffe","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"mediaType","value":[{"value":"none","uuid":"476106bc-9e8b-4893-89ea-899a9a262d3b","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"ce9effe6-d210-4855-b207-27d668bd8144","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"itemId","value":[{"value":"VX-73","uuid":"de77e4bb-544b-497e-8ba8-c37c3a2f3470","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"59bc0a92-f959-49fd-b2b4-e9e55e552e5c","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"user","value":[{"value":"admin","uuid":"4ff17122-3dfc-4eb3-83b8-2ee6848d0d51","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"477bd0fc-1ed1-400b-a088-831584c10d7c","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"shapeTag","value":[{"value":"original","uuid":"17539102-ef4a-48de-9c9e-a384404e83da","user":"system","timestamp":"2020-10-26T15:46:44.326+0000","change":"VX-295"}],"uuid":"7f632b8c-b6dd-4acf-afcb-40658a729194","user":"system","timestamp":"2020-10-26T15:46:44.326+0000","change":"VX-295"},{"name":"__metadata_last_modified","value":[{"value":"2020-10-26T15:46:44.326Z"}]},{"name":"__placeholder_shape_size","value":[{"value":"1"}]},{"name":"__shape_size","value":[{"value":"1"}]},{"name":"__shape","value":[{"value":"VX-78"}]},{"name":"__version_count","value":[{"value":"1"}]},{"name":"__version","value":[{"value":"0"}]},{"name":"__shape_last_added","value":[{"value":"2020-10-26T15:46:44.317Z"}]},{"name":"__storage_size","value":[{"value":"0"}]},{"name":"__storagegroup_size","value":[{"value":"0"}]},{"name":"__sequence_size","value":[{"value":"0"}]},{"name":"__collection_size","value":[{"value":"0"}]},{"name":"__ancestor_collection_size","value":[{"value":"0"}]}],"group":[],"start":"-INF","end":"+INF"}]},"shape":[],"access":[],"externalId":[],"id":"VX-73","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-73"}],"facet":[]}'
+    headers:
+      Content-Length:
+      - '2863'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

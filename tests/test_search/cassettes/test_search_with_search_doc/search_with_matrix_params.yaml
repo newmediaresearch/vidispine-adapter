@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-102","id":"VX-102","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "831548bd-7bc4-41e4-b842-6eb14805c982"}]}],
+      "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '140'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-74"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"field": [{"name": "title", "value": [{"value": "831548bd-7bc4-41e4-b842-6eb14805c982"}]}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '92'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/search/;number=10;first=1
+  response:
+    body:
+      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"id":"VX-74","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-74"}],"facet":[]}'
+    headers:
+      Content-Length:
+      - '226'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 26 Oct 2020 15:46:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1
