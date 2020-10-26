@@ -3,22 +3,19 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_get_item_with_metadata(cassette, vidispine, create_item):
-    item_id = create_item
+def test_get_item_with_metadata(cassette, vidispine, item):
+    result = vidispine.item.get(item)
 
-    item = vidispine.item.get(item_id)
-
-    assert item['id'] == item_id
-    assert item['metadata']
+    assert result['id'] == item
+    assert result['metadata']
     assert cassette.all_played
 
 
-def test_get_item_without_metadata(cassette, vidispine, create_item):
-    item_id = create_item
-    item = vidispine.item.get(item_id, metadata=False)
+def test_get_item_without_metadata(cassette, vidispine, item):
+    result = vidispine.item.get(item, metadata=False)
 
-    assert item['id'] == item_id
-    assert item.get('metadata') is None
+    assert result['id'] == item
+    assert result.get('metadata') is None
     assert cassette.all_played
 
 
