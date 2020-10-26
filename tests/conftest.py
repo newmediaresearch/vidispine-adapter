@@ -48,7 +48,7 @@ def check_field_value_exists() -> Callable:
 
 
 @pytest.fixture
-def create_collection(vidispine: Vidispine, cassette: Cassette) -> str:
+def create_collection(vidispine: Vidispine, cassette: Cassette) -> Callable:
     def _create_collection(name='test_collection_1'):
         params = {'name': name}
         response = vidispine.client.post('collection', params=params)
