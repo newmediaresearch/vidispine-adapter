@@ -3,8 +3,8 @@ import pytest
 from vidispine.errors import NotFound
 
 
-def test_delete(vidispine, cassette, create_collection):
-    vidispine.collection.delete(create_collection)
+def test_delete(vidispine, cassette, collection):
+    vidispine.collection.delete(collection)
 
     assert cassette.all_played
 
