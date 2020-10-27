@@ -6,12 +6,17 @@ import pytest
 import vcr
 from vcr.cassette import Cassette
 
-from vidispine.client import Vidispine
+from vidispine.client import Client, Vidispine
 
 
 @pytest.fixture
 def vidispine() -> Vidispine:
     return Vidispine('http://localhost:8080', 'admin', 'admin')
+
+
+@pytest.fixture
+def test_client() -> Client:
+    return Client('http://localhost:8080', 'admin', 'admin')
 
 
 @pytest.fixture

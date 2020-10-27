@@ -1,12 +1,11 @@
+from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
-from vidispine.utils import create_matrix_params_query
 
 
-class Search:
+class Search(EntityBase):
 
-    def __init__(self, client) -> None:
-        self.client = client
+    entity = 'search'
 
     def __call__(self, *args, **kwargs) -> BaseJson:
         return self._search(*args, **kwargs)
@@ -35,10 +34,8 @@ class Search:
 
         if params is None:
             params = {}
-        if matrix_params:
-            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
-        else:
-            endpoint = 'search'
+
+        endpoint = self._build_url(matrix_params=matrix_params)
 
         return self.client.get(endpoint, params=params)
 
@@ -54,9 +51,7 @@ class Search:
 
         if params is None:
             params = {}
-        if matrix_params:
-            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
-        else:
-            endpoint = 'search'
+
+        endpoint = self._build_url(matrix_params=matrix_params)
 
         return self.client.put(endpoint, json=metadata, params=params)

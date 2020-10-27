@@ -1,11 +1,11 @@
+from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
 
-class Item:
+class Item(EntityBase):
 
-    def __init__(self, client) -> None:
-        self.client = client
+    entity = 'item'
 
     def get(
         self,
@@ -20,12 +20,12 @@ class Item:
         if metadata:
             params.setdefault('content', 'metadata')
 
-        endpoint = f'item/{item_id}'
+        endpoint = self._build_url(item_id)
 
         return self.client.get(endpoint, params=params)
 
     def delete(self, item_id: str) -> None:
-        endpoint = f'item/{item_id}'
+        endpoint = self._build_url(item_id)
         self.client.delete(endpoint)
 
     def create_placeholder(
@@ -59,22 +59,22 @@ class Item:
         return self.client.post(endpoint, params=params)
 
 
-class ItemShape:
+class ItemShape(EntityBase):
 
-    def __init__(self, client) -> None:
-        self.client = client
+    entity = 'item'
 
     def list(self, item_id: str, params: dict = None) -> BaseJson:
         if params is None:
             params = {}
 
-        endpoint = f'item/{item_id}/shape'
+        endpoint = self._build_url(f'{item_id}/shape')
+
         return self.client.get(endpoint, params=params)
 
     def import_shape(self, item_id: str, params: dict) -> None:
         if not params:
             raise InvalidInput('Please supply a URI or fileId.')
 
-        endpoint = f'item/{item_id}/shape'
+        endpoint = self._build_url(f'{item_id}/shape')
 
         return self.client.post(endpoint, params=params)

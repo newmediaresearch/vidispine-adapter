@@ -1,27 +1,28 @@
+from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
 
-class Collection:
+class Collection(EntityBase):
 
-    def __init__(self, client) -> None:
-        self.client = client
+    entity = 'collection'
 
     def create(self, name: str) -> str:
         params = {'name': name}
-        response = self.client.post('collection', params=params)
+        response = self.client.post(self.entity, params=params)
 
         return response['id']
 
     def get(self, vidispine_id: str, metadata: bool = True) -> BaseJson:
-        endpoint = f'collection/{vidispine_id}'
         if metadata:
-            endpoint = f'{endpoint}/metadata'
+            endpoint = self._build_url(f'{vidispine_id}/metadata')
+        else:
+            endpoint = self._build_url(vidispine_id)
 
         return self.client.get(endpoint)
 
     def delete(self, vidispine_id: str) -> None:
-        endpoint = f'collection/{vidispine_id}'
+        endpoint = self._build_url(vidispine_id)
 
         self.client.delete(endpoint)
 
@@ -30,16 +31,13 @@ class Collection:
             raise InvalidInput('Please supply Vidispine IDs to delete.')
 
         params = {'id': ','.join(vidispine_ids)}
-        endpoint = 'collection'
 
-        self.client.delete(endpoint, params=params)
+        self.client.delete(self.entity, params=params)
 
     def update_metadata(self, vidispine_id: str, metadata: dict) -> BaseJson:
-        endpoint = f'collection/{vidispine_id}/metadata'
+        endpoint = self._build_url(f'{vidispine_id}/metadata')
 
         return self.client.put(endpoint, json=metadata)
 
     def list(self, params: dict = None) -> BaseJson:
-        endpoint = 'collection'
-
-        return self.client.get(endpoint, params=params)
+        return self.client.get(self.entity, params=params)
