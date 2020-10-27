@@ -1,5 +1,3 @@
-from typing import Any, Dict
-
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 from vidispine.utils import create_matrix_params_query
@@ -18,7 +16,7 @@ class Search:
         base_endpoint: str,
         params: dict = None,
         matrix_params: dict = None
-    ) -> Dict[str, Any]:
+    ) -> BaseJson:
 
         if params is None:
             params = {}
