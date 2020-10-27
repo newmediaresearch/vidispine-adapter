@@ -3,7 +3,7 @@ from vidispine.utils import create_matrix_params_query
 
 class EntityBase:
 
-    entity = None
+    entity = ''
 
     def __init__(self, client) -> None:
         self.client = client
