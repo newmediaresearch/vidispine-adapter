@@ -1,3 +1,5 @@
+from typing import Any, Dict
+
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 from vidispine.utils import create_matrix_params_query
@@ -14,9 +16,9 @@ class Search:
     def _build_url(
         self,
         base_endpoint: str,
-        params: dict,
-        matrix_params: dict
-    ) -> dict:
+        params: dict = None,
+        matrix_params: dict = None
+    ) -> Dict[str, Any]:
 
         if params is None:
             params = {}
