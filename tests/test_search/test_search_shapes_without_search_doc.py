@@ -1,6 +1,4 @@
-def test_search_shape(vidispine, cassette, item, create_shape):
-    create_shape(item)
-
+def test_search_shape(vidispine, cassette, item):
     result = vidispine.search.shape()
 
     assert 'id' in result['shape'][0]
@@ -8,9 +6,7 @@ def test_search_shape(vidispine, cassette, item, create_shape):
     assert cassette.all_played
 
 
-def test_search_shape_with_params(vidispine, cassette, item, create_shape):
-    create_shape(item)
-
+def test_search_shape_with_params(vidispine, cassette, item):
     result = vidispine.search.shape(params={'content': 'metadata'})
 
     assert 'id' in result['shape'][0]
@@ -18,10 +14,7 @@ def test_search_shape_with_params(vidispine, cassette, item, create_shape):
     assert cassette.all_played
 
 
-def test_search_shape_with_matrix_params(
-    vidispine, cassette, item, create_shape
-):
-    create_shape(item)
+def test_search_shape_with_matrix_params(vidispine, cassette, item):
 
     result = vidispine.search.shape(matrix_params={'number': 10, 'first': 1})
 
@@ -30,11 +23,7 @@ def test_search_shape_with_matrix_params(
     assert cassette.all_played
 
 
-def test_search_shape_with_params_and_matrix_params(
-    vidispine, cassette, item, create_shape
-):
-
-    create_shape(item)
+def test_search_shape_with_params_and_matrix_params(vidispine, cassette, item):
 
     result = vidispine.search.shape(
         params={'content': 'metadata'}, matrix_params={'number': 10}

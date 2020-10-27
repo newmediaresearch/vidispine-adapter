@@ -19,49 +19,16 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-138"}'
+      string: '{"id":"VX-142"}'
     headers:
       Content-Length:
       - '15'
       Content-Type:
       - application/json
       Date:
-      - Tue, 27 Oct 2020 15:57:42 GMT
+      - Tue, 27 Oct 2020 16:36:59 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 15:57:42
-        GMT
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"id": "VX"}'
-    headers:
-      Accept-Encoding:
-      - gzip, deflate
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '12'
-      User-Agent:
-      - python-requests/2.24.0
-      accept:
-      - application/json
-      content-type:
-      - application/json
-    method: POST
-    uri: http://localhost:8080/API/item/VX-138/shape/create
-  response:
-    body:
-      string: '{"id":"VX-189","essenceVersion":0,"tag":[]}'
-    headers:
-      Content-Length:
-      - '43'
-      Content-Type:
-      - application/json
-      Date:
-      - Tue, 27 Oct 2020 15:57:42 GMT
-      Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 15:57:42
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 16:36:59
         GMT
     status:
       code: 200
@@ -82,20 +49,20 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAI3QsQqAIBhF4Xe5sw1qqfkgEURDkKBDEOgmvnu0Vf6B6+GbToYPKcJypRii304H
-        u2SEHRbT3HFjwBCSO95ZGpS1sCfUNNQVVK1woKGqYN8KJQ2HCopWyGnYf6EeaSgr+DNc3HAtF7By
-        JeuwAQAA
+        H4sIAAAAAAAAAI3KOwqAMBAFwLu8OkJWo/kcRARJISiYQhBiJ7m7rbqL2A5zYk1HRiBLCnmd9gVh
+        PJFmBPRDRb6BQjqW7cmmRolF3WMtR2KR5KhZ1GJs/Ds6L0fHovsbrRwti93f2MqxY9F8xFgujnIN
+        OrABAAA=
     headers:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '120'
+      - '119'
       Content-Type:
       - application/json
       Date:
-      - Tue, 27 Oct 2020 15:57:42 GMT
+      - Tue, 27 Oct 2020 16:36:59 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 15:57:42
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 16:36:59
         GMT
       Vary:
       - Accept-Encoding
