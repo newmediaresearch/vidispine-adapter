@@ -8,7 +8,7 @@ def test_get_without_params(vidispine, cassette, item, create_shape):
 
     result = vidispine.item_shape.get(item, shape_id)
 
-    assert result['uri']['id'] == shape_id
+    assert result['id'] == shape_id
     assert cassette.all_played
 
 
@@ -19,7 +19,7 @@ def test_get_with_params(vidispine, cassette, item, create_shape):
         item, shape_id, {'transient': True, 'includePlaceholder': True}
     )
 
-    assert result['uri']['id'] == shape_id
+    assert result['id'] == shape_id
     assert cassette.all_played
 
 
