@@ -137,3 +137,16 @@ def sample_file():
     path = cwd.joinpath('tests', 'test_media', 'sample-mp4-file.mp4')
     relative_path = path.relative_to(cwd)
     return relative_path
+
+
+@pytest.fixture
+def create_shape(vidispine, cassette):
+    def _create_shape(item_id):
+        metadata = {'id': 'VX'}
+        endpoint = f'item/{item_id}/shape/create'
+
+        result = vidispine.client.request('post', endpoint, json=metadata)
+
+        return result['id']
+
+    return _create_shape

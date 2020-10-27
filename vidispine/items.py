@@ -64,6 +64,15 @@ class ItemShape:
     def __init__(self, client) -> None:
         self.client = client
 
+    def get(
+        self, item_id: str, shape_id: str, params: dict = None
+    ) -> BaseJson:
+        if params is None:
+            params = {}
+
+        endpoint = f'item/{item_id}/shape/{shape_id}'
+        return self.client.get(endpoint, params=params)
+
     def list(self, item_id: str, params: dict = None) -> BaseJson:
         if params is None:
             params = {}
