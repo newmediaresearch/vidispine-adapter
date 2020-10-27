@@ -80,7 +80,7 @@ interactions:
       content-type:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/search/;number=10;first=1
+    uri: http://localhost:8080/API/search;number=10;first=1
   response:
     body:
       string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"id":"VX-128","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-128"}],"facet":[]}'
