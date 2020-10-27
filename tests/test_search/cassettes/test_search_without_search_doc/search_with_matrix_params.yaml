@@ -76,7 +76,7 @@ interactions:
       accept:
       - application/json
     method: GET
-    uri: http://localhost:8080/API/search/;number=10;first=1
+    uri: http://localhost:8080/API/search;number=10;first=1
   response:
     body:
       string: !!binary |
