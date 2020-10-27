@@ -7,11 +7,6 @@ from vidispine.client import Client
 from vidispine.errors import APIError, ConfigError, NotFound
 
 
-@pytest.fixture
-def test_client() -> Client:
-    return Client('http://localhost:8080', 'admin', 'admin')
-
-
 @pytest.mark.parametrize('base_url,expected_url', [
     ('http://localhost:8080', 'http://localhost:8080/API/'),
     ('https://localhost:8080', 'https://localhost:8080/API/'),
