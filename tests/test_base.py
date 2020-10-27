@@ -7,7 +7,7 @@ def test_init(test_client):
     base = EntityBase(test_client)
 
     assert base.client == test_client
-    assert base.entity is ''
+    assert base.entity == ''
 
 
 @pytest.mark.parametrize('endpoint,matrix_params,expected_result', [
