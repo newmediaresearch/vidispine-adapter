@@ -11,6 +11,24 @@ class Search:
     def __call__(self, *args, **kwargs) -> BaseJson:
         return self._search(*args, **kwargs)
 
+    def _build_url(
+        self,
+        base_endpoint: str,
+        params: dict,
+        matrix_params: dict
+    ) -> dict:
+
+        if params is None:
+            params = {}
+        if matrix_params:
+            endpoint = (
+                f'{base_endpoint}/{create_matrix_params_query(matrix_params)}'
+            )
+        else:
+            endpoint = base_endpoint
+
+        return {'endpoint': endpoint, 'params': params}
+
     def _search(
         self,
         metadata: dict = None,
@@ -35,14 +53,11 @@ class Search:
         if not metadata:
             raise InvalidInput('Please supply metadata.')
 
-        if params is None:
-            params = {}
-        if matrix_params:
-            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
-        else:
-            endpoint = 'search'
+        url = self._build_url('search', params, matrix_params)
 
-        return self.client.put(endpoint, json=metadata, params=params)
+        return self.client.put(
+            url['endpoint'], json=metadata, params=url['params']
+        )
 
     def _search_without_search_doc(
         self,
@@ -50,16 +65,11 @@ class Search:
         matrix_params: dict = None
     ) -> BaseJson:
 
-        if params is None:
-            params = {}
-        if matrix_params:
-            endpoint = f'search/{create_matrix_params_query(matrix_params)}'
-        else:
-            endpoint = 'search'
+        url = self._build_url('search', params, matrix_params)
 
-        return self.client.get(endpoint, params=params)
+        return self.client.get(url['endpoint'], params=url['params'])
 
-    def shapes(
+    def shape(
         self,
         params: dict = None,
         matrix_params: dict = None
@@ -73,14 +83,6 @@ class Search:
         matrix_params: dict = None
     ) -> BaseJson:
 
-        if params is None:
-            params = {}
-        if matrix_params:
-            endpoint = (
-                'search/shapes'
-                f'{create_matrix_params_query(matrix_params)}'
-            )
-        else:
-            endpoint = 'search/shapes'
+        url = self._build_url('search/shape', params, matrix_params)
 
-        return self.client.get(endpoint, params=params)
+        return self.client.get(url['endpoint'], params=url['params'])

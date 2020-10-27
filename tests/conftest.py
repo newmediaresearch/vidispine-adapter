@@ -48,8 +48,19 @@ def check_field_value_exists() -> Callable:
 
 
 @pytest.fixture
-def create_collection(vidispine: Vidispine, cassette: Cassette) -> str:
-    return vidispine.collection.create('test_collection_1')
+def create_collection(vidispine: Vidispine, cassette: Cassette) -> Callable:
+    def _create_collection(name='test_collection_1'):
+        params = {'name': name}
+        response = vidispine.client.post('collection', params=params)
+
+        return response['id']
+
+    return _create_collection
+
+
+@pytest.fixture
+def collection(create_collection):
+    return create_collection()
 
 
 @pytest.fixture
@@ -126,3 +137,16 @@ def sample_file():
     path = cwd.joinpath('tests', 'test_media', 'sample-mp4-file.mp4')
     relative_path = path.relative_to(cwd)
     return relative_path
+
+
+@pytest.fixture
+def create_shape(vidispine, cassette):
+    def _create_shape(item_id):
+        metadata = {'id': 'VX'}
+        endpoint = f'item/{item_id}/shape/create'
+
+        result = vidispine.client.request('post', endpoint, json=metadata)
+
+        return result['id']
+
+    return _create_shape

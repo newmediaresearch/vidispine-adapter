@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-109"}'
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 27 Oct 2020 10:42:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 10:42:59
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/search/shape/;number=10?content=metadata
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAHXQvQqAIBSG4Xv5ZgM99qcXEkE4BAU5BIFu4r23Vue0vjzTW3DEnOCN7hTSsV47
+        /FIQN3hMc2NsC4WY9/OdtUMNVT2hleHIIMlwYNDIsGdQy5C+kJwMDYOjDDWDgwQdu0O96Ngc6v5d
+        qDfi7oWOrQEAAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '124'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 27 Oct 2020 10:42:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 10:42:59
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

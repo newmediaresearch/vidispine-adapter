@@ -7,7 +7,7 @@ from vidispine.utils import generate_metadata
 
 
 def test_update_metadata(
-    vidispine, cassette, create_metadata_field, create_collection
+    vidispine, cassette, create_metadata_field, collection
 ):
     create_metadata_field('field_one')
     create_metadata_field('field_two')
@@ -19,14 +19,14 @@ def test_update_metadata(
     }
 
     vidispine.collection.update_metadata(
-        create_collection, generate_metadata(fields)
+        collection, generate_metadata(fields)
     )
 
     assert cassette.all_played
 
 
 def test_update_metadata_field_does_not_exist(
-    vidispine, cassette, create_metadata_field, create_collection
+    vidispine, cassette, create_metadata_field, collection
 ):
     create_metadata_field('field_one')
     create_metadata_field('field_two')
@@ -40,7 +40,7 @@ def test_update_metadata_field_does_not_exist(
 
     with pytest.raises(NotFound) as err:
         vidispine.collection.update_metadata(
-            create_collection, generate_metadata(fields)
+            collection, generate_metadata(fields)
         )
 
         re.match(
