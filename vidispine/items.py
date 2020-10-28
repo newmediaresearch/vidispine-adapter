@@ -64,12 +64,17 @@ class ItemShape(EntityBase):
     entity = 'item'
 
     def get(
-        self, item_id: str, shape_id: str, params: dict = None
+        self,
+        item_id: str,
+        shape_id: str,
+        params: dict = None
     ) -> BaseJson:
+
         if params is None:
             params = {}
 
-        endpoint = f'item/{item_id}/shape/{shape_id}'
+        endpoint = self._build_url(f'{item_id}/shape/{shape_id}')
+
         return self.client.get(endpoint, params=params)
 
     def list(self, item_id: str, params: dict = None) -> BaseJson:
