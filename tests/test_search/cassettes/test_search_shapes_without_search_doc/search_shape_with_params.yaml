@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-140"}'
+    headers:
+      Content-Length:
+      - '15'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 27 Oct 2020 16:36:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 16:36:59
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/search/shape?content=metadata
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAI2Xu0pDQRgG32XrCHs7l82DiCApBANJIQhJF/LuFjZ6Zn447TLVN/MX+0iX6/2W
+        jmUeh3S7fHyf0/H9ka6f6Zhe317KKOmQrvfz1//nntPz9Dz8BbOCbWzBdTi4Alz3gouDC8B5Lzg5
+        OAPse8Hm4ASw7gXdTOtbcAkGbwCDwSvAYHCCweAFYDA4wWBw9LgEgxP0wSvCXXzwih4XP4WKzGY3
+        U1HP7DtWRDH7jgL6jhX1zL6jgMGOyGwOdiQY7IjMpmBHgl54RWaTFy5gYAaZTYEZgm6moMfJzQjo
+        ZgrCndyMgG6moPDuZgR0MwWn0N2MgG6m4BS6mxEwMINT6IEZgoEZnEIPzBAMzOAUWmCGYGAGp9AC
+        MwQDMziFFpgh6GYyTqG5mYzCm5vJCLe5mYwem5vJGLy6mYwdq5vJmKeqmYF1qooZGKeqF+FUy8CG
+        Va0Ip1IGpq7qRDhVMnD4RY0Ip0IGzr64D3LuA0df3Ac594ECi/sg5z4QanEf5NwHes7ug5z6WNF9
+        Vh/CqY8V3Wf1IZz6WNF9Vh/CqY8V3Wf1IZz6WLfdD9VBzG1sqx8uA5i72DY/XAUwN7EtfrgIYO5h
+        27v/rYm5hW3t/q/+xU7PH7sRHZToDwAA
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '480'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 27 Oct 2020 16:36:59 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 16:36:59
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

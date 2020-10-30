@@ -16,22 +16,22 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-100","id":"VX-100","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-106","id":"VX-106","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:43 GMT
+      - Tue, 27 Oct 2020 13:00:00 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:43
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:00
         GMT
     status:
       code: 200
       message: OK
 - request:
-    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "ab40e426-2480-4e67-bd2c-16ac7b83ddf9"}]}],
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "3acb0330-9c99-4d4d-8d45-2ff936b62163"}]}],
       "start": "-INF", "end": "+INF"}]}'
     headers:
       Accept-Encoding:
@@ -50,22 +50,22 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-72"}'
+      string: '{"id":"VX-126"}'
     headers:
       Content-Length:
-      - '14'
+      - '15'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:43 GMT
+      - Tue, 27 Oct 2020 13:00:00 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:43
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:00
         GMT
     status:
       code: 200
       message: OK
 - request:
-    body: '{"field": [{"name": "title", "value": [{"value": "ab40e426-2480-4e67-bd2c-16ac7b83ddf9"}]}]}'
+    body: '{"field": [{"name": "title", "value": [{"value": "3acb0330-9c99-4d4d-8d45-2ff936b62163"}]}]}'
     headers:
       Accept-Encoding:
       - gzip, deflate
@@ -83,16 +83,16 @@ interactions:
     uri: http://localhost:8080/API/search
   response:
     body:
-      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"id":"VX-72","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-72"}],"facet":[]}'
+      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"id":"VX-126","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-126"}],"facet":[]}'
     headers:
       Content-Length:
-      - '226'
+      - '228'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:44 GMT
+      - Tue, 27 Oct 2020 13:00:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:01
         GMT
     status:
       code: 200
