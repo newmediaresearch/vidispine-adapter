@@ -11,7 +11,7 @@ class EntityBase:
     def _build_url(
         self,
         endpoint: str = '',
-        matrix_params: dict = None,
+        matrix_params: dict = None
     ) -> str:
 
         if not self.entity:

@@ -16,22 +16,22 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-101","id":"VX-101","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-107","id":"VX-107","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:44 GMT
+      - Tue, 27 Oct 2020 13:00:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:01
         GMT
     status:
       code: 200
       message: OK
 - request:
-    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "e17c26cf-c02d-45dc-a260-c2e4770f4ca0"}]}],
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "8d09c933-9816-4789-a2eb-bc5fe31cc97d"}]}],
       "start": "-INF", "end": "+INF"}]}'
     headers:
       Accept-Encoding:
@@ -50,22 +50,22 @@ interactions:
     uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"id":"VX-73"}'
+      string: '{"id":"VX-127"}'
     headers:
       Content-Length:
-      - '14'
+      - '15'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:44 GMT
+      - Tue, 27 Oct 2020 13:00:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:01
         GMT
     status:
       code: 200
       message: OK
 - request:
-    body: '{"field": [{"name": "title", "value": [{"value": "e17c26cf-c02d-45dc-a260-c2e4770f4ca0"}]}]}'
+    body: '{"field": [{"name": "title", "value": [{"value": "8d09c933-9816-4789-a2eb-bc5fe31cc97d"}]}]}'
     headers:
       Accept-Encoding:
       - gzip, deflate
@@ -83,16 +83,16 @@ interactions:
     uri: http://localhost:8080/API/search?content=metadata
   response:
     body:
-      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"metadata":{"revision":"VX-294,VX-293,VX-295","timespan":[{"field":[{"name":"title","value":[{"value":"e17c26cf-c02d-45dc-a260-c2e4770f4ca0","uuid":"3b30df32-76a9-481f-8a1f-3e11f9047f7c","user":"admin","timestamp":"2020-10-26T15:46:44.284+0000","change":"VX-293"}],"uuid":"175f5326-62c9-4274-be7a-fe6e8dc8c199","user":"admin","timestamp":"2020-10-26T15:46:44.284+0000","change":"VX-293"},{"name":"created","value":[{"value":"2020-10-26T15:46:44.274Z","uuid":"65200771-4ce1-4479-836b-867add6ff29d","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"1f821f45-2983-40eb-9624-4f7d42c55ffe","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"mediaType","value":[{"value":"none","uuid":"476106bc-9e8b-4893-89ea-899a9a262d3b","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"ce9effe6-d210-4855-b207-27d668bd8144","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"itemId","value":[{"value":"VX-73","uuid":"de77e4bb-544b-497e-8ba8-c37c3a2f3470","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"59bc0a92-f959-49fd-b2b4-e9e55e552e5c","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"user","value":[{"value":"admin","uuid":"4ff17122-3dfc-4eb3-83b8-2ee6848d0d51","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"}],"uuid":"477bd0fc-1ed1-400b-a088-831584c10d7c","user":"system","timestamp":"2020-10-26T15:46:44.313+0000","change":"VX-294"},{"name":"shapeTag","value":[{"value":"original","uuid":"17539102-ef4a-48de-9c9e-a384404e83da","user":"system","timestamp":"2020-10-26T15:46:44.326+0000","change":"VX-295"}],"uuid":"7f632b8c-b6dd-4acf-afcb-40658a729194","user":"system","timestamp":"2020-10-26T15:46:44.326+0000","change":"VX-295"},{"name":"__metadata_last_modified","value":[{"value":"2020-10-26T15:46:44.326Z"}]},{"name":"__placeholder_shape_size","value":[{"value":"1"}]},{"name":"__shape_size","value":[{"value":"1"}]},{"name":"__shape","value":[{"value":"VX-78"}]},{"name":"__version_count","value":[{"value":"1"}]},{"name":"__version","value":[{"value":"0"}]},{"name":"__shape_last_added","value":[{"value":"2020-10-26T15:46:44.317Z"}]},{"name":"__storage_size","value":[{"value":"0"}]},{"name":"__storagegroup_size","value":[{"value":"0"}]},{"name":"__sequence_size","value":[{"value":"0"}]},{"name":"__collection_size","value":[{"value":"0"}]},{"name":"__ancestor_collection_size","value":[{"value":"0"}]}],"group":[],"start":"-INF","end":"+INF"}]},"shape":[],"access":[],"externalId":[],"id":"VX-73","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-73"}],"facet":[]}'
+      string: '{"hits":1,"suggestion":[],"autocomplete":[],"entry":[{"item":{"metadata":{"revision":"VX-452,VX-451,VX-453","timespan":[{"field":[{"name":"mediaType","value":[{"value":"none","uuid":"b832b830-15b7-460d-8ae4-754d6cc2a73f","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"}],"uuid":"83e51199-28f2-43bb-be86-9cc82ef7e344","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"},{"name":"itemId","value":[{"value":"VX-127","uuid":"10b3ff4c-abdb-436d-966c-294d5dec7d99","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"}],"uuid":"7fbbe19b-66ff-4b15-b80f-f886b765a5fa","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"},{"name":"user","value":[{"value":"admin","uuid":"d8887c98-bfb0-4456-b27a-9b9180dbd431","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"}],"uuid":"d2f56155-60c2-4e39-ad15-8b495936e9e5","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"},{"name":"shapeTag","value":[{"value":"original","uuid":"714ab3b5-78db-47b2-9522-18ca89e0912b","user":"system","timestamp":"2020-10-27T13:00:01.459+0000","change":"VX-453"}],"uuid":"45b86dfd-6b92-45f2-bb13-cc39c8885b88","user":"system","timestamp":"2020-10-27T13:00:01.459+0000","change":"VX-453"},{"name":"title","value":[{"value":"8d09c933-9816-4789-a2eb-bc5fe31cc97d","uuid":"b9655d95-1b53-40ae-8114-8df3d3dc0b7d","user":"admin","timestamp":"2020-10-27T13:00:01.402+0000","change":"VX-451"}],"uuid":"4ca59a26-ea87-46ae-afe7-b36a4a4c6860","user":"admin","timestamp":"2020-10-27T13:00:01.402+0000","change":"VX-451"},{"name":"created","value":[{"value":"2020-10-27T13:00:01.390Z","uuid":"dd87df67-1694-4afb-aab9-152094237f17","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"}],"uuid":"d0c38cba-64e5-461a-bec9-c9e47d7c5e68","user":"system","timestamp":"2020-10-27T13:00:01.441+0000","change":"VX-452"},{"name":"__metadata_last_modified","value":[{"value":"2020-10-27T13:00:01.459Z"}]},{"name":"__placeholder_shape_size","value":[{"value":"1"}]},{"name":"__shape_size","value":[{"value":"1"}]},{"name":"__shape","value":[{"value":"VX-170"}]},{"name":"__version_count","value":[{"value":"1"}]},{"name":"__version","value":[{"value":"0"}]},{"name":"__shape_last_added","value":[{"value":"2020-10-27T13:00:01.447Z"}]},{"name":"__storage_size","value":[{"value":"0"}]},{"name":"__storagegroup_size","value":[{"value":"0"}]},{"name":"__sequence_size","value":[{"value":"0"}]},{"name":"__collection_size","value":[{"value":"0"}]},{"name":"__ancestor_collection_size","value":[{"value":"0"}]}],"group":[],"start":"-INF","end":"+INF"}]},"shape":[],"access":[],"externalId":[],"id":"VX-127","start":"-INF","end":"+INF"},"timespan":[{"field":[],"start":"-INF","end":"+INF"}],"start":"-INF","end":"+INF","type":"Item","id":"VX-127"}],"facet":[]}'
     headers:
       Content-Length:
-      - '2863'
+      - '2867'
       Content-Type:
       - application/json
       Date:
-      - Mon, 26 Oct 2020 15:46:44 GMT
+      - Tue, 27 Oct 2020 13:00:01 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 25-Oct-2020 15:46:44
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 26-Oct-2020 13:00:01
         GMT
     status:
       code: 200
