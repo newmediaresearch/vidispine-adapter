@@ -25,6 +25,8 @@ pytest-vcr = "^1.0.2"
 isort = {extras = ["pyproject"], version = "^5.5.1"}
 tox = "^3.20.0"
 mypy = "^0.782"
+sphinx = "^3.2.1"
+recommonmark = "^0.6.0"
 
 [tool.isort]
 line_length = 79
