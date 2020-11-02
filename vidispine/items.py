@@ -85,6 +85,14 @@ class ItemShape(EntityBase):
 
         return self.client.get(endpoint, params=params)
 
+    def delete(self, item_id: str, shape_id: str, params: dict = None) -> None:
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(f'{item_id}/shape/{shape_id}')
+
+        self.client.delete(endpoint, params=params)
+
     def import_shape(self, item_id: str, params: dict) -> None:
         if not params:
             raise InvalidInput('Please supply a URI or fileId.')
