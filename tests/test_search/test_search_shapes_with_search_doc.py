@@ -5,7 +5,7 @@ from vidispine.errors import InvalidInput
 
 @pytest.fixture
 def update_shape_metadata(vidispine, cassette):
-    def _update_shape_metadata(item_id, shape_id):
+    def _update_shape_metadata(item, shape_id):
         metadata = {
             "field": [
                 {
@@ -14,7 +14,7 @@ def update_shape_metadata(vidispine, cassette):
                 }
             ]
         }
-        endpoint = endpoint = f'item/{item_id}/shape/{shape_id}/metadata'
+        endpoint = endpoint = f'item/{item}/shape/{shape_id}/metadata'
 
         vidispine.client.request('put', endpoint, json=metadata)
 
@@ -22,11 +22,10 @@ def update_shape_metadata(vidispine, cassette):
 
 
 def test_search_shape(
-        vidispine, cassette, create_item, create_shape, update_shape_metadata
+        vidispine, cassette, item, create_shape, update_shape_metadata
 ):
-    item_id = create_item()
-    shape_id = create_shape(item_id)
-    update_shape_metadata(item_id, shape_id)
+    shape_id = create_shape(item)
+    update_shape_metadata(item, shape_id)
 
     metadata = {
         "field": [
@@ -46,11 +45,10 @@ def test_search_shape(
 
 
 def test_search_shape_with_params(
-    vidispine, cassette, create_item, create_shape, update_shape_metadata
+    vidispine, cassette, item, create_shape, update_shape_metadata
 ):
-    item_id = create_item()
-    shape_id = create_shape(item_id)
-    update_shape_metadata(item_id, shape_id)
+    shape_id = create_shape(item)
+    update_shape_metadata(item, shape_id)
 
     metadata = {
         "field": [
@@ -71,11 +69,10 @@ def test_search_shape_with_params(
 
 
 def test_search_shape_with_matrix_params(
-    vidispine, cassette, create_item, create_shape, update_shape_metadata
+    vidispine, cassette, item, create_shape, update_shape_metadata
 ):
-    item_id = create_item()
-    shape_id = create_shape(item_id)
-    update_shape_metadata(item_id, shape_id)
+    shape_id = create_shape(item)
+    update_shape_metadata(item, shape_id)
 
     metadata = {
         "field": [
@@ -97,12 +94,11 @@ def test_search_shape_with_matrix_params(
 
 
 def test_search_shape_with_params_and_matrix_params(
-    vidispine, cassette, create_item, create_shape, update_shape_metadata
+    vidispine, cassette, item, create_shape, update_shape_metadata
 
 ):
-    item_id = create_item()
-    shape_id = create_shape(item_id)
-    update_shape_metadata(item_id, shape_id)
+    shape_id = create_shape(item)
+    update_shape_metadata(item, shape_id)
 
     metadata = {
         "field": [
