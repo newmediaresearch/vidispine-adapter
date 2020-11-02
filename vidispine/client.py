@@ -136,7 +136,7 @@ class Client:
         :param method: The desired HTTP method to use for example GET,
             POST, PUT... etc.
         :param url: The URL endpoint you wish to query.
-        :param \*\*kwargs: Optional arguments that ``_request`` takes.
+        :param kwargs: Optional arguments that ``_request`` takes.
 
         :return: :class:`ClientResponse <ClientResponse>` object. This
             will be the response text or the parsed JSON payload if
@@ -152,7 +152,7 @@ class Client:
         """Sends a GET request.
 
         :param url: The URL endpoint you wish to query.
-        :param \*\*kwargs: Optional arguments that ``_request`` takes.
+        :param kwargs: Optional arguments that ``_request`` takes.
 
         :return: :class:`ClientResponse <ClientResponse>` object. This
             will be the response text or the parsed JSON payload if
@@ -168,7 +168,7 @@ class Client:
         """Sends a POST request.
 
         :param url: The URL endpoint you wish to query.
-        :param \*\*kwargs: Optional arguments that ``_request`` takes.
+        :param kwargs: Optional arguments that ``_request`` takes.
 
         :return: :class:`ClientResponse <ClientResponse>` object. This
             will be the response text or the parsed JSON payload if
@@ -184,7 +184,7 @@ class Client:
         """Sends a PUT request.
 
         :param url: The URL endpoint you wish to query.
-        :param \*\*kwargs: Optional arguments that ``_request`` takes.
+        :param kwargs: Optional arguments that ``_request`` takes.
 
         :return: :class:`ClientResponse <ClientResponse>` object. This
             will be the response text or the parsed JSON payload if
@@ -200,7 +200,7 @@ class Client:
         """Sends a DELETE request.
 
         :param url: The URL endpoint you wish to query.
-        :param \*\*kwargs: Optional arguments that ``_request`` takes.
+        :param kwargs: Optional arguments that ``_request`` takes.
 
         :return: :class:`ClientResponse <ClientResponse>` object. This
             will be the response text or the parsed JSON payload if

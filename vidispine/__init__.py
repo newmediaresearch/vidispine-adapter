@@ -1,1 +1,1 @@
-from vidispine.client import Vidispine
+from vidispine.client import Vidispine  # noqa
