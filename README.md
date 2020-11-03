@@ -4,9 +4,7 @@ A python (3.6+) wrapper around the [Vidispine API](https://apidoc.vidispine.com/
 
 Note: This is a work in progress and not all of the vidispine endpoints have been implemented yet.
 
-Full documentation coming soon
-
-
+Full documentation can be found [here](https://vidispine-adapter.readthedocs.io/en/stable/).
 
 ## Quick start
 
