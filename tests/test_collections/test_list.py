@@ -1,19 +1,5 @@
 import time
 
-import pytest
-
-
-@pytest.fixture
-def create_multiple_collections(vidispine):
-    def _create_multiple_collections(quantity):
-        vidispine_ids = [
-            vidispine.collection.create(f'test_collection_{i}')
-            for i in range(1, quantity + 1)
-        ]
-        return vidispine_ids
-
-    return _create_multiple_collections
-
 
 def test_list_no_metadata(
     vidispine, cassette, create_multiple_collections

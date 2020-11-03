@@ -4,11 +4,18 @@ from vidispine.typing import BaseJson
 
 
 class Collection(EntityBase):
+    """Collections
 
+    A collection is an ordered logical set of items, libraries and
+    other collections.
+
+    """
     entity = 'collection'
 
-    def create(self, name: str) -> str:
-        params = {'name': name}
+    def create(self, params: dict = None) -> str:
+        if params is None:
+            params = {}
+
         response = self.client.post(self.entity, params=params)
 
         return response['id']
