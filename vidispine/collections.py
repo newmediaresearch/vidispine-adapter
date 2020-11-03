@@ -20,13 +20,13 @@ class Collection(EntityBase):
 
         return response['id']
 
-    def get(self, vidispine_id: str, metadata: bool = True) -> BaseJson:
-        if metadata:
-            endpoint = self._build_url(f'{vidispine_id}/metadata')
-        else:
-            endpoint = self._build_url(vidispine_id)
+    def get(self, vidispine_id: str, params: dict = None) -> BaseJson:
+        if params is None:
+            params = {}
 
-        return self.client.get(endpoint)
+        endpoint = self._build_url(vidispine_id)
+
+        return self.client.get(endpoint, params=params)
 
     def delete(self, vidispine_id: str) -> None:
         endpoint = self._build_url(vidispine_id)

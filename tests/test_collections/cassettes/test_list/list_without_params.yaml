@@ -1,0 +1,140 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-121","id":"VX-121","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Nov 2020 16:32:42 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 02-Nov-2020 16:32:42
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_2
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-122","id":"VX-122","name":"test_collection_2"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Nov 2020 16:32:42 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 02-Nov-2020 16:32:42
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_3
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-123","id":"VX-123","name":"test_collection_3"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Nov 2020 16:32:42 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 02-Nov-2020 16:32:42
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/collection
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAK2ZQWvcMBSE/0rReYslW3p+8q2UHnrrqQRCCMZ1swtOHFgFCiH/PU4O2XmHGCrm
+        FofdwTzPN8+afXbHUzm7QdPBTeuyzFM5rQ9uuH52yzq5wR1LeRyaZrsYl+N6LoN69c23Xz+by8eb
+        31dfQ9u5gzv92b7ycfUw3s/bdZnP5fby6dvOvRz+X7418u3n8m2VfDDy4XP5UCXvjbwny4eM8u9X
+        VHk18kp+tKE38j350QYx8sIeTjLyiT2caOQjeziG2rBDbd1wDLWh7hYNmoGNpjfseDY73rDjd9ip
+        kzfs+B126uQNO57Njjfu82z3eeM+v7Mz6uSNMT3dmGZnePLOyGj7THZ9RtNnsuczWj6THZ/R8Jns
+        94yrIu9siipxXBR5Z09UiSOomcxpRkwzmdKMkGYyoxkRzWRCFQlVMqGKhCqZUEVClUyoIqFKJlSR
+        UCUTqkiokglVJFTJhCoSqmRCFQlVMqE9WrEHK/74N94/LvOX75dDb4U6erEXtjoOpmcPBqOrJ0eX
+        YHQJOboEo0vI0SXoFyFHl6BdhBxdgtEl5OgSjC4hR5dgdAk5ugSjS8jRJUiokAkVJFTIhCYkNJEJ
+        TUhoIhOakNBEJjQhoYlMaEK3JHALZVtEnEtkb7qIg4nsTRcR0tiy1XHukT33DifTsSfT4b135IRp
+        8dZb9q2bSp3dqJtCnd6nm0qQ3QiaQpDdB5o6kN0GmjKQ3QWaGp38+mJLdPLri63Q2R2m/dmLLG6b
+        dXI3gtUI+cSIB0bysQhPReT3OXyd40qjvSM5xtHdHVkbzc3e+sbb+9o3B/d3nObihuvtz/PT3d32
+        TE7vP4Nv1+NTWaf17UtlfvvPyyvSYkXXNB8AAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '655'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 03 Nov 2020 16:32:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 02-Nov-2020 16:32:44
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

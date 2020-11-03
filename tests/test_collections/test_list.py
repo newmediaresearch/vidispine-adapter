@@ -1,7 +1,7 @@
 import time
 
 
-def test_list_no_metadata(
+def test_list_without_params(
     vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
@@ -19,7 +19,7 @@ def test_list_no_metadata(
     assert cassette.all_played
 
 
-def test_list_with_metadata(
+def test_list_with_params(
     vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
@@ -55,7 +55,7 @@ def test_list_with_matrix_params(
     assert cassette.all_played
 
 
-def test_list_with_metadata_and_matrix_params(
+def test_list_with_params_and_matrix_params(
     vidispine, cassette, create_multiple_collections
 ):
     test_collection_ids = create_multiple_collections(3)
