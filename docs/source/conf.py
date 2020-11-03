@@ -23,7 +23,7 @@ author = 'NMR'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
-vidispine_version = os.environ.get('READTHEDOCS_VERSION')
+vidispine_version = os.environ.get('vidispine_version')
 
 extlinks = {
     'vidispine_docs': (
