@@ -19,6 +19,11 @@ PROTOCOL = 'https'
 
 
 class Client:
+    """Request Client
+
+    The Client object handles all API requests made to Vidispine.
+
+    """
 
     def __init__(
         self,
@@ -34,7 +39,9 @@ class Client:
         if not url.startswith('http'):
             url = f'{PROTOCOL}://{url}'
 
+        #: The base url to be used for each request e.g. http://localhost/API
         self.base_url = urljoin(url, '/API/')
+        #: Tuple of user and password to be used as Basic Auth
         self.auth = (user, pwd)
 
     def _check_config(
@@ -124,34 +131,95 @@ class Client:
         """Pass-through request method
 
         This is to be used for functionality that has not yet been
-        implemented.
+        implemented in the Vidispine Adapter.
+
+        :param method: The desired HTTP method to use for example GET,
+            POST, PUT... etc.
+        :param url: The URL endpoint you wish to query.
+        :param kwargs: Optional arguments that ``_request`` takes.
+
+        :return: :class:`ClientResponse <ClientResponse>` object. This
+            will be the response text or the parsed JSON payload if
+            present.
+        :rtype: vidispine.typing.ClientResponse
+
         """
         kwargs['url'] = url.lstrip('/')
         kwargs['method'] = method
         return self._request(**kwargs)
 
     def get(self, url: str, **kwargs: Any) -> Any:
+        """Sends a GET request.
+
+        :param url: The URL endpoint you wish to query.
+        :param kwargs: Optional arguments that ``_request`` takes.
+
+        :return: :class:`ClientResponse <ClientResponse>` object. This
+            will be the response text or the parsed JSON payload if
+            present.
+        :rtype: vidispine.typing.ClientResponse
+
+        """
         kwargs['url'] = url
         kwargs['method'] = 'GET'
         return self._request(**kwargs)
 
     def post(self, url: str, **kwargs: Any) -> Any:
+        """Sends a POST request.
+
+        :param url: The URL endpoint you wish to query.
+        :param kwargs: Optional arguments that ``_request`` takes.
+
+        :return: :class:`ClientResponse <ClientResponse>` object. This
+            will be the response text or the parsed JSON payload if
+            present.
+        :rtype: vidispine.typing.ClientResponse
+
+        """
         kwargs['url'] = url
         kwargs['method'] = 'POST'
         return self._request(**kwargs)
 
     def put(self, url: str, **kwargs: Any) -> Any:
+        """Sends a PUT request.
+
+        :param url: The URL endpoint you wish to query.
+        :param kwargs: Optional arguments that ``_request`` takes.
+
+        :return: :class:`ClientResponse <ClientResponse>` object. This
+            will be the response text or the parsed JSON payload if
+            present.
+        :rtype: vidispine.typing.ClientResponse
+
+        """
         kwargs['url'] = url
         kwargs['method'] = 'PUT'
         return self._request(**kwargs)
 
     def delete(self, url: str, **kwargs: Any) -> Any:
+        """Sends a DELETE request.
+
+        :param url: The URL endpoint you wish to query.
+        :param kwargs: Optional arguments that ``_request`` takes.
+
+        :return: :class:`ClientResponse <ClientResponse>` object. This
+            will be the response text or the parsed JSON payload if
+            present.
+        :rtype: vidispine.typing.ClientResponse
+
+        """
         kwargs['url'] = url
         kwargs['method'] = 'DELETE'
         return self._request(**kwargs)
 
 
 class Vidispine:
+    """ The Vidispine Adapter object.
+
+    This acts as the main interface you will use to make the Vidispine
+    requests.
+
+    """
 
     def __init__(
         self,
@@ -171,9 +239,24 @@ class Vidispine:
         self.search = Search(self.client)
 
     def version(self) -> BaseJson:
+        """Vidispine version information.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
         return self.client.get('version')
 
     def reindex(self, index: str, params: dict = None) -> BaseJson:
+        """Issues a reindex request to Vidispine
+
+        :param index: The index to reindex.
+        :param params: Query params to supply.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
         if params is None:
             params = {}
 

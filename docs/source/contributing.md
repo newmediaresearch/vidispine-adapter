@@ -2,7 +2,7 @@
 
 Thanks for wanting to contribute to the Python Vidispine adapter. This adapter is intended to be a 'thin' wrapper around the Vidispine API and includes no business logic.
 
-Important Paddle resources:
+Important resources:
 
 
   * [Vidispine docs](https://apidoc.vidispine.com//latest/)
@@ -121,6 +121,7 @@ pyenv install --list
 pyenv install 3.6.x
 pyenv install 3.7.x
 pyenv install 3.8.x
+pyenv install 3.9.x
 ```
 
 Finally run tox:
@@ -142,7 +143,7 @@ $ tox
 
 ## Submitting changes
 
-Please send a [GitHub Pull Request to paddle-python](https://github.com/newmediaresearch/vidispine-adapter/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)).
+Please send a [GitHub Pull Request to vidispine-adapter](https://github.com/newmediaresearch/vidispine-adapter/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)).
 
 All changes should have at least one test to accompany it, either to prove the bug it is fixing has indeed been fixed on to ensure a new feature works as expected.
 
@@ -152,7 +153,7 @@ Please follow our coding conventions and try and make all of your commits atomic
 
 ## Documentation
 
-Comming soon
+We use Sphinx to auto generate our documentation. See the surrounding code on how to properly format the docstrings so that Sphinx is able to generate the docs correctly.
 
 
 
