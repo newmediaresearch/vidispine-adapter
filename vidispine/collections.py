@@ -46,5 +46,12 @@ class Collection(EntityBase):
 
         return self.client.put(endpoint, json=metadata)
 
-    def list(self, params: dict = None) -> BaseJson:
-        return self.client.get(self.entity, params=params)
+    def list(
+        self,
+        params: dict = None,
+        matrix_params: dict = None
+    ) -> BaseJson:
+
+        endpoint = self._build_url(matrix_params=matrix_params)
+
+        return self.client.get(endpoint, params=params)
