@@ -76,7 +76,7 @@ Roadmap
    :caption: API Reference:
 
    client
-
+   jobs
 
 Indices and tables
 ==================

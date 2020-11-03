@@ -3,6 +3,13 @@ from vidispine.typing import BaseJson
 
 
 class Job(EntityBase):
+    """ Jobs
+
+    Manages Vidispine Jobs.
+
+    :vidispine_docs:`Vidispine doc reference <job>`
+
+    """
 
     entity = 'job'
 
