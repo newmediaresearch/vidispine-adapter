@@ -34,7 +34,7 @@ class Collection(EntityBase):
     def get(self, collection_id: str, params: dict = None) -> BaseJson:
         """Return the ids of the objects contained within the collection
 
-        :param collection_id: the id of the collection to get.
+        :param collection_id: The id of the collection to get.
         :param params: Optional query parameters.
 
         :return: JSON response from the request.
@@ -52,10 +52,7 @@ class Collection(EntityBase):
     def delete(self, collection_id: str) -> None:
         """Delete specified collection.
 
-        :param collection_id: the id of the collection to delete.
-
-        :return: None.
-        :rtype: None.
+        :param collection_id: The id of the collection to delete.
 
         """
 
@@ -66,10 +63,8 @@ class Collection(EntityBase):
     def delete_multiple(self, collection_ids: list) -> None:
         """Delete multiple collections.
 
-        :param collection_id: A list of collection ids to delete.
+        :param collection_ids: A list of collection ids to delete.
 
-        :return: None.
-        :rtype: None.
         """
 
         if not collection_ids:
@@ -82,13 +77,13 @@ class Collection(EntityBase):
     def update_metadata(self, collection_id: str, metadata: dict) -> BaseJson:
         """Sets or updates the metadata of a collection.
 
-        :param collection_id: the id of the collection to update.
+        :param collection_id: The id of the collection to update.
         :param metadata: the metadata to update the collection with.
 
         :return: JSON response from the request.
         :rtype: vidispine.typing.BaseJson.
 
-        :vidispine_docs:`update_metadta Vidispine doc reference
+        :vidispine_docs:`update_metadata Vidispine doc reference
         <metadata/metadata.html#
         put-%7Bmetadata-entity%7D-(entity-id)-metadata>`
 
