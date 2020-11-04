@@ -4,6 +4,12 @@ from vidispine.typing import BaseJson
 
 
 class Metadata(EntityBase):
+    """Metadata
+
+    Metadata related requests for items and collections.
+
+    :vidispine_docs:`Vidispine doc reference <metadata/metadata>`
+    """
 
     entity = 'collection'
 
@@ -13,7 +19,16 @@ class Metadata(EntityBase):
         vidispine_id: str,
         metadata: dict
     ) -> BaseJson:
+        """Sets or updates the metadata of an entity.
 
+        :param entity: The item or collection to update.
+        :param vidispine_id: The id of the entity.
+        :param metadata: the metadata to update the entity with.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
         if not metadata:
             raise InvalidInput('Please supply metadata.')
 
