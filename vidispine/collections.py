@@ -88,8 +88,9 @@ class Collection(EntityBase):
         :return: JSON response from the request.
         :rtype: vidispine.typing.BaseJson.
 
-        :vidispine_docs:`Vidispine doc reference <metadata/metadata.html
-        #put-%7Bmetadata-entity%7D-(entity-id)-metadata>`
+        :vidispine_docs:`update_metadta Vidispine doc reference
+        <metadata/metadata.html#
+        put-%7Bmetadata-entity%7D-(entity-id)-metadata>`
 
         """
 
