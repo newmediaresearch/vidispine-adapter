@@ -35,6 +35,9 @@ class Collection(EntityBase):
         self.client.delete(self.entity, params=params)
 
     def update_metadata(self, vidispine_id: str, metadata: dict) -> BaseJson:
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
         endpoint = self._build_url(f'{vidispine_id}/metadata')
 
         return self.client.put(endpoint, json=metadata)

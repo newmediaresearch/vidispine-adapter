@@ -2,6 +2,26 @@ from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
+class Metadata(EntityBase):
+
+    entity = 'collection'
+
+    def update(
+        self,
+        entity: str,
+        vidispine_id: str,
+        metadata: dict
+    ) -> BaseJson:
+
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
+        self.entity = entity
+
+        endpoint = self._build_url(f'{vidispine_id}/metadata')
+
+        return self.client.put(endpoint, json=metadata)
+
 
 class MetadataFieldGroup(EntityBase):
 
@@ -94,13 +114,12 @@ class MetadataField(EntityBase):
 
         return self.client.put(endpoint, json=metadata)
 
-    def get(
-            self,
-            field_name: str,
-            params: dict = {}
-    ) -> BaseJson:
+    def get(self, field_name: str, params: dict = None) -> BaseJson:
         if not field_name:
             raise InvalidInput("Please supply a field name")
+
+        if params is None:
+            params = {}
 
         endpoint = self._build_url(field_name)
 

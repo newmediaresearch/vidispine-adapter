@@ -11,7 +11,7 @@ from vidispine.errors import APIError, ConfigError, NotFound
 from vidispine.items import Item, ItemShape
 from vidispine.jobs import Job
 from vidispine.log import Log
-from vidispine.metadata import MetadataField, MetadataFieldGroup
+from vidispine.metadata import Metadata, MetadataField, MetadataFieldGroup
 from vidispine.search import Search
 from vidispine.typing import BaseJson, ClientResponse
 
@@ -234,6 +234,7 @@ class Vidispine:
         self.item_shape = ItemShape(self.client)
         self.job = Job(self.client)
         self.log = Log(self.client)
+        self.metadata = Metadata(self.client)
         self.metadata_field = MetadataField(self.client)
         self.metadata_field_group = MetadataFieldGroup(self.client)
         self.search = Search(self.client)

@@ -1,0 +1,135 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/collection?name=test_collection_1
+  response:
+    body:
+      string: '{"loc":"http://localhost:8080/API/collection/VX-148","id":"VX-148","name":"test_collection_1"}'
+    headers:
+      Content-Length:
+      - '94'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Nov 2020 13:48:49 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "string"}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field_one
+  response:
+    body:
+      string: '{"name":"field_one","type":"string","origin":"VX"}'
+    headers:
+      Content-Length:
+      - '50'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Nov 2020 13:48:49 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "string"}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '18'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/metadata-field/field_two
+  response:
+    body:
+      string: '{"name":"field_two","type":"string","origin":"VX"}'
+    headers:
+      Content-Length:
+      - '50'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Nov 2020 13:48:49 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "Foo bar"}]},
+      {"name": "field_one", "value": [{"value": "eggs"}]}, {"name": "field_two", "value":
+      [{"value": 123}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '214'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/collection/VX-148/metadata
+  response:
+    body:
+      string: '{"revision":"VX-580,VX-581","timespan":[{"field":[{"name":"collectionId","value":[{"value":"VX-148","uuid":"ab67a7f5-21a3-4569-9593-f89147ab2264","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"98281a10-a9b4-4f7c-8a5a-776f6dabd77a","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"},{"name":"title","value":[{"value":"Foo
+        bar","uuid":"b04995b2-40bc-4093-9991-cfc23c8fc5ad","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"2cdc89b8-bab6-46a8-a102-b6c714de0d23","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"field_one","value":[{"value":"eggs","uuid":"e0197bff-5eaa-4f4c-844b-e239678536f7","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"ebce2b8c-1048-4579-996d-e30ffe4a8f05","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"field_two","value":[{"value":"123","uuid":"b4ba3db9-7da9-4c8c-a777-e91ee1a8ad1b","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"ce601f92-bbbd-47c9-8cae-ed5cd97ca801","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"user","value":[{"value":"admin","uuid":"410b7a6c-bbd6-4b5e-8f3d-e8d8720f0cb9","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"d2321070-0986-47b6-8f45-6c254de09485","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"},{"name":"created","value":[{"value":"2020-11-04T13:48:49.153Z","uuid":"befd96a7-7abe-47fd-bd96-f3d10b235d45","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"4994f5c8-1e1e-44ca-841a-43a735cdcb65","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"group":[],"start":"-INF","end":"+INF"}]}'
+    headers:
+      Content-Length:
+      - '1867'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 04 Nov 2020 13:48:49 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

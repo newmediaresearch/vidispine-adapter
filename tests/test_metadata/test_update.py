@@ -6,7 +6,7 @@ from vidispine.errors import NotFound, InvalidInput
 from vidispine.utils import generate_metadata
 
 
-def test_update_metadata(
+def test_update_collection(
     vidispine, cassette, create_metadata_field, collection
 ):
     create_metadata_field('field_one')
@@ -18,14 +18,14 @@ def test_update_metadata(
         'field_two': 123
     }
 
-    vidispine.collection.update_metadata(
-        collection, generate_metadata(fields)
+    vidispine.metadata.update(
+        'collection', collection, generate_metadata(fields)
     )
 
     assert cassette.all_played
 
 
-def test_update_metadata_field_does_not_exist(
+def test_update_collection_field_does_not_exist(
     vidispine, cassette, create_metadata_field, collection
 ):
     create_metadata_field('field_one')
@@ -39,8 +39,8 @@ def test_update_metadata_field_does_not_exist(
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.collection.update_metadata(
-            collection, generate_metadata(fields)
+        vidispine.metadata.update(
+            'collection', collection, generate_metadata(fields)
         )
 
         re.match(
@@ -51,7 +51,7 @@ def test_update_metadata_field_does_not_exist(
     assert cassette.all_played
 
 
-def test_update_metadata_collection_not_found(vidispine, cassette):
+def test_update_collection_collection_not_found(vidispine, cassette):
     fields = {
         'title': 'Foo bar',
         'field_one': 'eggs',
@@ -59,8 +59,8 @@ def test_update_metadata_collection_not_found(vidispine, cassette):
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.collection.update_metadata(
-            'VX-1000000', generate_metadata(fields)
+        vidispine.metadata.update(
+            'collection', 'VX-1000000', generate_metadata(fields)
         )
 
     err.match(r'Not Found: PUT')
@@ -68,8 +68,8 @@ def test_update_metadata_collection_not_found(vidispine, cassette):
     assert cassette.all_played
 
 
-def test_update_metadata_invalid_input(vidispine):
+def test_update_invalid_input(vidispine):
     with pytest.raises(InvalidInput) as err:
-        vidispine.collection.update_metadata('VX-1000000', {})
+        vidispine.metadata.update('collection', 'VX-1000000', {})
 
     err.match('Please supply metadata.')
