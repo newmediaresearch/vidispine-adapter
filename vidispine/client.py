@@ -214,7 +214,7 @@ class Client:
 
 
 class Vidispine:
-    """ The Vidispine Adapter object.
+    """The Vidispine Adapter object.
 
     This acts as the main interface you will use to make the Vidispine
     requests.

@@ -53,6 +53,20 @@ def check_field_value_exists() -> Callable:
 
 
 @pytest.fixture
+def create_multiple_collections(vidispine):
+    def _create_multiple_collections(quantity):
+        vidispine_ids = [
+            vidispine.client.post(
+                'collection', params={'name': f'test_collection_{i}'}
+            )['id']
+            for i in range(1, quantity + 1)
+        ]
+        return vidispine_ids
+
+    return _create_multiple_collections
+
+
+@pytest.fixture
 def create_collection(vidispine: Vidispine, cassette: Cassette) -> Callable:
     def _create_collection(name='test_collection_1'):
         params = {'name': name}
