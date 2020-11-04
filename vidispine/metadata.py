@@ -2,6 +2,7 @@ from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
+
 class Metadata(EntityBase):
 
     entity = 'collection'
