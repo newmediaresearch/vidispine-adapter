@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from vidispine.errors import NotFound, InvalidInput
+from vidispine.errors import InvalidInput, NotFound
 from vidispine.utils import generate_metadata
 
 
