@@ -15,6 +15,8 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.6"
 requests = "^2.24.0"
+sphinx = {version = "^3", optional = true}
+recommonmark = {version = "^0.6", optional = true}
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.0.1"
@@ -25,6 +27,9 @@ pytest-vcr = "^1.0.2"
 isort = {extras = ["pyproject"], version = "^5.5.1"}
 tox = "^3.20.0"
 mypy = "^0.782"
+
+[tool.poetry.extras]
+docs = ["sphinx", "recommonmark"]
 
 [tool.isort]
 line_length = 79
