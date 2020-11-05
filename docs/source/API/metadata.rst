@@ -1,4 +1,8 @@
+Metadata Field
+=========================
 
+.. autoclass:: vidispine.metadata.MetadataField
+   :members:
 
 Metadata Field Group
 =========================
