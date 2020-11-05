@@ -158,6 +158,15 @@ class MetadataField(EntityBase):
         return self.client.put(endpoint, json=metadata)
 
     def get(self, field_name: str, params: dict = None) -> BaseJson:
+        """Returns information about a specific metadata field.
+
+        :param field_name: The name of the metadata field to get.
+        :param params: Optional query params.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
         if not field_name:
             raise InvalidInput('Please supply a field name.')
 
@@ -168,9 +177,28 @@ class MetadataField(EntityBase):
 
         return self.client.get(endpoint, params=params)
 
-    def list(self):
+    def list(self, params: dict = None) -> BaseJson:
+        """Returns a list of all defined fields.
+
+        :param params: Optional query params.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if params is None:
+            params = {}
+
         return self.client.get(self.entity)
 
     def delete(self, field_name: str) -> None:
+        """Deletes a metadata field.
+
+        :param field_name: The name of the metadata field to delete.
+
+        """
+        if not field_name:
+            raise InvalidInput('Please supply a field name.')
+
         endpoint = self._build_url(field_name)
         self.client.delete(endpoint)
