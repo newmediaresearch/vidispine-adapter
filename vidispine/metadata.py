@@ -142,14 +142,30 @@ class MetadataField(EntityBase):
     entity = 'metadata-field'
 
     def create(self, metadata: dict, field_name: str) -> BaseJson:
-        if not metadata:
-            raise InvalidInput('Please supply metadata.')
+        """Creates a metadata field.
 
-        endpoint = self._build_url(field_name)
+        :param metadata: The metadata to create the field with.
+        :param params: The name of the field to create.
 
-        return self.client.put(endpoint, json=metadata)
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        return self._update(metadata, field_name)
 
     def update(self, metadata: dict, field_name: str) -> BaseJson:
+        """Updates a metadata field.
+
+        :param metadata: The metadata to update the field with.
+        :param params: The name of the field to update.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        return self._update(metadata, field_name)
+
+    def _update(self, metadata: dict, field_name: str) -> BaseJson:
         if not metadata:
             raise InvalidInput('Please supply metadata.')
 
