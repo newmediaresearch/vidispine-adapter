@@ -1,6 +1,6 @@
 import pytest
 
-from vidispine.errors import NotFound, InvalidInput
+from vidispine.errors import InvalidInput, NotFound
 
 
 def test_delete(vidispine, cassette, metadata_field):
