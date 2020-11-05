@@ -21,13 +21,9 @@ def update_shape_metadata(vidispine, cassette):
     return _update_shape_metadata
 
 
-def test_search_shape(
-        vidispine, cassette, item, create_shape, update_shape_metadata
-):
-    shape_id = create_shape(item)
-    update_shape_metadata(item, shape_id)
-
-    metadata = {
+@pytest.fixture
+def shape_search_metadata():
+    return {
         "field": [
             {
                 "name": "test",
@@ -36,7 +32,19 @@ def test_search_shape(
         ]
     }
 
-    result = vidispine.search.shape(metadata)
+
+def test_search_shape(
+    vidispine,
+    cassette,
+    item,
+    create_shape,
+    update_shape_metadata,
+    shape_search_metadata
+):
+    shape_id = create_shape(item)
+    update_shape_metadata(item, shape_id)
+
+    result = vidispine.search.shape(shape_search_metadata)
 
     assert result['hits'] > 0
     assert 'id' in result['shape'][0]
@@ -45,46 +53,49 @@ def test_search_shape(
 
 
 def test_search_shape_with_params(
-    vidispine, cassette, item, create_shape, update_shape_metadata
+    vidispine,
+    cassette,
+    item,
+    create_shape,
+    update_shape_metadata,
+    shape_search_metadata
 ):
     shape_id = create_shape(item)
     update_shape_metadata(item, shape_id)
 
-    metadata = {
-        "field": [
-            {
-                "name": "test",
-                "value": [{"value": "test"}]
-            }
-        ]
+    result = vidispine.search.shape(
+        shape_search_metadata, params={'content': 'metadata'}
+    )
+
+    expected_shape = {
+        "id": shape_id,
+        "item": [{"id": item}],
+        "metadata": {
+            "field": [
+                {
+                    "key": "test",
+                    "value": "test"
+                }
+            ]
+        },
     }
-
-    result = vidispine.search.shape(metadata, params={'content': 'metadata'})
-
-    assert result['shape'][0]['metadata']['field'][0] == {
-        'key': 'test', 'value': 'test'
-    }
-
+    assert expected_shape in result['shape']
     assert cassette.all_played
 
 
 def test_search_shape_with_matrix_params(
-    vidispine, cassette, item, create_shape, update_shape_metadata
+    vidispine,
+    cassette,
+    item,
+    create_shape,
+    update_shape_metadata,
+    shape_search_metadata
 ):
     shape_id = create_shape(item)
     update_shape_metadata(item, shape_id)
 
-    metadata = {
-        "field": [
-            {
-                "name": "test",
-                "value": [{"value": "test"}]
-            }
-        ]
-    }
-
     result = vidispine.search.shape(
-        metadata, matrix_params={'number': 10, 'first': 1}
+        shape_search_metadata, matrix_params={'number': 10, 'first': 1}
     )
 
     assert result['hits'] > 0
@@ -94,31 +105,36 @@ def test_search_shape_with_matrix_params(
 
 
 def test_search_shape_with_params_and_matrix_params(
-    vidispine, cassette, item, create_shape, update_shape_metadata
+    vidispine,
+    cassette,
+    item,
+    create_shape,
+    update_shape_metadata,
+    shape_search_metadata
 
 ):
     shape_id = create_shape(item)
     update_shape_metadata(item, shape_id)
 
-    metadata = {
-        "field": [
-            {
-                "name": "test",
-                "value": [{"value": "test"}]
-            }
-        ]
-    }
-
     result = vidispine.search.shape(
-        metadata,
+        shape_search_metadata,
         params={'content': 'metadata'},
         matrix_params={'number': 10, 'first': 1}
     )
 
-    assert result['shape'][0]['metadata']['field'][0] == {
-        'key': 'test', 'value': 'test'
+    expected_shape = {
+        "id": shape_id,
+        "item": [{"id": item}],
+        "metadata": {
+            "field": [
+                {
+                    "key": "test",
+                    "value": "test"
+                }
+            ]
+        },
     }
-
+    assert expected_shape in result['shape']
     assert cassette.all_played
 
 

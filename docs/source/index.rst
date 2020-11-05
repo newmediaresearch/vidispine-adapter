@@ -78,7 +78,7 @@ Roadmap
    client
    collections
    jobs
-
+   search
 
 Indices and tables
 ==================
