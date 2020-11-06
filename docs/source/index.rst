@@ -77,6 +77,7 @@ Roadmap
 
    API/client
    API/collections
+   API/items
    API/jobs
    API/metadata
    API/search
