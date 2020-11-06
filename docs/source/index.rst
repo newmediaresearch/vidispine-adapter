@@ -75,6 +75,7 @@ Roadmap
    :maxdepth: 2
    :caption: API Reference:
 
+   API/audit_logs
    API/client
    API/collections
    API/items
