@@ -4,9 +4,7 @@ A python (3.6+) wrapper around the [Vidispine API](https://apidoc.vidispine.com/
 
 Note: This is a work in progress and not all of the vidispine endpoints have been implemented yet.
 
-Full documentation coming soon
-
-
+Full documentation can be found [here](https://vidispine-adapter.readthedocs.io/en/stable/).
 
 ## Quick start
 
@@ -21,7 +19,7 @@ pip install vidispine-adapter
 To use the Vidispine API you will need a to know the URL, user and password. The user does not need to be the admin user but does need the correct roles for any API call you make
 
 ```python
-from vidispine.client import Vidispine
+from vidispine import Vidispine
 
 vs = Vidispine(url='http://localhost:8080', user='admin', password='admin')
 vs.collection.create(name='test_collection_1')
@@ -35,7 +33,7 @@ export VIDISPINE_PASSWORD="admin"
 ```
 
 ```python
-from vidispine.client import Vidispine
+from vidispine import Vidispine
 
 vs = Vidispine()
 vs.collection.create(name='test_collection_1')
@@ -44,7 +42,7 @@ vs.collection.create(name='test_collection_1')
 
 ## Contributing
 
-All contributions are welcome and appreciated. Please see [CONTRIBUTING.md](https://github.com/newmediaresearch/vidispine-adapter/blob/master/CONTRIBUTING.md) for more details including details on how to run tests etc.
+All contributions are welcome and appreciated. Please see [CONTRIBUTING.md](https://github.com/newmediaresearch/vidispine-adapter/blob/master/docs/source/contributing.md) for more details including details on how to run tests etc.
 
 
 
