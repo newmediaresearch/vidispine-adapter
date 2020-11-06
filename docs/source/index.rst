@@ -75,10 +75,10 @@ Roadmap
    :maxdepth: 2
    :caption: API Reference:
 
-   client
-   collections
-   jobs
-
+   API/client
+   API/collections
+   API/jobs
+   API/search
 
 Indices and tables
 ==================

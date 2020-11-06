@@ -78,7 +78,7 @@ class Collection(EntityBase):
         """Sets or updates the metadata of a collection.
 
         :param collection_id: The id of the collection to update.
-        :param metadata: the metadata to update the collection with.
+        :param metadata: The metadata to update the collection with.
 
         :return: JSON response from the request.
         :rtype: vidispine.typing.BaseJson.
