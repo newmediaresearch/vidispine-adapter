@@ -6,7 +6,7 @@ from vidispine.typing import BaseJson
 class Search(EntityBase):
     """Search
 
-    Search items and collections with a single request.
+    Search Vidispine objects.
 
     :vidispine_docs:`Vidispine doc reference <collection>`
 
