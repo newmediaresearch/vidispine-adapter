@@ -1,6 +1,6 @@
 Collection
 ================
 
-.. autoclass:: vidispine.collections.Collection
+.. autoclass:: vidispine.client.Collection
    :members:
 

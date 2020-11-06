@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/metadata-field
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAL1Z227bOBD9Fz2ngO6XvAVNixZoF8VuNrtFUQiMOLLZUqRAUa6dIP++lJKgTmU7
+        HErdh8CR7HNmhjM8JId3Xs2AU+/8y50nSAPeuVdV2jvz9K4dHjqtmFi9gi0Z30rFVkyY99f/evdn
+        PyEUjajRCIlHcA6VZlK8t/PvzOt2nYbGPGnVwzOuVqDNKyAa9ixT84iw2GEN0rpCQzoHCHokaK/I
+        kIa/oJKC7sVVc0kQSXjiuWINvJYUJn4IyQSFrT0j3KCDAXyxA9pITSqgoE31li1D29tDK8DP5l/g
+        5RrYar3HwoSGFSh7gh+M6vUM/HYGdofBDlJYSjEprJcg+sdEnF6AXBPO6FjMb5SSCpsiZsp5vqh9
+        Q09+jkY0QBm5GhAznW3MpF+ER+BjEOgENep7adYffGYHoIYtetIOuFtQkoNY7U82O7QEtEHZ4iHj
+        a8IvesrkIOB2mTiRzCfGt8zEPbxaik+qhtjFZ8H2zkpALYj+Vsx1zK8ZhWXH/B8bVT/B00qlCS8v
+        Ki3V8b3Ow+OfMHyOeznv/O7+aLSPnJds0P7Fad9QtjxpUweBHxUH1o9DdEYGxYeHKX7un3kN2T49
+        pbGNqSjyw/m2wiSxMRbHRRyd3P8ehKVxlviLD3IeR1mIdib0g7zwD1X5439oR8Ik88Ns6fDCNM1S
+        h/DSPEpml0MQ5lYu5nmSoV2MIpOD/8nFyKTGT6fnk/ETnZMkjNOp63MznYR5nOBnVZIEhR8uWchp
+        UAT7jvxWLcmiIIsnouAmkhRq0nNttuD9QGUxeFkR5dH8InS0nvthkE1Ee24d5XEaJfHirEaFwomi
+        zGYtijRdVIULP02ni+5cP4sgSoIUPTeLKE2SxZeEIgviPFymaE/b+qQk7StYemekmebHd/ROlCcP
+        kE6Mn4EcP+MhGfsb7O5eoXtDCloFHQhNNNvAe7M1n2TNFny17psbQRifTfCHvOinh9YTNOiGWlet
+        oSEzuy7dCm93TVq4Iqu5hy7Do4CWDh2qjuPjxIcpuXr11Hu1dUwTpa1awr+CjvZ/X/JSc7emzACs
+        pUA3PAbcqkOf2QfY2nx3a0wSfkM6p0i/9Z1mNavGenchkL3mbFpqCKjzYD/iO3brZH7AKeCjyLjg
+        XRpwI0475XoDSps8TXQUg3Wtku2ccdq5gjX+EkXjrwx1hU6Hxl8z6qrFQ9CXexrfodX4ATu04zrx
+        c7SsaIHe4miBLxVht94+g+Azgm+Aa0Wq7/PvbfoO7FT1BMcGXbSbLSl/XqmX+GtJQ2AZ+3PQB2n0
+        7RPB32psm7Yc/l6PN/GXD4cxF4bLj2VnfJgB34zHfUf/P0rK6p29/1/v/wOr828F1yEAAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 05 Nov 2020 17:06:32 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 04-Nov-2020 17:06:32
+        GMT
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1
