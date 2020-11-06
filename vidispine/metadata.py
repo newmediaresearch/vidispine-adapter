@@ -11,8 +11,6 @@ class Metadata(EntityBase):
     :vidispine_docs:`Vidispine doc reference <metadata/metadata>`
     """
 
-    entity = 'collection'
-
     def update(
         self,
         entity: str,
