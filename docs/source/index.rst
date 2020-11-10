@@ -44,7 +44,7 @@ In your code::
     from vidispine import Vidispine
 
     vs = Vidispine()
-    vs.collection.create(name='test_collection_1')
+    vs.collection.create({'name': 'test_collection_1'})
 
 
 Contributing
@@ -75,10 +75,13 @@ Roadmap
    :maxdepth: 2
    :caption: API Reference:
 
-   client
-   collections
-   jobs
-   metadata
+   API/audit_logs
+   API/client
+   API/collections
+   API/items
+   API/jobs
+   API/metadata
+   API/search
 
 Indices and tables
 ==================

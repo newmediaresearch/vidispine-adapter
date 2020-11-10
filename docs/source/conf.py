@@ -23,7 +23,7 @@ author = 'NMR'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
-vidispine_version = os.environ.get('vidispine_version')
+vidispine_version = os.environ.get('vidispine_version', 'latest')
 
 extlinks = {
     'vidispine_docs': (
@@ -58,3 +58,8 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
+autodoc_default_options = {
+    'special-members': '__call__'
+}

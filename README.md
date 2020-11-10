@@ -36,7 +36,7 @@ export VIDISPINE_PASSWORD="admin"
 from vidispine import Vidispine
 
 vs = Vidispine()
-vs.collection.create(name='test_collection_1')
+vs.collection.create({'name': 'test_collection_1'})
 ```
 
 
