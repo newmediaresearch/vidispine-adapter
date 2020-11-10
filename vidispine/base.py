@@ -1,4 +1,4 @@
-from vidispine.utils import create_matrix_params_query
+from vidispine.utils import create_matrix_params_string
 
 
 class EntityBase:
@@ -18,7 +18,7 @@ class EntityBase:
             raise NotImplementedError('Do not use Base class directly.')
 
         if matrix_params:
-            matrix_string = create_matrix_params_query(matrix_params)
+            matrix_string = create_matrix_params_string(matrix_params)
         else:
             matrix_string = ''
 
