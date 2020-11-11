@@ -67,7 +67,7 @@ def create_multiple_collections(vidispine):
 
 
 @pytest.fixture
-def create_collection(vidispine: Vidispine, cassette: Cassette) -> Callable:
+def create_collection(vidispine: Vidispine) -> Callable:
     def _create_collection(name='test_collection_1'):
         params = {'name': name}
         response = vidispine.client.post('collection', params=params)
@@ -83,7 +83,7 @@ def collection(create_collection):
 
 
 @pytest.fixture
-def create_item(vidispine, cassette):
+def create_item(vidispine):
     def _create_item(title="My placeholder import!"):
         metadata = {
             "timespan": [{
@@ -114,7 +114,7 @@ def item(create_item):
 
 
 @pytest.fixture
-def create_metadata_field_group(vidispine, cassette):
+def create_metadata_field_group(vidispine):
     def _create_metadata_field_group(field_group_name):
         endpoint = f'metadata-field/field-group/{field_group_name}'
         vidispine.client.request('put', endpoint)
@@ -123,14 +123,14 @@ def create_metadata_field_group(vidispine, cassette):
 
 
 @pytest.fixture
-def metadata_field_group(vidispine, cassette, create_metadata_field_group):
+def metadata_field_group(vidispine, create_metadata_field_group):
     test_field_group_name = 'field_group_one'
     create_metadata_field_group(test_field_group_name)
     return test_field_group_name
 
 
 @pytest.fixture
-def create_metadata_field(vidispine, cassette):
+def create_metadata_field(vidispine):
     def _create_metadata_field(field_name):
         metadata = {
             'type': 'string'
@@ -144,7 +144,7 @@ def create_metadata_field(vidispine, cassette):
 
 
 @pytest.fixture
-def metadata_field(vidispine, cassette, create_metadata_field):
+def metadata_field(vidispine, create_metadata_field):
     result = create_metadata_field('field_one')
     metadata_field_name = result['name']
     return metadata_field_name
