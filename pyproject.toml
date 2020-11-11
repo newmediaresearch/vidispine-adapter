@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "vidispine-adapter"
-version = "0.0.2"
+version = "0.0.3"
 description = "Python Vidispine API Adapter"
 authors = ["NMR <developers@nmr.com>"]
 license = "MIT"
