@@ -29,8 +29,7 @@ class Item(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
-        if not params:
+        if params is None:
             params = {}
 
         if metadata:
@@ -125,7 +124,6 @@ class ItemShape(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         if params is None:
             params = {}
 
@@ -143,7 +141,6 @@ class ItemShape(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         if params is None:
             params = {}
 
@@ -159,11 +156,24 @@ class ItemShape(EntityBase):
         :param params: Optional query parameters.
 
         """
-
         if params is None:
             params = {}
 
         endpoint = self._build_url(f'{item_id}/shape/{shape_id}')
+
+        self.client.delete(endpoint, params=params)
+
+    def delete_all(self, item_id: str, params: dict = None) -> None:
+        """Removes all shapes from an item.
+
+        :param item_id: The ID of the item.
+        :param params: Optional query parameters.
+
+        """
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(f'{item_id}/shape')
 
         self.client.delete(endpoint, params=params)
 
