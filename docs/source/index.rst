@@ -31,7 +31,7 @@ To use the Vidispine API you will need a to know the URL, user and password. The
     vs = Vidispine(
         url='http://localhost:8080', user='admin', password='admin'
     )
-    vs.collection.create(name='test_collection_1')
+    vs.collection.create({'name': 'test_collection_1'})
 
 If `url`, `user` and `password` are not passed through when initialising, Vidispine will fall back and try and use environmental variables called `VIDISPINE_URL`, `VIDISPINE_USER` and `VIDISPINE_PASSWORD`::
 
