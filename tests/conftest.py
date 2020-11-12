@@ -159,22 +159,25 @@ def sample_file():
 
 
 @pytest.fixture
-def create_multiple_shapes(vidispine):
-    def _create_multiple_shapes(item_id, quantity=1):
+def create_shape(vidispine):
+    def _create_shape(item_id):
         metadata = {'id': 'VX'}
         endpoint = f'item/{item_id}/shape/create'
-        shape_ids = [
-            vidispine.client.request('post', endpoint, json=metadata)['id']
-            for i in range(1, quantity + 1)
-        ]
-        return shape_ids
 
-    return _create_multiple_shapes
+        result = vidispine.client.request('post', endpoint, json=metadata)
+
+        return result['id']
+
+    return _create_shape
 
 
 @pytest.fixture
-def create_shape(vidispine, create_multiple_shapes):
-    def _create_shape(item_id):
-        return create_multiple_shapes(item_id)[0]
+def create_multiple_shapes(vidispine, create_shape):
+    def _create_multiple_shapes(item_id, quantity=1):
+        shape_ids = []
+        for i in range(1, quantity + 1):
+            shape_ids.append(create_shape(item_id))
 
-    return _create_shape
+        return shape_ids
+
+    return _create_multiple_shapes
