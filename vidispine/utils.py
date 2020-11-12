@@ -18,7 +18,7 @@ def generate_metadata(fields: dict) -> dict:
     return metadata
 
 
-def create_matrix_params_query(matrix_params: dict) -> str:
+def create_matrix_params_string(matrix_params: dict) -> str:
     if not matrix_params:
         return ''
     else:
