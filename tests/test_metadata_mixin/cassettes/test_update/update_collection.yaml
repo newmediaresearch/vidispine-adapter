@@ -16,16 +16,16 @@ interactions:
     uri: http://localhost:8080/API/collection?name=test_collection_1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-148","id":"VX-148","name":"test_collection_1"}'
+      string: '{"loc":"http://localhost:8080/API/collection/VX-153","id":"VX-153","name":"test_collection_1"}'
     headers:
       Content-Length:
       - '94'
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Nov 2020 13:48:49 GMT
+      - Thu, 12 Nov 2020 17:42:41 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 11-Nov-2020 17:42:41
         GMT
     status:
       code: 200
@@ -56,9 +56,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Nov 2020 13:48:49 GMT
+      - Thu, 12 Nov 2020 17:42:41 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 11-Nov-2020 17:42:41
         GMT
     status:
       code: 200
@@ -89,9 +89,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Nov 2020 13:48:49 GMT
+      - Thu, 12 Nov 2020 17:42:41 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 11-Nov-2020 17:42:41
         GMT
     status:
       code: 200
@@ -114,20 +114,20 @@ interactions:
       content-type:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/collection/VX-148/metadata
+    uri: http://localhost:8080/API/collection/VX-153/metadata
   response:
     body:
-      string: '{"revision":"VX-580,VX-581","timespan":[{"field":[{"name":"collectionId","value":[{"value":"VX-148","uuid":"ab67a7f5-21a3-4569-9593-f89147ab2264","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"98281a10-a9b4-4f7c-8a5a-776f6dabd77a","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"},{"name":"title","value":[{"value":"Foo
-        bar","uuid":"b04995b2-40bc-4093-9991-cfc23c8fc5ad","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"2cdc89b8-bab6-46a8-a102-b6c714de0d23","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"field_one","value":[{"value":"eggs","uuid":"e0197bff-5eaa-4f4c-844b-e239678536f7","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"ebce2b8c-1048-4579-996d-e30ffe4a8f05","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"field_two","value":[{"value":"123","uuid":"b4ba3db9-7da9-4c8c-a777-e91ee1a8ad1b","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"}],"uuid":"ce601f92-bbbd-47c9-8cae-ed5cd97ca801","user":"admin","timestamp":"2020-11-04T13:48:49.443+0000","change":"VX-581"},{"name":"user","value":[{"value":"admin","uuid":"410b7a6c-bbd6-4b5e-8f3d-e8d8720f0cb9","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"d2321070-0986-47b6-8f45-6c254de09485","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"},{"name":"created","value":[{"value":"2020-11-04T13:48:49.153Z","uuid":"befd96a7-7abe-47fd-bd96-f3d10b235d45","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"uuid":"4994f5c8-1e1e-44ca-841a-43a735cdcb65","user":"system","timestamp":"2020-11-04T13:48:49.185+0000","change":"VX-580"}],"group":[],"start":"-INF","end":"+INF"}]}'
+      string: '{"revision":"VX-784,VX-785","timespan":[{"field":[{"name":"user","value":[{"value":"admin","uuid":"6dd5a9e5-f6be-4f21-9af2-03dc0fbb5752","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"}],"uuid":"517f96f2-8565-4149-807c-d9e167c76ca5","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"},{"name":"created","value":[{"value":"2020-11-12T17:42:41.298Z","uuid":"03b1a7fd-2992-4eda-9f5e-b34aa28a9fc5","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"}],"uuid":"cef02959-619a-44d7-bb9a-db27abbf9cce","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"},{"name":"collectionId","value":[{"value":"VX-153","uuid":"b0db7d50-df3f-4311-8246-3c607a175d4c","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"}],"uuid":"f8dbcec9-867c-41b1-8cc7-4844758dff2b","user":"system","timestamp":"2020-11-12T17:42:41.326+0000","change":"VX-784"},{"name":"title","value":[{"value":"Foo
+        bar","uuid":"ae25a1e0-5412-4499-9ad4-1ad927a0a63c","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"}],"uuid":"4bd50f25-fa65-4a3a-98fb-6ce8c8f87439","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"},{"name":"field_one","value":[{"value":"eggs","uuid":"6577ff7e-935e-4afa-be8e-4dea12c4a81e","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"}],"uuid":"84301bc1-1784-491e-b8ff-5fd78634b436","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"},{"name":"field_two","value":[{"value":"123","uuid":"d45688c2-8eab-43a2-a6a0-a5aa59ef89a5","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"}],"uuid":"a243f6e8-294d-42a2-a6b1-a324aa1af8a6","user":"admin","timestamp":"2020-11-12T17:42:41.665+0000","change":"VX-785"}],"group":[],"start":"-INF","end":"+INF"}]}'
     headers:
       Content-Length:
       - '1867'
       Content-Type:
       - application/json
       Date:
-      - Wed, 04 Nov 2020 13:48:49 GMT
+      - Thu, 12 Nov 2020 17:42:41 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 03-Nov-2020 13:48:49
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 11-Nov-2020 17:42:41
         GMT
     status:
       code: 200

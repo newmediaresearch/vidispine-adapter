@@ -3,23 +3,25 @@ from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
 
-class Metadata(EntityBase):
+class MetadataMixin:
     """Metadata
 
-    Metadata related requests for items and collections.
+    Metadata related requests for collections and items.
+
+    This class is not to be used directly. Methods are to be called via
+    the Collection or Item class.
 
     :vidispine_docs:`Vidispine doc reference <metadata/metadata>`
+
     """
 
-    def update(
+    def update_metadata(
         self,
-        entity: str,
         vidispine_id: str,
-        metadata: dict
+        metadata: dict,
     ) -> BaseJson:
-        """Sets or updates the metadata of an entity.
+        """Sets or updates the metadata of an entity (collection or item).
 
-        :param entity: The item or collection to update.
         :param vidispine_id: The id of the entity.
         :param metadata: the metadata to update the entity with.
 
@@ -29,8 +31,6 @@ class Metadata(EntityBase):
         """
         if not metadata:
             raise InvalidInput('Please supply metadata.')
-
-        self.entity = entity
 
         endpoint = self._build_url(f'{vidispine_id}/metadata')
 

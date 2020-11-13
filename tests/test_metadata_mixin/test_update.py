@@ -18,9 +18,7 @@ def test_update_collection(
         'field_two': 123
     }
 
-    vidispine.metadata.update(
-        'collection', collection, generate_metadata(fields)
-    )
+    vidispine.collection.update_metadata(collection, generate_metadata(fields))
 
     assert cassette.all_played
 
@@ -39,8 +37,8 @@ def test_update_collection_field_does_not_exist(
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.metadata.update(
-            'collection', collection, generate_metadata(fields)
+        vidispine.collection.update_metadata(
+            collection, generate_metadata(fields)
         )
 
         re.match(
@@ -59,8 +57,8 @@ def test_update_collection_collection_not_found(vidispine, cassette):
     }
 
     with pytest.raises(NotFound) as err:
-        vidispine.metadata.update(
-            'collection', 'VX-1000000', generate_metadata(fields)
+        vidispine.collection.update_metadata(
+            'VX-1000000', generate_metadata(fields)
         )
 
     err.match(r'Not Found: PUT')
@@ -70,6 +68,6 @@ def test_update_collection_collection_not_found(vidispine, cassette):
 
 def test_update_invalid_input(vidispine):
     with pytest.raises(InvalidInput) as err:
-        vidispine.metadata.update('collection', 'VX-1000000', {})
+        vidispine.collection.update_metadata('VX-1000000', {})
 
     err.match('Please supply metadata.')
