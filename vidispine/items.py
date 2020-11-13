@@ -190,6 +190,20 @@ class ItemShape(EntityBase):
 
         self.client.delete(endpoint, params=params)
 
+    def delete_all(self, item_id: str, params: dict = None) -> None:
+        """Removes all shapes from an item.
+
+        :param item_id: The ID of the item.
+        :param params: Optional query parameters.
+
+        """
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(f'{item_id}/shape')
+
+        self.client.delete(endpoint, params=params)
+
     def import_shape(self, item_id: str, params: dict) -> None:
         """Starts a new shape import job.
 

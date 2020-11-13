@@ -159,7 +159,7 @@ def sample_file():
 
 
 @pytest.fixture
-def create_shape(vidispine, cassette):
+def create_shape(vidispine):
     def _create_shape(item_id):
         metadata = {'id': 'VX'}
         endpoint = f'item/{item_id}/shape/create'
@@ -169,3 +169,15 @@ def create_shape(vidispine, cassette):
         return result['id']
 
     return _create_shape
+
+
+@pytest.fixture
+def create_multiple_shapes(vidispine, create_shape):
+    def _create_multiple_shapes(item_id, quantity=1):
+        shape_ids = []
+        for i in range(1, quantity + 1):
+            shape_ids.append(create_shape(item_id))
+
+        return shape_ids
+
+    return _create_multiple_shapes
