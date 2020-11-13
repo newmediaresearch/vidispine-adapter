@@ -1,0 +1,35 @@
+interactions:
+- request:
+    body: '{"id": "VX"}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '12'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/item/VX-1000000/shape/create
+  response:
+    body:
+      string: '{"notFound":{"type":"Item","id":"VX-1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '227'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 12 Nov 2020 11:30:53 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 11-Nov-2020 11:30:53
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1

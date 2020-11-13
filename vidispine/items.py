@@ -29,8 +29,7 @@ class Item(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
-        if not params:
+        if params is None:
             params = {}
 
         if metadata:
@@ -109,6 +108,33 @@ class ItemShape(EntityBase):
 
     entity = 'item'
 
+    def create(
+        self,
+        metadata: dict,
+        item_id: str,
+        params: dict = None
+    ) -> BaseJson:
+        """Creates a new shape using the supplied information.
+
+        :param metadata: Metadata (shape document) to create the shape
+            with.
+        :param item_id: The ID of the item.
+        :param params: Optional query parameters.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(f'{item_id}/shape/create')
+
+        return self.client.post(endpoint, json=metadata, params=params)
+
     def get(
         self,
         item_id: str,
@@ -125,7 +151,6 @@ class ItemShape(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         if params is None:
             params = {}
 
@@ -143,7 +168,6 @@ class ItemShape(EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         if params is None:
             params = {}
 
@@ -159,7 +183,6 @@ class ItemShape(EntityBase):
         :param params: Optional query parameters.
 
         """
-
         if params is None:
             params = {}
 
