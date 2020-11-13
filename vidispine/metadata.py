@@ -1,9 +1,18 @@
+from typing import TYPE_CHECKING
+
 from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
 
-class MetadataMixin:
+# Required to avoid MyPy attribute errors
+if TYPE_CHECKING:
+    _Base = EntityBase
+else:
+    _Base = object
+
+
+class MetadataMixin(_Base):
     """Metadata
 
     Metadata related requests for collections and items.

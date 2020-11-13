@@ -4,7 +4,7 @@ from vidispine.metadata import MetadataMixin
 from vidispine.typing import BaseJson
 
 
-class Collection(EntityBase, MetadataMixin):
+class Collection(MetadataMixin, EntityBase):
     """Collections
 
     A collection is an ordered logical set of items, libraries and

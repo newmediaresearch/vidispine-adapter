@@ -4,7 +4,7 @@ from vidispine.metadata import MetadataMixin
 from vidispine.typing import BaseJson
 
 
-class Item(EntityBase, MetadataMixin):
+class Item(MetadataMixin, EntityBase):
     """Items
 
     Manage items.
