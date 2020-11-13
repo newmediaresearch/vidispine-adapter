@@ -82,6 +82,7 @@ Roadmap
    API/jobs
    API/metadata
    API/search
+   API/shape_tags
 
 Indices and tables
 ==================
