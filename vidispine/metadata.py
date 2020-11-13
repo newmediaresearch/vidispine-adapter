@@ -1,6 +1,48 @@
+from typing import TYPE_CHECKING
+
 from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
+
+# Required to avoid MyPy attribute errors
+if TYPE_CHECKING:
+    _Base = EntityBase  # pragma: no cover
+else:
+    _Base = object
+
+
+class MetadataMixin(_Base):
+    """Metadata
+
+    Metadata related requests for collections and items.
+
+    This class is not to be used directly. Methods are to be called via
+    the Collection or Item class.
+
+    :vidispine_docs:`Vidispine doc reference <metadata/metadata>`
+
+    """
+
+    def update_metadata(
+        self,
+        vidispine_id: str,
+        metadata: dict,
+    ) -> BaseJson:
+        """Sets or updates the metadata of an entity (collection or item).
+
+        :param vidispine_id: The id of the entity.
+        :param metadata: the metadata to update the entity with.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
+        endpoint = self._build_url(f'{vidispine_id}/metadata')
+
+        return self.client.put(endpoint, json=metadata)
 
 
 class MetadataFieldGroup(EntityBase):
@@ -145,7 +187,7 @@ class MetadataField(EntityBase):
         """Creates a metadata field.
 
         :param metadata: The metadata to create the field with.
-        :param params: The name of the field to create.
+        :param field_name: The name of the field to create.
 
         :return: JSON response from the request.
         :rtype: vidispine.typing.BaseJson.
@@ -157,7 +199,7 @@ class MetadataField(EntityBase):
         """Updates a metadata field.
 
         :param metadata: The metadata to update the field with.
-        :param params: The name of the field to update.
+        :param field_name: The name of the field to update.
 
         :return: JSON response from the request.
         :rtype: vidispine.typing.BaseJson.

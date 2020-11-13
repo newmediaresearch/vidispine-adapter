@@ -1,3 +1,9 @@
+Metadata
+=========================
+
+.. autoclass:: vidispine.metadata.Metadata
+   :members:
+
 Metadata Field
 =========================
 
