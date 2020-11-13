@@ -1,9 +1,10 @@
 from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
+from vidispine.metadata import MetadataMixin
 from vidispine.typing import BaseJson
 
 
-class Collection(EntityBase):
+class Collection(MetadataMixin, EntityBase):
     """Collections
 
     A collection is an ordered logical set of items, libraries and
@@ -73,25 +74,6 @@ class Collection(EntityBase):
         params = {'id': ','.join(collection_ids)}
 
         self.client.delete(self.entity, params=params)
-
-    def update_metadata(self, collection_id: str, metadata: dict) -> BaseJson:
-        """Sets or updates the metadata of a collection.
-
-        :param collection_id: The id of the collection to update.
-        :param metadata: The metadata to update the collection with.
-
-        :return: JSON response from the request.
-        :rtype: vidispine.typing.BaseJson.
-
-        :vidispine_docs:`update_metadata Vidispine doc reference
-        <metadata/metadata.html#
-        put-%7Bmetadata-entity%7D-(entity-id)-metadata>`
-
-        """
-
-        endpoint = self._build_url(f'{collection_id}/metadata')
-
-        return self.client.put(endpoint, json=metadata)
 
     def list(
         self,

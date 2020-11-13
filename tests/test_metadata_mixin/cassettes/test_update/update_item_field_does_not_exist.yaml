@@ -1,31 +1,34 @@
 interactions:
 - request:
-    body: null
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
     headers:
       Accept-Encoding:
       - gzip, deflate
       Connection:
       - keep-alive
       Content-Length:
-      - '0'
+      - '126'
       User-Agent:
       - python-requests/2.24.0
       accept:
       - application/json
+      content-type:
+      - application/json
     method: POST
-    uri: http://localhost:8080/API/collection?name=test_collection_1
+    uri: http://localhost:8080/API/import/placeholder?container=1
   response:
     body:
-      string: '{"loc":"http://localhost:8080/API/collection/VX-277","id":"VX-277","name":"test_collection_1"}'
+      string: '{"id":"VX-227"}'
     headers:
       Content-Length:
-      - '94'
+      - '15'
       Content-Type:
       - application/json
       Date:
-      - Wed, 23 Sep 2020 10:52:54 GMT
+      - Fri, 13 Nov 2020 11:42:21 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 12-Nov-2020 11:42:21
         GMT
     status:
       code: 200
@@ -56,9 +59,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 23 Sep 2020 10:52:54 GMT
+      - Fri, 13 Nov 2020 11:42:22 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 12-Nov-2020 11:42:22
         GMT
     status:
       code: 200
@@ -89,9 +92,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 23 Sep 2020 10:52:54 GMT
+      - Fri, 13 Nov 2020 11:42:22 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 12-Nov-2020 11:42:22
         GMT
     status:
       code: 200
@@ -115,7 +118,7 @@ interactions:
       content-type:
       - application/json
     method: PUT
-    uri: http://localhost:8080/API/collection/VX-277/metadata
+    uri: http://localhost:8080/API/item/VX-227/metadata
   response:
     body:
       string: '{"notFound":{"type":"metadata-field","id":"field_three","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
@@ -125,10 +128,12 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Wed, 23 Sep 2020 10:52:54 GMT
+      - Fri, 13 Nov 2020 11:42:22 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 22-Sep-2020 10:52:54
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 12-Nov-2020 11:42:22
         GMT
+      Vary:
+      - Accept
     status:
       code: 404
       message: Not Found

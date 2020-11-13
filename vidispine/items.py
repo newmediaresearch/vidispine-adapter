@@ -1,9 +1,10 @@
 from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
+from vidispine.metadata import MetadataMixin
 from vidispine.typing import BaseJson
 
 
-class Item(EntityBase):
+class Item(MetadataMixin, EntityBase):
     """Items
 
     Manage items.
