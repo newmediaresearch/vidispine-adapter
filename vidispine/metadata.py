@@ -4,10 +4,9 @@ from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
 
-
 # Required to avoid MyPy attribute errors
 if TYPE_CHECKING:
-    _Base = EntityBase
+    _Base = EntityBase  # pragma: no cover
 else:
     _Base = object
 
