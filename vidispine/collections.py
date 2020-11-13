@@ -1,6 +1,6 @@
 from vidispine.base import EntityBase
-from vidispine.metadata import MetadataMixin
 from vidispine.errors import InvalidInput
+from vidispine.metadata import MetadataMixin
 from vidispine.typing import BaseJson
 
 
