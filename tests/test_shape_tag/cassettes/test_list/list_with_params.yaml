@@ -1,0 +1,141 @@
+interactions:
+- request:
+    body: '{"format": "mxf", "audio": {"codec": "pcm_s24le", "bitrate": 1152000},
+      "video": {"scaling": {"width": 1920, "height": 1080}, "codec": "h264", "bitrate":
+      100000000, "preset": ["intra100i"], "profile": ["CBR"], "setting": [{"key":
+      "codecTagString", "value": "ai15"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '266'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/shape-tag/test1
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 16 Nov 2020 16:37:03 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 16:37:03
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"format": "mxf", "audio": {"codec": "pcm_s24le", "bitrate": 1152000},
+      "video": {"scaling": {"width": 1920, "height": 1080}, "codec": "h264", "bitrate":
+      100000000, "preset": ["intra100i"], "profile": ["CBR"], "setting": [{"key":
+      "codecTagString", "value": "ai15"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '266'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/shape-tag/test2
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 16 Nov 2020 16:37:03 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 16:37:03
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"format": "mxf", "audio": {"codec": "pcm_s24le", "bitrate": 1152000},
+      "video": {"scaling": {"width": 1920, "height": 1080}, "codec": "h264", "bitrate":
+      100000000, "preset": ["intra100i"], "profile": ["CBR"], "setting": [{"key":
+      "codecTagString", "value": "ai15"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '266'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: PUT
+    uri: http://localhost:8080/API/shape-tag/test3
+  response:
+    body:
+      string: ''
+    headers:
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 16 Nov 2020 16:37:03 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 16:37:03
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/shape-tag
+  response:
+    body:
+      string: '{"uri":["original","test","test1","test2","test3"]}'
+    headers:
+      Content-Length:
+      - '51'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 16 Nov 2020 16:37:03 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 16:37:03
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

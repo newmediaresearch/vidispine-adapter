@@ -1,4 +1,5 @@
 from vidispine.base import EntityBase
+from vidispine.typing import BaseJson
 
 
 class ShapeTag(EntityBase):
@@ -11,12 +12,13 @@ class ShapeTag(EntityBase):
     """
     entity = 'shape-tag'
 
-    def delete(self, shape_tag_name: str) -> None:
-        """Deletes a shape tag with the given tag name.
+    def list(self, params: dict = None) -> BaseJson:
+        """Retrieves all shape tags known by the system.
 
-        :param shape_tag_name: The name of the shape tag to delete.
+        :param params: Optional query params.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
 
         """
-        endpoint = self._build_url(shape_tag_name)
-
-        self.client.delete(endpoint)
+        return self.client.get(self.entity)
