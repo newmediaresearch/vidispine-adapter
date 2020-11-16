@@ -6,11 +6,13 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
+      Content-Length:
+      - '0'
       User-Agent:
       - python-requests/2.24.0
       accept:
       - application/json
-    method: GET
+    method: DELETE
     uri: http://localhost:8080/API/shape-tag/tag1000000
   response:
     body:
@@ -21,9 +23,9 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Mon, 16 Nov 2020 12:33:34 GMT
+      - Mon, 16 Nov 2020 13:58:35 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 12:33:34
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 15-Nov-2020 13:58:35
         GMT
     status:
       code: 404
