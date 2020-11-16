@@ -1,7 +1,7 @@
-Metadata
+MetadataMixin
 =========================
 
-.. autoclass:: vidispine.metadata.Metadata
+.. autoclass:: vidispine.metadata.MetadataMixin
    :members:
 
 Metadata Field

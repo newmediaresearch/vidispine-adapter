@@ -1,5 +1,5 @@
 from vidispine.base import EntityBase
-from vidispine.errors import InvalidInput
+from vidispine.typing import BaseJson
 
 
 class ShapeTag(EntityBase):
@@ -12,30 +12,16 @@ class ShapeTag(EntityBase):
     """
     entity = 'shape-tag'
 
-    def create(self, shape_tag_name: str, metadata: dict) -> None:
-        """Creates a new shape tag with the given tag name.
+    def get(self, shape_tag_name: str) -> BaseJson:
+        """Retrieves the metadata (transcode preset) of a shape tag with
+            the given tag name.
 
-        :param shape_tag_name: The name of the shape tag to create.
-        :param metadata: The metadata (transcode preset document) to
-            create the shape tag with.
+        :param shape_tag_name: The name of the shape tag.
 
-        """
-        self._update(shape_tag_name, metadata)
-
-    def update(self, shape_tag_name: str, metadata: dict) -> None:
-        """Updates a shape tag with the given tag name.
-
-        :param shape_tag_name: The name of the shape tag to update.
-        :param metadata: The metadata (transcode preset document) to
-            update the shape tag with.
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
 
         """
-        self._update(shape_tag_name, metadata)
-
-    def _update(self, shape_tag_name: str, metadata: dict) -> None:
-        if not metadata:
-            raise InvalidInput('Please supply metadata.')
-
         endpoint = self._build_url(shape_tag_name)
 
-        self.client.put(endpoint, json=metadata)
+        return self.client.get(endpoint)
