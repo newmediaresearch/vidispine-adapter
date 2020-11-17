@@ -82,6 +82,7 @@ Roadmap
    API/jobs
    API/metadata
    API/search
+   API/storage
 
 Indices and tables
 ==================
