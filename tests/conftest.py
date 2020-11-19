@@ -184,7 +184,7 @@ def create_multiple_shapes(vidispine, create_shape):
 
 
 @pytest.fixture
-def storage_metadata(storage_name='test_storage'):
+def storage_metadata():
     return {
         "type": "LOCAL",
         "capacity": "1500000",
@@ -201,7 +201,7 @@ def storage_metadata(storage_name='test_storage'):
             "field": [
                 {
                     "key": "name",
-                    "value": storage_name
+                    "value": "test_storage"
                 },
                 {
                     "key": "excludefilter",
