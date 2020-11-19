@@ -1,0 +1,155 @@
+interactions:
+- request:
+    body: '{"type": "LOCAL", "capacity": "1500000", "method": [{"uri": "file:///srv/media1/",
+      "read": "true", "write": "true", "browse": "true"}], "lowWatermarkPercentage":
+      "90", "highWatermarkPercentage": "75", "showImportables": "true", "metadata":
+      {"field": [{"key": "name", "value": "test_storage"}, {"key": "excludefilter",
+      "value": "\\..*|.*/\\..*"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '347'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: '{"id":"VX-24","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-22","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+    headers:
+      Content-Length:
+      - '430'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Nov 2020 14:19:55 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:19:55
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "LOCAL", "capacity": "1500000", "method": [{"uri": "file:///srv/media1/",
+      "read": "true", "write": "true", "browse": "true"}], "lowWatermarkPercentage":
+      "90", "highWatermarkPercentage": "75", "showImportables": "true", "metadata":
+      {"field": [{"key": "name", "value": "test_storage"}, {"key": "excludefilter",
+      "value": "\\..*|.*/\\..*"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '347'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: '{"id":"VX-25","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-23","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+    headers:
+      Content-Length:
+      - '430'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Nov 2020 14:19:55 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:19:55
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"type": "LOCAL", "capacity": "1500000", "method": [{"uri": "file:///srv/media1/",
+      "read": "true", "write": "true", "browse": "true"}], "lowWatermarkPercentage":
+      "90", "highWatermarkPercentage": "75", "showImportables": "true", "metadata":
+      {"field": [{"key": "name", "value": "test_storage"}, {"key": "excludefilter",
+      "value": "\\..*|.*/\\..*"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '347'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: '{"id":"VX-26","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-24","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+    headers:
+      Content-Length:
+      - '430'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Nov 2020 14:19:55 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:19:55
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+    method: GET
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAO2T30/bMBDH/xc/sjaxY7s0eUNsD5MQnTS2IVGETHIlEQmJ7Asd6vq/75L0B7QU
+        gQS8gPKS7519/vo+5xlzWFpzBSw6m7EsYRH7fdoXrEdxgxRlx6PjbyTxrmrU0ejw4IhkbCoTZ3jH
+        IsE5DxQPB1IPVY9NLMDhKimlUJIrMZBNDrMCqGxRUaGAB7wvRF+EJ0JFIoyk8IRQX6gap/oFYFom
+        W6Zqm5GYZDlEvu87e+sXkGRG+JSzYGgl2hp6bGqzxnwnLm05dSuVG4c/6zgG53baGC5tLG7d9mDe
+        W3sJVl5SxIq8iGDf4/SJaMiHfG1nYnK39rNQS0MLuTjk4NfJiM3P27ubxKBh0YyuCnnXhmugfrIb
+        UwAVvzV53ezpbt9a6/LwN87rBKhDCPbewvHY8/b+eXt++0PHzKkT5fQPMbaFsddbHNPsKt2dvb/1
+        B9gYbrCdIVq2sXUra2osvwJCjEsiLi2n34uqtGguc3Bd+EG31UvmUTfs+OYkrsKPTFYQvMtoae1J
+        HT46Wi+jjvSKLpbv9lXYS901Z5O6CHQb38U7fAr3vn4OW/3GbOV7sVXyk+0G28Ebs1Wvw/Yj4zqf
+        /wfnWM51AwgAAA==
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '466'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 19 Nov 2020 14:19:55 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:19:55
+        GMT
+      Vary:
+      - Accept-Encoding
+    status:
+      code: 200
+      message: OK
+version: 1

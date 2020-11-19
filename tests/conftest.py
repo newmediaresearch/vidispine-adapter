@@ -181,3 +181,32 @@ def create_multiple_shapes(vidispine, create_shape):
         return shape_ids
 
     return _create_multiple_shapes
+
+
+@pytest.fixture
+def storage_metadata(storage_name='test_storage'):
+    return {
+        "type": "LOCAL",
+        "capacity": "1500000",
+        "method": [{
+            "uri": "file:///srv/media1/",
+            "read": "true",
+            "write": "true",
+            "browse": "true"
+        }],
+        "lowWatermarkPercentage": "90",
+        "highWatermarkPercentage": "75",
+        "showImportables": "true",
+        "metadata": {
+            "field": [
+                {
+                    "key": "name",
+                    "value": storage_name
+                },
+                {
+                    "key": "excludefilter",
+                    "value": "\\..*|.*/\\..*"
+                }
+            ]
+        }
+    }
