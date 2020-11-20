@@ -82,10 +82,7 @@ Roadmap
    API/jobs
    API/metadata
    API/search
-<<<<<<< HEAD
-=======
    API/shape_tags
->>>>>>> master
    API/storage
 
 Indices and tables
