@@ -13,6 +13,7 @@ from vidispine.jobs import Job
 from vidispine.log import Log
 from vidispine.metadata import MetadataField, MetadataFieldGroup
 from vidispine.search import Search
+from vidispine.shape_tag import ShapeTag
 from vidispine.typing import BaseJson, ClientResponse
 
 PROTOCOL = 'https'
@@ -237,6 +238,7 @@ class Vidispine:
         self.metadata_field = MetadataField(self.client)
         self.metadata_field_group = MetadataFieldGroup(self.client)
         self.search = Search(self.client)
+        self.shape_tag = ShapeTag(self.client)
 
     def version(self) -> BaseJson:
         """Vidispine version information.
