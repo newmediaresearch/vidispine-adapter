@@ -12,6 +12,16 @@ class ShapeTag(EntityBase):
     """
     entity = 'shape-tag'
 
+    def list(self, params: dict = None) -> BaseJson:
+        """Retrieves all shape tags known by the system.
+
+        :param params: Optional query params.
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        return self.client.get(self.entity)
+
     def get(self, shape_tag_name: str) -> BaseJson:
         """Retrieves the metadata (transcode preset) of a shape tag with
             the given tag name.
