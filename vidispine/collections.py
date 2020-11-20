@@ -24,7 +24,6 @@ class Collection(MetadataMixin, EntityBase):
         :rtype: str.
 
         """
-
         if params is None:
             params = {}
 
@@ -42,7 +41,6 @@ class Collection(MetadataMixin, EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         if params is None:
             params = {}
 
@@ -56,7 +54,6 @@ class Collection(MetadataMixin, EntityBase):
         :param collection_id: The id of the collection to delete.
 
         """
-
         endpoint = self._build_url(collection_id)
 
         self.client.delete(endpoint)
@@ -67,7 +64,6 @@ class Collection(MetadataMixin, EntityBase):
         :param collection_ids: A list of collection ids to delete.
 
         """
-
         if not collection_ids:
             raise InvalidInput('Please supply Vidispine IDs to delete.')
 
@@ -89,7 +85,6 @@ class Collection(MetadataMixin, EntityBase):
         :rtype: vidispine.typing.BaseJson.
 
         """
-
         endpoint = self._build_url(matrix_params=matrix_params)
 
         return self.client.get(endpoint, params=params)

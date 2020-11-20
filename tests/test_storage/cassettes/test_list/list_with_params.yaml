@@ -12,8 +12,6 @@ interactions:
       - keep-alive
       Content-Length:
       - '347'
-      User-Agent:
-      - python-requests/2.24.0
       accept:
       - application/json
       content-type:
@@ -22,16 +20,16 @@ interactions:
     uri: http://localhost:8080/API/storage
   response:
     body:
-      string: '{"id":"VX-27","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-25","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+      string: '{"id":"VX-36","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-31","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
     headers:
       Content-Length:
       - '430'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Nov 2020 14:42:37 GMT
+      - Fri, 20 Nov 2020 13:16:08 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:42:37
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 19-Nov-2020 13:16:08
         GMT
     status:
       code: 200
@@ -49,8 +47,6 @@ interactions:
       - keep-alive
       Content-Length:
       - '347'
-      User-Agent:
-      - python-requests/2.24.0
       accept:
       - application/json
       content-type:
@@ -59,16 +55,16 @@ interactions:
     uri: http://localhost:8080/API/storage
   response:
     body:
-      string: '{"id":"VX-28","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-26","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+      string: '{"id":"VX-37","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-32","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
     headers:
       Content-Length:
       - '430'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Nov 2020 14:42:37 GMT
+      - Fri, 20 Nov 2020 13:16:08 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:42:37
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 19-Nov-2020 13:16:08
         GMT
     status:
       code: 200
@@ -86,8 +82,6 @@ interactions:
       - keep-alive
       Content-Length:
       - '347'
-      User-Agent:
-      - python-requests/2.24.0
       accept:
       - application/json
       content-type:
@@ -96,16 +90,16 @@ interactions:
     uri: http://localhost:8080/API/storage
   response:
     body:
-      string: '{"id":"VX-29","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-27","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+      string: '{"id":"VX-38","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-33","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
     headers:
       Content-Length:
       - '430'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Nov 2020 14:42:37 GMT
+      - Fri, 20 Nov 2020 13:16:08 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:42:37
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 19-Nov-2020 13:16:08
         GMT
     status:
       code: 200
@@ -117,35 +111,35 @@ interactions:
       - gzip, deflate
       Connection:
       - keep-alive
-      User-Agent:
-      - python-requests/2.24.0
       accept:
       - application/json
     method: GET
-    uri: http://localhost:8080/API/storage
+    uri: http://localhost:8080/API/storage?state=NONE
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAAAO2V207jMBCG38WXbJvYjp3THQIukBBFWvYgLWhlkimJSEjkOHRRt+++06QH2tIV
-        SCQ3VLnJP2OPf883UaakMoVW90DCX1OSxiQk338OGRlgXBmMksvR5RlK81zO1cXo5PgCZaRKFaXm
-        mYSMUsoFDVxH+mJAxhrgZJV0HCa4LyR1KOZMmgOWzUssxCmnQ8aGLLhmIhQ8dLjlUvkFq1Gsn4NJ
-        injHVK1TFOM0g9C27Uo/2TnEqWI25jQoXGl0DQMy0encfCvudDGpVipTlflaRxFU1V4bwdLG4tZN
-        D2aDtRe+8pIYU6IXxj2L4sNCn/p0bWessmrtZ6GWhhZyccjxt+sRmd02d1exMoqEU7wqZG0bHgD7
-        SR5VDlj8SWX1fE97+8Zam4c/UVbHgB0yoF8svLmxrKO/1pHdvOAxM+xEMfmBjHWu9MMOxyS9T/Zn
-        X269Ah3Bo2lmCJdtbd3JqtoUp2AgMksiVVJMzvOy0EbdZVC14Y1ui/fMo5yzo9uTuAq/Mlmc9zBa
-        LJSu5Ur56mi9j7rBr+j38rv9EPaObJuzTZ1x2cT38Q7+h9uTb2ErO2br9MVWMu/AdpOt2zFb0Rdb
-        J3AObDfZeh2zlf387j3L9w5st9j6HbN1+2IbCPfAdpNt0DFb72PYfmZct7N/x+uyZJcNAAA=
+        H4sIAAAAAAAAAO2YS2/aQBDHv8seU7D3wfp1i9IeKkWhUtOH1ETVxh6CFTtG63VoRPnuHWwewUAV
+        otg5xOLCzO6O/zu/WTPsjOQm0+oWSPBrRuKIBOT7zz4jPfQrg15yMbz4hKZ5nCys8+HZ6TmaoZqo
+        MDaPJGCUUj6gviOkN+iRkQY4Ww8KQanLfSocj2KMOAUMm04wEKec9hnrc3rJRMBkwKUlff8DRqMY
+        PwUzzqIdUYWO0RjFCQS2bef6wU4hihWzcUyDwplGF9AjUx0vxFfGjc6m+dpKVG6+FmEIeX5AhkPF
+        SsZy12UO5r2NFr7WMjZmgloYdy2KHxZ41KMbOSOV5Bs9S2slaGkuH3L67XJI5tfl3lWkjCLBDLcK
+        SZWGO8B8knuVAgZ/UEmxWFPtvpRWjcOfMCkiwAwZ0E8mXl1Z1slf68Quv+Bj5piJbPoDGetU6bsd
+        juP4dnx49OnSL6BDuDdlDeG02tKdUVWY7CMYCM2KSD7Opp/TSaaNukkgr9xb2R4cU49ywY7WK3Ht
+        3lNZnLdTWg5WON9bWsdRN3iKfq/O7auwF7JKTp0647L0H+Lt/w+3K5/DVjbMVrTFlrusY7vN1mmY
+        7aBj+2Zs3YbZyrbYem73Tq6x9Rpm67TVynnu/lbuHbP1G2brtsVWek7HdoutoA2z9dphO8Df2+7c
+        1tge9Z/8BWz97p38Zmwb7pNFG1cnTkA9S8qul6qxbbhPFm3cXZRsHdmd2xrbhvtk8Up3F+8Z1/X8
+        HyuKAjvjFgAA
     headers:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '509'
+      - '579'
       Content-Type:
       - application/json
       Date:
-      - Thu, 19 Nov 2020 14:42:37 GMT
+      - Fri, 20 Nov 2020 13:16:08 GMT
       Set-Cookie:
-      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Wed, 18-Nov-2020 14:42:37
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Thu, 19-Nov-2020 13:16:08
         GMT
       Vary:
       - Accept-Encoding
