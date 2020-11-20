@@ -22,7 +22,7 @@ def test_client() -> Client:
 @pytest.fixture
 def cassette(request: Any) -> Cassette:
     my_vcr = vcr.VCR(
-        filter_headers=['authorization'],
+        filter_headers=['authorization', 'User-Agent'],
         match_on=['method', 'scheme', 'path', 'query', 'body', 'headers']
     )
 
