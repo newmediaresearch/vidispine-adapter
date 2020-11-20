@@ -1,0 +1,39 @@
+interactions:
+- request:
+    body: '{"type": "LOCAL", "capacity": "1500000", "method": [{"uri": "file:///srv/media1/",
+      "read": "true", "write": "true", "browse": "true"}], "lowWatermarkPercentage":
+      "90", "highWatermarkPercentage": "75", "showImportables": "true", "metadata":
+      {"field": [{"key": "name", "value": "test_storage"}, {"key": "excludefilter",
+      "value": "\\..*|.*/\\..*"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '347'
+      User-Agent:
+      - python-requests/2.24.0
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: '{"id":"VX-20","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-20","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+    headers:
+      Content-Length:
+      - '430'
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 18 Nov 2020 16:29:12 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Tue, 17-Nov-2020 16:29:12
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -25,3 +25,11 @@ class Storage(EntityBase):
             raise InvalidInput('Please supply metadata.')
 
         return self.client.post(self.entity, json=metadata)
+
+    def update(self, storage_id: str, metadata: dict) -> BaseJson:
+        if not metadata:
+            raise InvalidInput('Please supply metadata.')
+
+        endpoint = self._build_url(storage_id)
+
+        return self.client.put(endpoint, json=metadata)
