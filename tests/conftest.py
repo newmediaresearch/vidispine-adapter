@@ -22,7 +22,7 @@ def test_client() -> Client:
 @pytest.fixture
 def cassette(request: Any) -> Cassette:
     my_vcr = vcr.VCR(
-        filter_headers=['authorization'],
+        filter_headers=['authorization', 'User-Agent'],
         match_on=['method', 'scheme', 'path', 'query', 'body', 'headers']
     )
 
@@ -206,6 +206,37 @@ def storage_metadata():
                 {
                     "key": "excludefilter",
                     "value": "\\..*|.*/\\..*"
+                }
+            ]
+        }
+    }
+
+
+@pytest.fixture
+def shape_tag_metadata():
+    return {
+        "format": "mxf",
+        "audio": {
+            "codec": "pcm_s24le",
+            "bitrate": 1152000
+        },
+        "video": {
+            "scaling": {
+                "width": 1920,
+                "height": 1080
+            },
+            "codec": "h264",
+            "bitrate": 100000000,
+            "preset": [
+                "intra100i"
+            ],
+            "profile": [
+                "CBR"
+            ],
+            "setting": [
+                {
+                    "key": "codecTagString",
+                    "value": "ai15"
                 }
             ]
         }
