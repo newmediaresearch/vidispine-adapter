@@ -82,6 +82,7 @@ Roadmap
    API/jobs
    API/metadata
    API/search
+   API/shape_tags
    API/storage
 
 Indices and tables
