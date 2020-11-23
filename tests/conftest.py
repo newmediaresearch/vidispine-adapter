@@ -241,3 +241,12 @@ def shape_tag_metadata():
             ]
         }
     }
+
+
+@pytest.fixture
+def storage(vidispine, cassette, storage_metadata):
+    storage_id = vidispine.client.request(
+        'post', 'storage', json=storage_metadata
+    )['id']
+
+    return storage_id
