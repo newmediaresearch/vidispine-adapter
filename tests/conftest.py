@@ -184,6 +184,35 @@ def create_multiple_shapes(vidispine, create_shape):
 
 
 @pytest.fixture
+def storage_metadata():
+    return {
+        "type": "LOCAL",
+        "capacity": "1500000",
+        "method": [{
+            "uri": "file:///srv/media1/",
+            "read": "true",
+            "write": "true",
+            "browse": "true"
+        }],
+        "lowWatermarkPercentage": "90",
+        "highWatermarkPercentage": "75",
+        "showImportables": "true",
+        "metadata": {
+            "field": [
+                {
+                    "key": "name",
+                    "value": "test_storage"
+                },
+                {
+                    "key": "excludefilter",
+                    "value": "\\..*|.*/\\..*"
+                }
+            ]
+        }
+    }
+
+
+@pytest.fixture
 def shape_tag_metadata():
     return {
         "format": "mxf",
@@ -212,3 +241,12 @@ def shape_tag_metadata():
             ]
         }
     }
+
+
+@pytest.fixture
+def storage(vidispine, cassette, storage_metadata):
+    storage_id = vidispine.client.request(
+        'post', 'storage', json=storage_metadata
+    )['id']
+
+    return storage_id

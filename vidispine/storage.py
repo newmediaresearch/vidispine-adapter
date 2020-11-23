@@ -11,6 +11,18 @@ class Storage(EntityBase):
     """
     entity = 'storage'
 
+    def get(self, storage_id: str) -> BaseJson:
+        """Retrieves a specific storage.
+
+        :param storage_id: The id of the storage to get.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        endpoint = self._build_url(storage_id)
+        return self.client.get(endpoint)
+
     def create(self, metadata: dict) -> BaseJson:
         """Creates a new storage.
 
@@ -27,6 +39,16 @@ class Storage(EntityBase):
         return self.client.post(self.entity, json=metadata)
 
     def update(self, storage_id: str, metadata: dict) -> BaseJson:
+        """Updates an existing storage.
+
+        :param storage_id: The id of the storage to get.
+        :param metadata: Metadata (storage document) of the storage to
+            update.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
         if not metadata:
             raise InvalidInput('Please supply metadata.')
 
