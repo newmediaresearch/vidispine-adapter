@@ -11,6 +11,20 @@ class Storage(EntityBase):
     """
     entity = 'storage'
 
+    def list(self, params: dict = None) -> BaseJson:
+        """Lists the storages that have been configured.
+
+        :param params: Optional query parameters.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if params is None:
+            params = {}
+
+        return self.client.get(self.entity, params=params)
+
     def get(self, storage_id: str) -> BaseJson:
         """Retrieves a specific storage.
 
