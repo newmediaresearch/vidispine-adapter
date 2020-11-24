@@ -86,7 +86,6 @@ class Storage(EntityBase):
         :rtype: str.
 
         """
-
         return self._update_storage_method(storage_id, method_id, params)
 
     def update_storage_method(
