@@ -26,3 +26,9 @@ class EntityBase:
             return f'{self.entity}/{endpoint}{matrix_string}'
         else:
             return f'{self.entity}{matrix_string}'
+
+    def _generate_plain_text_headers(self) -> dict:
+        return {
+            'content-type': 'application/json',
+            'accept': 'text/plain'
+        }

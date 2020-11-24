@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - text/plain
+    method: PUT
+    uri: http://localhost:8080/API/storage/VX-1000000/method/test?url=test
+  response:
+    body:
+      string: '{"code":404,"message":"HTTP 404 Not Found"}'
+    headers:
+      Content-Length:
+      - '43'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Nov 2020 11:52:41 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 23-Nov-2020 11:52:41
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1

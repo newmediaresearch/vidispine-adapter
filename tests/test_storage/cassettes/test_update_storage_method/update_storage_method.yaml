@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: '{"type": "LOCAL", "capacity": "1500000", "method": [{"uri": "file:///srv/media1/",
+      "read": "true", "write": "true", "browse": "true"}], "lowWatermarkPercentage":
+      "90", "highWatermarkPercentage": "75", "showImportables": "true", "metadata":
+      {"field": [{"key": "name", "value": "test_storage"}, {"key": "excludefilter",
+      "value": "\\..*|.*/\\..*"}]}}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '347'
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/storage
+  response:
+    body:
+      string: '{"id":"VX-71","state":"NONE","type":"LOCAL","capacity":1500000,"freeCapacity":1500000,"method":[{"id":"VX-58","uri":"file:///srv/media1/","read":true,"write":true,"browse":true,"type":"NONE"}],"metadata":{"field":[{"key":"name","value":"test_storage"},{"key":"excludefilter","value":"\\..*|.*/\\..*"}]},"lowWatermark":1350000,"highWatermark":1125000,"lowWatermarkPercentage":90,"highWatermarkPercentage":75,"showImportables":true}'
+    headers:
+      Content-Length:
+      - '430'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 24 Nov 2020 11:52:41 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 23-Nov-2020 11:52:41
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - text/plain
+    method: PUT
+    uri: http://localhost:8080/API/storage/VX-71/method/VX-58?url=file%3A%2F%2F%2Fsrv%2FTEST_LOCATION%2F
+  response:
+    body:
+      string: "VX-58\tfile:///srv/TEST_LOCATION/\tNONE\r\n"
+    headers:
+      Content-Length:
+      - '39'
+      Content-Type:
+      - text/plain
+      Date:
+      - Tue, 24 Nov 2020 11:52:41 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 23-Nov-2020 11:52:41
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

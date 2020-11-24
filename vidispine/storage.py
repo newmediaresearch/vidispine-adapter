@@ -69,3 +69,53 @@ class Storage(EntityBase):
         endpoint = self._build_url(storage_id)
 
         return self.client.put(endpoint, json=metadata)
+
+    def add_storage_method(
+        self,
+        storage_id: str,
+        method_id: str,
+        params: dict
+    ) -> str:
+        """Adds a new access method to the storage.
+
+        :param storage_id: The id of the storage to add the method to.
+        :param method_id: The id of the method to add to the storage.
+        :param params: Optional query params.
+
+        :return: Plain text response from the request.
+        :rtype: str.
+
+        """
+
+        return self._update_storage_method(storage_id, method_id, params)
+
+    def update_storage_method(
+        self,
+        storage_id: str,
+        method_id: str,
+        params: dict
+    ) -> str:
+        """Updates an existing access method on a storage.
+
+        :param storage_id: The id of the storage with the method to
+            update.
+        :param method_id: The id of the method to update.
+        :param params: Optional query params.
+
+        :return: Plain text response from the request.
+        :rtype: str.
+
+        """
+        return self._update_storage_method(storage_id, method_id, params)
+
+    def _update_storage_method(
+        self,
+        storage_id: str,
+        method_id: str,
+        params: dict
+    ) -> str:
+
+        headers = self._generate_plain_text_headers()
+        endpoint = self._build_url(f'{storage_id}/method/{method_id}')
+
+        return self.client.put(endpoint, headers=headers, params=params)
