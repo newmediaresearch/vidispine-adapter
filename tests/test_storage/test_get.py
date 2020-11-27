@@ -4,9 +4,10 @@ from vidispine.errors import NotFound
 
 
 def test_get(vidispine, cassette, storage):
-    result = vidispine.storage.get(storage)
+    storage_id = storage['id']
+    result = vidispine.storage.get(storage_id)
 
-    assert result['id'] == storage
+    assert result['id'] == storage_id
     assert cassette.all_played
 
 
