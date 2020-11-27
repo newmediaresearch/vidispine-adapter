@@ -56,4 +56,4 @@ pytest tests/
 A coverage report will displayed in the shell on each test run as well as written to `htmlcov/` and can be viewed with `open htmlcov/index.html`
 
 
-Calls to Vidispine are mocked using [VCR.py](https://vcrpy.readthedocs.io/en/latest/index.html) by default but mocks can easily be refreshed and kept up to date. For more information on how to create and refresh mocks please see the `Running tests` section in [CONTRIBUTING.md](https://github.com/newmediaresearch/vidispine-adapter/blob/master/CONTRIBUTING.md).
+Calls to Vidispine are mocked using [VCR.py](https://vcrpy.readthedocs.io/en/latest/index.html) by default but mocks can easily be refreshed and kept up to date. For more information on how to create and refresh mocks please see the `Running tests` section in [CONTRIBUTING.md](https://github.com/newmediaresearch/vidispine-adapter/blob/master/docs/source/contributing.md).
