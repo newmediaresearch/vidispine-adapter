@@ -1,5 +1,3 @@
-import re
-
 import pytest
 
 from vidispine.errors import APIError, NotFound
@@ -13,8 +11,8 @@ def test_update_storage_method(vidispine, cassette, storage):
         storage['id'], method_id, {'url': storage_url}
     )
 
-    assert re.match(method_id, result)
-    assert re.search(storage_url, result)
+    assert result['method_id'] == method_id
+    assert result['storage_url'] == storage_url
     assert cassette.all_played
 
 

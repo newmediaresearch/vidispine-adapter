@@ -1,3 +1,5 @@
+import re
+
 from vidispine.base import EntityBase
 from vidispine.errors import InvalidInput
 from vidispine.typing import BaseJson
@@ -75,15 +77,15 @@ class Storage(EntityBase):
         storage_id: str,
         method_id: str,
         params: dict
-    ) -> str:
+    ) -> BaseJson:
         """Adds a new access method to the storage.
 
         :param storage_id: The id of the storage to add the method to.
         :param method_id: The id of the method to add to the storage.
         :param params: Optional query params.
 
-        :return: Plain text response from the request.
-        :rtype: str.
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
 
         """
         return self._update_storage_method(storage_id, method_id, params)
@@ -93,7 +95,7 @@ class Storage(EntityBase):
         storage_id: str,
         method_id: str,
         params: dict
-    ) -> str:
+    ) -> BaseJson:
         """Updates an existing access method on a storage.
 
         :param storage_id: The id of the storage with the method to
@@ -101,8 +103,8 @@ class Storage(EntityBase):
         :param method_id: The id of the method to update.
         :param params: Optional query params.
 
-        :return: Plain text response from the request.
-        :rtype: str.
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
 
         """
         return self._update_storage_method(storage_id, method_id, params)
@@ -112,9 +114,21 @@ class Storage(EntityBase):
         storage_id: str,
         method_id: str,
         params: dict
-    ) -> str:
+    ) -> BaseJson:
 
-        headers = self._generate_plain_text_headers()
+        headers = {'accept': 'text/plain'}
         endpoint = self._build_url(f'{storage_id}/method/{method_id}')
 
-        return self.client.put(endpoint, headers=headers, params=params)
+        plain_text_response = self.client.put(
+            endpoint, headers=headers, params=params
+        )
+        storage_url = params['url']
+
+        return {
+            'method_id': re.match(  # type: ignore
+                method_id, plain_text_response
+            ).group(0),
+            'storage_url': re.search(  # type: ignore
+                storage_url, plain_text_response
+            ).group(0)
+        }
