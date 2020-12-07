@@ -267,6 +267,7 @@ def add_storage_method(vidispine, cassette, storage_metadata):
             params=params
         )
 
+        # Return method id from the plain text response.
         return re.match(method_id, result).group(0)
 
     return _add_storage_method
