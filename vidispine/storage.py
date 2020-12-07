@@ -72,6 +72,19 @@ class Storage(EntityBase):
 
         return self.client.put(endpoint, json=metadata)
 
+    def delete(self, storage_id: str, params: dict = None) -> None:
+        """Deletes the storage.
+
+        :param storage_id: The id of the storage to delete.
+        :param params: Optional query params.
+
+        """
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(storage_id)
+        self.client.delete(endpoint, params=params)
+
     def add_storage_method(
         self,
         storage_id: str,

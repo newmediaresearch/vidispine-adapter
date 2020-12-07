@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - application/json
+    method: DELETE
+    uri: http://localhost:8080/API/storage/VX-1000000
+  response:
+    body:
+      string: '{"notFound":{"type":"Storage","id":"VX-1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '230'
+      Content-Type:
+      - application/json
+      Date:
+      - Mon, 07 Dec 2020 16:01:11 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Sun, 06-Dec-2020 16:01:11
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1
