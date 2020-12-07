@@ -132,3 +132,26 @@ class Storage(EntityBase):
                 storage_url, plain_text_response
             ).group(0)
         }
+
+    def get_storage_method(
+        self,
+        storage_id: str,
+        method_id: str,
+        params: dict = None,
+    ) -> BaseJson:
+        """Retrieves the access methods configured on a specific storage.
+
+        :param storage_id: The id of the storage with the method to get.
+        :param method_id: The id of the method to update.
+        :param params: Optional query params.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if params is None:
+            params = {}
+
+        endpoint = self._build_url(f'{storage_id}/method/{method_id}')
+
+        return self.client.get(endpoint, params=params)

@@ -1,4 +1,5 @@
 import os
+import re
 from pathlib import Path
 from typing import Any, Callable
 
@@ -248,3 +249,25 @@ def storage(vidispine, cassette, storage_metadata):
     return vidispine.client.request(
         'post', 'storage', json=storage_metadata
     )
+
+
+@pytest.fixture
+def add_storage_method(vidispine, cassette, storage_metadata):
+    def _add_storage_method(storage):
+        method_id = storage['method'][0]['id']
+        storage_url = 'file:///srv/TEST_LOCATION/'
+
+        headers = {'accept': 'text/plain'}
+        params = {'url': storage_url}
+
+        result = vidispine.client.request(
+            'put',
+            f'storage/{storage["id"]}/method/{method_id}',
+            headers=headers,
+            params=params
+        )
+
+        # Return method id from the plain text response.
+        return re.match(method_id, result).group(0)
+
+    return _add_storage_method
