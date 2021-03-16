@@ -97,6 +97,24 @@ class Item(MetadataMixin, EntityBase):
 
         return self.client.post(endpoint, params=params)
 
+    def transcode(self, item_id: str, params: dict) -> BaseJson:
+        """Starts a new job that transcodes an item into shape according
+        to the given shape tags.
+
+        :param item_id: The ID of the item.
+        :param params: Optional query parameters.
+
+        :return: JSON response from the request.
+        :rtype: vidispine.typing.BaseJson.
+
+        """
+        if not params:
+            raise InvalidInput('Please supply shape tags.')
+
+        endpoint = self._build_url(f'{item_id}/transcode')
+
+        return self.client.post(endpoint, params=params)
+
 
 class ItemShape(EntityBase):
     """Shapes

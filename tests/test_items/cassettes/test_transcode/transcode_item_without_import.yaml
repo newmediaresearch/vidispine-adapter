@@ -1,0 +1,63 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-12"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Mar 2021 15:10:52 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 08-Mar-2021 15:10:52
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/item/VX-12/transcode?tag=lowres
+  response:
+    body:
+      string: '{"jobId":"VX-14","user":"admin","started":"2021-03-09T15:10:52.322+0000","status":"READY","type":"TRANSCODE","priority":"MEDIUM"}'
+    headers:
+      Content-Length:
+      - '129'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Mar 2021 15:10:52 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 08-Mar-2021 15:10:52
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

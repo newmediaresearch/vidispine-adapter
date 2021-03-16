@@ -1,0 +1,63 @@
+interactions:
+- request:
+    body: '{"timespan": [{"field": [{"name": "title", "value": [{"value": "My placeholder
+      import!"}]}], "start": "-INF", "end": "+INF"}]}'
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '126'
+      accept:
+      - application/json
+      content-type:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder?container=1
+  response:
+    body:
+      string: '{"id":"VX-11"}'
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Mar 2021 15:04:43 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 08-Mar-2021 15:04:43
+        GMT
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/import/placeholder/VX-11/container?uri=tests%2Ftest_media%2Fsample-mp4-file.mp4
+  response:
+    body:
+      string: '{"jobId":"VX-13","user":"admin","started":"2021-03-09T15:04:44.077+0000","status":"READY","type":"PLACEHOLDER_IMPORT","priority":"MEDIUM"}'
+    headers:
+      Content-Length:
+      - '138'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Mar 2021 15:04:44 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 08-Mar-2021 15:04:44
+        GMT
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,31 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      accept:
+      - application/json
+    method: POST
+    uri: http://localhost:8080/API/item/VX-1000000/transcode?tag=lowres
+  response:
+    body:
+      string: '{"notFound":{"type":"Item","id":"VX-1000000","context":null},"internalServer":null,"forbidden":null,"notYetImplemented":null,"conflict":null,"invalidInput":null,"licenseFault":null,"fileAlreadyExists":null,"notAuthorized":null}'
+    headers:
+      Content-Length:
+      - '227'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 09 Mar 2021 15:05:42 GMT
+      Set-Cookie:
+      - rememberMe=deleteMe; Path=/; Max-Age=0; Expires=Mon, 08-Mar-2021 15:05:42
+        GMT
+    status:
+      code: 404
+      message: Not Found
+version: 1
